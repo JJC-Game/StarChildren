@@ -1,11 +1,11 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class SwipeController2D : MonoBehaviour
 {
-    // ƒXƒƒCƒv‚ÌŠ´’m‹——£
+    // ã‚¹ãƒ¯ã‚¤ãƒ—ã®æ„ŸçŸ¥è·é›¢
     public float swipeDistanceThreshold = 50f;
 
-    // ƒIƒuƒWƒFƒNƒg‚ÌˆÚ“®‘¬“x
+    // ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ç§»å‹•é€Ÿåº¦
     public float speed = 5f;
 
     private Vector2 swipeStartPosition;
@@ -40,19 +40,19 @@ public class SwipeController2D : MonoBehaviour
         {
             swipeDirection.Normalize();
 
-            // ƒXƒƒCƒv‚Ì‘å‚«‚³‚É‰‚¶‚ÄƒXƒs[ƒh‚ğŒvZ‚·‚é
+            // ã‚¹ãƒ¯ã‚¤ãƒ—ã®å¤§ãã•ã«å¿œã˜ã¦ã‚¹ãƒ”ãƒ¼ãƒ‰ã‚’è¨ˆç®—ã™ã‚‹
             float calculatedSpeed = swipeDistance / swipeDistanceThreshold * speed;
 
             Vector2 oppositeDirection = -swipeDirection;
 
-            // ƒIƒuƒWƒFƒNƒg‚ğ‹t•ûŒü‚ÉˆÚ“®‚³‚¹‚é
+            // ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’é€†æ–¹å‘ã«ç§»å‹•ã•ã›ã‚‹
             rb.velocity = oppositeDirection * calculatedSpeed;
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // °‚ÉÚG‚µ‚½ê‡AisOnFloor‚ğtrue‚É‚·‚é
+        // åºŠã«æ¥è§¦ã—ãŸå ´åˆã€isOnFloorã‚’trueã«ã™ã‚‹
         if (collision.gameObject.CompareTag("Floor"))
         {
             isOnFloor = true;
@@ -61,7 +61,7 @@ public class SwipeController2D : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        // °‚©‚ç—£‚ê‚½ê‡AisOnFloor‚ğfalse‚É‚·‚é
+        // åºŠã‹ã‚‰é›¢ã‚ŒãŸå ´åˆã€isOnFloorã‚’falseã«ã™ã‚‹
         if (collision.gameObject.CompareTag("Floor"))
         {
             isOnFloor = false;
