@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class SwipeObject : MonoBehaviour
+public class SwipeObject : SwipeController2D
 {
     private Vector2 startPosition;
     private Vector2 endPosition;
@@ -25,7 +25,7 @@ public class SwipeObject : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && isOnFloor == true)
         {
             startPosition = Input.mousePosition;
             isSwiping = true;

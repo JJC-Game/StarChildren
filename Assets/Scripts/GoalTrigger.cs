@@ -1,22 +1,22 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
-public class GoalTrigger : MonoBehaviour
+public class GoalTrigger : GameManager
 {
     private bool isPlayerInside = false;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // ƒvƒŒƒCƒ„[‚ª”ÍˆÍ“à‚É“ü‚Á‚½ê‡
+        // ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒç¯„å›²å†…ã«å…¥ã£ãŸå ´åˆ
         if (other.CompareTag("Player"))
         {
             isPlayerInside = true;
-            StopGame();
+            mainGame = false;
         }
     }
 
     private void StopGame()
     {
-        // ƒQ[ƒ€‚Ì’â~ˆ—‚ğÀs‚·‚éi—á‚¦‚Îƒ^ƒCƒ€ƒXƒP[ƒ‹‚Ì•ÏX‚È‚Çj
+        // ã‚²ãƒ¼ãƒ ã®åœæ­¢å‡¦ç†ã‚’å®Ÿè¡Œã™ã‚‹ï¼ˆä¾‹ãˆã°ã‚¿ã‚¤ãƒ ã‚¹ã‚±ãƒ¼ãƒ«ã®å¤‰æ›´ãªã©ï¼‰
         Time.timeScale = 0f;
     }
 }

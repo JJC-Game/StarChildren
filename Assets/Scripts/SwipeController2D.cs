@@ -11,7 +11,7 @@ public class SwipeController2D : MonoBehaviour
     private Vector2 swipeStartPosition;
     private Vector2 swipeEndPosition;
     private Rigidbody2D rb;
-    private bool isOnFloor;
+    public bool isOnFloor;
 
     private void Awake()
     {
