@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4057fd351f2609243bed72d57248cfa1
+guid: 490ec30ebf4e96642960ff563be75c57
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Aoboshi One
+  - Sour Gummy
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
