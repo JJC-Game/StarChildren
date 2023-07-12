@@ -1078,7 +1078,7 @@ MonoBehaviour:
   GameClear: 0
   TimeUp: 0
   targetTime: 90
-  TimeUpCanvas: {fileID: 0}
+  TimeUpCanvas: {fileID: 1488278699}
   timerText: {fileID: 713295110}
 --- !u!4 &334520099
 Transform:
