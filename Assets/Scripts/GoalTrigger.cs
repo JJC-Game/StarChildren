@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class GoalTrigger : GameManager
+public class GoalTrigger : MonoBehaviour
 {
     private bool isPlayerInside = false;
 
@@ -10,7 +10,7 @@ public class GoalTrigger : GameManager
         if (other.CompareTag("Player"))
         {
             isPlayerInside = true;
-            mainGame = false;
+            GameManager.Instance.mainGame = false;
         }
     }
 

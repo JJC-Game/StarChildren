@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.Playables;
 using TMPro;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
     [SerializeField]
     public bool mainGame;
     public bool GameClear;
     public bool TimeUp;
     public float targetTime = 90f; // 目標の経過時間（1分30秒）
+    public Canvas TimeUpCanvas;
     //public PlayableDirector timeline; // ゲーム終了時に再生するタイムライン
 
     public TextMeshProUGUI timerText; // 表示するTextMeshProUGUIオブジェクト
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        TimeUpCanvas.enabled = false;
         mainGame = true;
         StartTimer();
     }
@@ -43,6 +45,8 @@ public class GameManager : MonoBehaviour
 
         if (!mainGame)
         {
+            TimeUpCanvas.enabled = true;
+
             // ゲームが終了した場合の処理
             EndGame();
         }
