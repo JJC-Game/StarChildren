@@ -20,6 +20,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OptionScene.unity
     guid: b804ee990f618f54a904c384521f894f
+  - enabled: 1
+    path: "Assets/Scenes/\u03B1_Save.unity"
+    guid: 633a8e5fe6fdb57478f708faa01ed6eb
+  - enabled: 1
+    path: "Assets/Scenes/\u03B1_ijiri.unity"
+    guid: 7ebdfea29c120bd4da1516b6fa176848
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 596d82867437ba24abcc45795a37a9b5, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 75864d60218577c40bc3817618f22e79, type: 2}

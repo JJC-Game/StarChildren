@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneReset : MonoBehaviour
@@ -29,6 +29,14 @@ public class SceneReset : MonoBehaviour
     public void ChangeScene3()
     {
         SceneManager.LoadScene(3);
+    }
+    public void ChangeScene4()
+    {
+        SceneManager.LoadScene(4);
+    }
+    public void ChangeScene5()
+    {
+        SceneManager.LoadScene(5);
     }
 
 }
