@@ -685,7 +685,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 414516138}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.08, y: -0.37, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -709,11 +709,29 @@ MonoBehaviour:
   - {fileID: 1297610277}
   - {fileID: 1355478304}
   - {fileID: 1219719649}
-  gaugeImage: {fileID: 442434546}
-  increaseAmount: 0.05
-  maxAmount: 1
-  imageToChange: {fileID: 0}
-  newImageSprite: {fileID: 0}
+  gauges:
+  - gaugeImage: {fileID: 0}
+    newSprite: {fileID: 0}
+    maxAmount: 0
+    currentAmount: 0
+    isMaxed: 0
+  - gaugeImage: {fileID: 0}
+    newSprite: {fileID: 0}
+    maxAmount: 0
+    currentAmount: 0
+    isMaxed: 0
+  - gaugeImage: {fileID: 0}
+    newSprite: {fileID: 0}
+    maxAmount: 0
+    currentAmount: 0
+    isMaxed: 0
+  - gaugeImage: {fileID: 0}
+    newSprite: {fileID: 0}
+    maxAmount: 0
+    currentAmount: 0
+    isMaxed: 0
+  characterPrefab: {fileID: 414516138}
+  characterParent: {fileID: 414516140}
 --- !u!1 &442434544
 GameObject:
   m_ObjectHideFlags: 0
