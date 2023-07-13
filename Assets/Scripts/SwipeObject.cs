@@ -25,14 +25,14 @@ public class SwipeObject : SwipeController2D
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && isOnFloor == true)
+        if (Input.GetMouseButtonDown(0) && isOnFloor == true && GameManager.Instance.mainGame)
         {
             startPosition = Input.mousePosition;
             isSwiping = true;
             // オブジェクトを表示する
             imageObject.SetActive(true);
         }
-        else if (Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0) )
         {
             endPosition = Input.mousePosition;
             isSwiping = false;

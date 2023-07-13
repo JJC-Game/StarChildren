@@ -20,14 +20,17 @@ public class SwipeController2D : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && isOnFloor)
+        if (isOnFloor && GameManager.Instance.mainGame)
         {
-            swipeStartPosition = Input.mousePosition;
-        }
-        else if (Input.GetMouseButtonUp(0) && isOnFloor)
-        {
-            swipeEndPosition = Input.mousePosition;
-            DetectSwipeDirection();
+            if (Input.GetMouseButtonDown(0))
+            {
+                swipeStartPosition = Input.mousePosition;
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                swipeEndPosition = Input.mousePosition;
+                DetectSwipeDirection();
+            }
         }
     }
 
@@ -36,7 +39,7 @@ public class SwipeController2D : MonoBehaviour
         Vector2 swipeDirection = swipeEndPosition - swipeStartPosition;
         float swipeDistance = swipeDirection.magnitude;
 
-        if (swipeDistance >= swipeDistanceThreshold && isOnFloor)
+        if (swipeDistance >= swipeDistanceThreshold && isOnFloor && GameManager.Instance.mainGame)
         {
             swipeDirection.Normalize();
 
