@@ -1164,7 +1164,7 @@ RectTransform:
   m_GameObject: {fileID: 221168470}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1033489706}
@@ -1220,18 +1220,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 418713171}
-        m_TargetAssemblyTypeName: DailyPlayLimit, Assembly-CSharp
-        m_MethodName: ClearGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 470953}
         m_TargetAssemblyTypeName: SceneReset, Assembly-CSharp
         m_MethodName: ChangeScene0
@@ -1845,7 +1833,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &418713171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4425,6 +4413,7 @@ GameObject:
   - component: {fileID: 1261680302}
   - component: {fileID: 1261680301}
   - component: {fileID: 1261680300}
+  - component: {fileID: 1261680303}
   m_Layer: 5
   m_Name: Home
   m_TagString: Untagged
@@ -4496,19 +4485,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1261680301}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SceneReset, Assembly-CSharp
-        m_MethodName: ChangeScene0
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1261680301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4547,6 +4524,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1261680298}
   m_CullTransparentMesh: 1
+--- !u!114 &1261680303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261680298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6e09387707579c478a3d55c2413a28b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1265319546
 GameObject:
   m_ObjectHideFlags: 0
@@ -5055,7 +5044,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1448959980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5068,10 +5057,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b15f67abdf05d649ac43739bacc8be2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStartButton: {fileID: 0}
-  restartButton: {fileID: 0}
-  gameClearButton: {fileID: 0}
-  playLimitText: {fileID: 0}
 --- !u!4 &1448959981
 Transform:
   m_ObjectHideFlags: 0
@@ -5086,6 +5071,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1472301393
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1472301394}
+  m_Layer: 0
+  m_Name: "\u03B1_DisableManager"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1472301394
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472301393}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1646968398
 GameObject:
@@ -5160,7 +5176,7 @@ RectTransform:
   m_GameObject: {fileID: 1680667945}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1309722475}
@@ -6808,7 +6824,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2133791537
 MonoBehaviour:
   m_ObjectHideFlags: 0
