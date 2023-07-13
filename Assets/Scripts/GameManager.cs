@@ -43,7 +43,7 @@ public class GameManager : Singleton<GameManager>
             }
         }
 
-        if (!mainGame)
+        if (!mainGame && targetTime == 0)
         {
             TimeUpCanvas.enabled = true;
 
