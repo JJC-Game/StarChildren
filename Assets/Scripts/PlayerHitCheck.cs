@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class GoalTrigger : MonoBehaviour
+public class PlayerHitCheck : MonoBehaviour
 {
     private bool isPlayerInside = false;
-
+    /*
     private void OnTriggerEnter2D(Collider2D other)
     {
         // プレイヤーが範囲内に入った場合
@@ -13,10 +15,5 @@ public class GoalTrigger : MonoBehaviour
             GameManager.Instance.mainGame = false;
         }
     }
-
-    private void StopGame()
-    {
-        // ゲームの停止処理を実行する（例えばタイムスケールの変更など）
-        Time.timeScale = 0f;
-    }
+    */
 }
