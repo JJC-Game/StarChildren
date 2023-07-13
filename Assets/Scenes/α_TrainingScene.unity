@@ -658,11 +658,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a049fad9fcd993468cb1d553b2393f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myButton: {fileID: 1827738781}
+  buttons:
+  - {fileID: 1827738781}
+  - {fileID: 1297610277}
+  - {fileID: 1355478304}
+  - {fileID: 1219719649}
   gaugeImage: {fileID: 442434546}
   increaseAmount: 0.05
   maxAmount: 1
-  imageToShow: {fileID: 1502022772}
+  imageToChange: {fileID: 1502022772}
+  newImageSprite: {fileID: 21300000, guid: 57ef64a46e89e0d49a164e8305ad0774, type: 3}
 --- !u!1 &442434544
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerHitCheck : MonoBehaviour
 {
-    private bool isPlayerInside = false;
-    /*
+    /*private bool isPlayerInside = false;
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         // プレイヤーが範囲内に入った場合

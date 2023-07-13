@@ -18,7 +18,7 @@ public class GameManager : Singleton<GameManager>
 
     private float startTime;
     private bool isTimerRunning;
-    private bool isInputEnabled = true; // マウスクリックの入力が有効かどうか
+    //private bool isInputEnabled = true; // マウスクリックの入力が有効かどうか
 
     void Start()
     {
@@ -57,7 +57,7 @@ public class GameManager : Singleton<GameManager>
         // タイマーを開始し、開始時刻を記録する
         isTimerRunning = true;
         startTime = Time.time;
-        isInputEnabled = true;
+        //isInputEnabled = true;
     }
 
     public void StopTimer()
@@ -86,6 +86,6 @@ public class GameManager : Singleton<GameManager>
         }*/
 
         // マウスクリックの入力を無効化する
-        isInputEnabled = false;
+        //isInputEnabled = false;
     }
 }
