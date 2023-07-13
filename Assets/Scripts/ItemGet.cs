@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
+using TMPro;
 
 public class ItemGet : MonoBehaviour
 {
-    private int itemCount = 0; // アイテムのカウントを保持する変数
+    public TextMeshProUGUI itemCountText; // アイテムカウントを表示するテキスト
+
+    private int itemCountA = 0; // アイテムAのカウントを保持する変数
+    private int itemCountB = 0; // アイテムBのカウントを保持する変数
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,7 +20,7 @@ public class ItemGet : MonoBehaviour
                 break;
 
             case "ItemOmo":
-                CollectItemA(collision.gameObject);
+                CollectItemB(collision.gameObject);
                 Debug.Log("bbb");
                 break;
         }
@@ -26,12 +30,28 @@ public class ItemGet : MonoBehaviour
 
     private void CollectItemA(GameObject item)
     {
-        // アイテムを取得したときの処理を実行
-        itemCount++; // アイテムカウントを増やす
-        Debug.Log("アイテムAを取得しました。現在のアイテムカウント: " + itemCount);
+        // アイテムAを取得したときの処理を実行
+        itemCountA++; // アイテムAカウントを増やす
+        UpdateItemCountText();
 
         // アイテムAを削除
         Destroy(item);
+    }
+
+    private void CollectItemB(GameObject item)
+    {
+        // アイテムBを取得したときの処理を実行
+        itemCountB++; // アイテムBカウントを増やす
+        UpdateItemCountText();
+
+        // アイテムBを削除
+        Destroy(item);
+    }
+
+    private void UpdateItemCountText()
+    {
+        // アイテムカウントをテキストに表示
+        itemCountText.text = "ItemMuki: " + itemCountA.ToString() + "  ItemOmo: " + itemCountB.ToString();
     }
 }
 
