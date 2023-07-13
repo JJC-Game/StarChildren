@@ -17,6 +17,7 @@ public class GameManager : Singleton<GameManager>
     public TextMeshProUGUI timerText; // 表示するTextMeshProUGUIオブジェクト
 
     private float startTime;
+    private float remainingTime;
     private bool isTimerRunning;
     //private bool isInputEnabled = true; // マウスクリックの入力が有効かどうか
 
@@ -32,7 +33,7 @@ public class GameManager : Singleton<GameManager>
         if (isTimerRunning)
         {
             float elapsedTime = Time.time - startTime;
-            float remainingTime = Mathf.Max(targetTime - elapsedTime, 0f); // 残り時間を計算
+            remainingTime = Mathf.Max(targetTime - elapsedTime, 0f); // 残り時間を計算
 
             UpdateTimerText(remainingTime);
 
@@ -43,7 +44,7 @@ public class GameManager : Singleton<GameManager>
             }
         }
 
-        if (!mainGame && targetTime == 0)
+        if (!mainGame && remainingTime == 0)
         {
             TimeUpCanvas.enabled = true;
 
