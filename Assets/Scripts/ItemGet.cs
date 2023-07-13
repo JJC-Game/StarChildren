@@ -4,20 +4,20 @@ public class ItemGet : MonoBehaviour
 {
     private int itemCount = 0; // アイテムのカウントを保持する変数
 
-    private void OnTriggerEnter2D(Collider2D colision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         // 衝突したオブジェクトがアイテムAであるかチェック
-        int number = 1;
-        switch (number)
+        
+        switch (collision.gameObject.tag)
         {
-            case 1:
-                colision.CompareTag("ItemMuki");
-                    CollectItemA(colision.gameObject);
+            case "ItemMuki":
+                    CollectItemA(collision.gameObject);
+                Debug.Log("aaa");
                 break;
 
-            case 2:
-                colision.CompareTag("ItemOmo");
-                CollectItemA(colision.gameObject);
+            case "ItemOmo":
+                CollectItemA(collision.gameObject);
+                Debug.Log("bbb");
                 break;
         }
         
