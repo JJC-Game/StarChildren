@@ -709,27 +709,21 @@ MonoBehaviour:
   - {fileID: 1297610277}
   - {fileID: 1355478304}
   - {fileID: 1219719649}
-  gauges:
-  - gaugeImage: {fileID: 0}
-    newSprite: {fileID: 0}
-    maxAmount: 0
-    currentAmount: 0
-    isMaxed: 0
-  - gaugeImage: {fileID: 0}
-    newSprite: {fileID: 0}
-    maxAmount: 0
-    currentAmount: 0
-    isMaxed: 0
-  - gaugeImage: {fileID: 0}
-    newSprite: {fileID: 0}
-    maxAmount: 0
-    currentAmount: 0
-    isMaxed: 0
-  - gaugeImage: {fileID: 0}
-    newSprite: {fileID: 0}
-    maxAmount: 0
-    currentAmount: 0
-    isMaxed: 0
+  gaugeImages:
+  - {fileID: 442434546}
+  - {fileID: 1985203205}
+  - {fileID: 1614778399}
+  - {fileID: 1741857253}
+  newSprites:
+  - {fileID: 21300000, guid: 57ef64a46e89e0d49a164e8305ad0774, type: 3}
+  - {fileID: 21300000, guid: 340a63ed874f1834185b05a539042abe, type: 3}
+  - {fileID: 21300000, guid: 3ed8639140ca186419923c29646ba4c5, type: 3}
+  - {fileID: 21300000, guid: 0511ce3553be11b418541efbf534d0e3, type: 3}
+  maxAmounts:
+  - 10
+  - 10
+  - 10
+  - 10
   characterPrefab: {fileID: 414516138}
   characterParent: {fileID: 414516140}
 --- !u!1 &442434544
