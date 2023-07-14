@@ -12,6 +12,7 @@ public class GameManager : Singleton<GameManager>
     public bool TimeUp;
     public float targetTime = 90f; // 目標の経過時間（1分30秒）
     public Canvas TimeUpCanvas;
+    public Canvas MainGameCanvas;
     //public PlayableDirector timeline; // ゲーム終了時に再生するタイムライン
 
     public TextMeshProUGUI timerText; // 表示するTextMeshProUGUIオブジェクト
@@ -26,6 +27,11 @@ public class GameManager : Singleton<GameManager>
         TimeUpCanvas.enabled = false;
         mainGame = true;
         StartTimer();
+
+        DataManager.Instance.ResetMukiCount();
+        DataManager.Instance.ResetOmoCount();
+        // DataManager.Instance.ResetBetaCount();
+        // DataManager.Instance.ResetPataCount();
     }
 
     void Update()
@@ -46,6 +52,7 @@ public class GameManager : Singleton<GameManager>
 
         if (!mainGame && remainingTime == 0)
         {
+            MainGameCanvas.enabled = false;
             TimeUpCanvas.enabled = true;
 
             // ゲームが終了した場合の処理
