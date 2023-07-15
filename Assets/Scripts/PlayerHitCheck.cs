@@ -11,11 +11,13 @@ public class PlayerHitCheck : MonoBehaviour
     // public TextMeshProUGUI BetaCountText;
     // public TextMeshProUGUI PataCountText;
 
-    private int itemCountMuki; // むきむきのカウントを保持する変数
-    private int itemCountOmo; // おもおものカウントを保持する変数
-    // private int itemCountBeta; // べたべたのカウントを保持する変数
-    // private int itemCountPata;  // ぱたぱたのカウントを保持する変数
+    // アクションシーンで使用するitemのカウント
+    private int itemCountMuki;
+    private int itemCountOmo;
+    // private int itemCountBeta;
+    // private int itemCountPata;
 
+    // 育成シーンで使用するitemのカウント
     public int MukiCount;
     public int OmoCount;
     // public int BetaCount;
@@ -58,8 +60,7 @@ public class PlayerHitCheck : MonoBehaviour
     {
         // アイテムを取得したときの処理を実行
         itemCountMuki++; // アイテムカウントを増やす
-        DataManager.Instance.SaveInt("ItemCountMuki", itemCountMuki);
-        MukiCount = DataManager.Instance.LoadInt("ItemCountMuki");
+        MukiCount = DataManager.Instance.LoadInt("MukiCount") + itemCountMuki;
         DataManager.Instance.SaveInt("MukiCount", MukiCount);
         UpdateItemCountText();
 
@@ -70,8 +71,7 @@ public class PlayerHitCheck : MonoBehaviour
     private void CollectItemOmo(GameObject item)
     {
         itemCountOmo++;
-        DataManager.Instance.SaveInt("ItemCountOmo", itemCountOmo);
-        OmoCount = DataManager.Instance.LoadInt("ItemCountOmo");
+        OmoCount = DataManager.Instance.LoadInt("OmoCount") + itemCountOmo;
         DataManager.Instance.SaveInt("OmoCount", OmoCount);
         UpdateItemCountText();
 
@@ -83,8 +83,7 @@ public class PlayerHitCheck : MonoBehaviour
     {
         // アイテムを取得したときの処理を実行
         itemCountBeta++; // アイテムカウントを増やす
-        DataManager.Instance.SaveInt("ItemCountBeta", itemCountBeta);
-        BetaCount = DataManager.Instance.LoadInt("ItemCountBeta");
+        BetaCount = DataManager.Instance.LoadInt("BetaCount") + itemCountBeta;
         DataManager.Instance.SaveInt("BetaCount", BetaCount);
         UpdateItemCountText();
 
@@ -96,8 +95,7 @@ public class PlayerHitCheck : MonoBehaviour
     {
         // アイテムを取得したときの処理を実行
         itemCountPata++; // アイテムカウントを増やす
-        DataManager.Instance.SaveInt("ItemCountPata", itemCountPata);
-        PataCount = DataManager.Instance.LoadInt("ItemCountPata");
+        PataCount = DataManager.Instance.LoadInt("PataCount") + itemCountPata;
         DataManager.Instance.SaveInt("PataCount", PataCount);
         UpdateItemCountText();
 

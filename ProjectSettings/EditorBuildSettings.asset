@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ActionScene.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   - enabled: 1
+    path: "Assets/Scenes/\u03B12_TrainingScene.unity"
+    guid: dec362f27a70b6640a9a0d9f9d6572b0
+  - enabled: 0
     path: "Assets/Scenes/\u03B1_TrainingScene.unity"
     guid: 69ba0c78049bc234394ec5c3a3020d42
   - enabled: 0
