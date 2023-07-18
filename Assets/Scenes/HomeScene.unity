@@ -471,7 +471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &651001098
 Transform:
   m_ObjectHideFlags: 0
@@ -630,9 +630,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 651001099}
-        m_TargetAssemblyTypeName: "\u03B1_DisableButton, Assembly-CSharp"
-        m_MethodName: GoToTargetScene
+      - m_Target: {fileID: 1976638823}
+        m_TargetAssemblyTypeName: SceneReset, Assembly-CSharp
+        m_MethodName: ChangeScene1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
