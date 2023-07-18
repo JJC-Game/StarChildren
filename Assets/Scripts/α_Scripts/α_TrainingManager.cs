@@ -17,9 +17,17 @@ public class α_TrainingManager : MonoBehaviour
     private float currentAlpha;
     private float timer;
 
+    public Sprite[] sprites; // 生成するスプライトの配列
+    public Transform parentObject; // スプライトの親オブジェクト
+
+    private int currentIndex = -1; // 現在の生成スプライトのインデックス
+    private int[] remainingIndices; // 未生成のスプライトのインデックスの配列
+
     private void Start()
     {
         NoItem.gameObject.SetActive(false); // アイテム回数制限のtext非表示
+
+        ResetGenerator();
 
         currentAmounts = new float[gaugeImages.Length];
 
@@ -69,6 +77,7 @@ public class α_TrainingManager : MonoBehaviour
             // ゲージ量が最大値を超えた場合、ゲージをリセットする
             if (currentAmounts[0] - 1 >= maxAmounts[0])
             {
+                GenerateNextSprite();
                 currentAmounts[0] = 0f;
             }
 
@@ -169,6 +178,45 @@ public class α_TrainingManager : MonoBehaviour
         }
     }
     */
+
+    public void GenerateNextSprite()
+    {
+        if (currentIndex >= 0 && currentIndex < transform.childCount)
+        {
+            Destroy(transform.GetChild(currentIndex).gameObject);
+        }
+
+        if (remainingIndices.Length == 0)
+        {
+            ResetGenerator();
+        }
+
+        int randomIndex = Random.Range(0, remainingIndices.Length);
+        currentIndex = remainingIndices[randomIndex];
+        remainingIndices[randomIndex] = remainingIndices[remainingIndices.Length - 1];
+        System.Array.Resize(ref remainingIndices, remainingIndices.Length - 1);
+
+        Sprite sprite = sprites[currentIndex];
+        GameObject spriteObj = new GameObject("Sprite");
+        spriteObj.transform.position = transform.position;
+        spriteObj.transform.SetParent(parentObject);
+        spriteObj.AddComponent<SpriteRenderer>().sprite = sprite;
+    }
+
+    private void ResetGenerator()
+    {
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        currentIndex = -1;
+        remainingIndices = new int[sprites.Length];
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            remainingIndices[i] = i;
+        }
+    }
 
     public void KiraGauge()
     {

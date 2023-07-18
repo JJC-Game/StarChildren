@@ -1312,11 +1312,11 @@ MonoBehaviour:
   - 1
   - 1
   maxAmounts:
+  - 3
+  - 3
+  - 3
+  - 3
   - 10
-  - 10
-  - 10
-  - 10
-  - 30
   gaugeImages:
   - {fileID: 442434546}
   - {fileID: 1985203205}
@@ -1325,6 +1325,12 @@ MonoBehaviour:
   - {fileID: 1405945133}
   NoItem: {fileID: 296208700}
   fadeOutTime: 5
+  sprites:
+  - {fileID: 21300000, guid: 57ef64a46e89e0d49a164e8305ad0774, type: 3}
+  - {fileID: 21300000, guid: 85c1a789d381a2245889a99c0b851d57, type: 3}
+  - {fileID: 21300000, guid: c7c4b62f8817d08408f2c3a0ebc688e7, type: 3}
+  - {fileID: 21300000, guid: db16b997c2f4cad41a0c9cd0ddbac9fa, type: 3}
+  parentObject: {fileID: 414516140}
 --- !u!4 &800791849
 Transform:
   m_ObjectHideFlags: 0
