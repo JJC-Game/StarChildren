@@ -59,7 +59,7 @@ public class PlayerHitCheck : MonoBehaviour
     private void CollectItemMuki(GameObject item)
     {
         // アイテムを取得したときの処理を実行
-        itemCountMuki++; // アイテムカウントを増やす
+        itemCountMuki=+1; // アイテムカウントを増やす
         MukiCount = DataManager.Instance.LoadInt("MukiCount") + itemCountMuki;
         DataManager.Instance.SaveInt("MukiCount", MukiCount);
         UpdateItemCountText();
@@ -70,7 +70,7 @@ public class PlayerHitCheck : MonoBehaviour
 
     private void CollectItemOmo(GameObject item)
     {
-        itemCountOmo++;
+        itemCountOmo=+1;
         OmoCount = DataManager.Instance.LoadInt("OmoCount") + itemCountOmo;
         DataManager.Instance.SaveInt("OmoCount", OmoCount);
         UpdateItemCountText();
@@ -82,7 +82,7 @@ public class PlayerHitCheck : MonoBehaviour
     private void CollectItemBeta(GameObject item)
     {
         // アイテムを取得したときの処理を実行
-        itemCountBeta++; // アイテムカウントを増やす
+        itemCountBeta=+1; // アイテムカウントを増やす
         BetaCount = DataManager.Instance.LoadInt("BetaCount") + itemCountBeta;
         DataManager.Instance.SaveInt("BetaCount", BetaCount);
         UpdateItemCountText();
@@ -94,7 +94,7 @@ public class PlayerHitCheck : MonoBehaviour
     private void CollectItemPata(GameObject item)
     {
         // アイテムを取得したときの処理を実行
-        itemCountPata++; // アイテムカウントを増やす
+        itemCountPata=+1; // アイテムカウントを増やす
         PataCount = DataManager.Instance.LoadInt("PataCount") + itemCountPata;
         DataManager.Instance.SaveInt("PataCount", PataCount);
         UpdateItemCountText();
