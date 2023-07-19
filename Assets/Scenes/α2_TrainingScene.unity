@@ -864,7 +864,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 414516138}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.1, y: 0.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1369,12 +1369,6 @@ MonoBehaviour:
   - {fileID: 1405945133}
   NoItem: {fileID: 296208700}
   fadeOutTime: 5
-  sprites:
-  - {fileID: 21300000, guid: 57ef64a46e89e0d49a164e8305ad0774, type: 3}
-  - {fileID: 21300000, guid: 85c1a789d381a2245889a99c0b851d57, type: 3}
-  - {fileID: 21300000, guid: c7c4b62f8817d08408f2c3a0ebc688e7, type: 3}
-  - {fileID: 21300000, guid: db16b997c2f4cad41a0c9cd0ddbac9fa, type: 3}
-  parentObject: {fileID: 414516140}
 --- !u!4 &800791849
 Transform:
   m_ObjectHideFlags: 0

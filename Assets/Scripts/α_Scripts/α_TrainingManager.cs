@@ -17,17 +17,21 @@ public class α_TrainingManager : MonoBehaviour
     private float currentAlpha;
     private float timer;
 
-    public Sprite[] sprites; // 生成するスプライトの配列
-    public Transform parentObject; // スプライトの親オブジェクト
+    private bool isButtonEnabled = true; // ボタンの有効化フラグ
+    private bool isResettingGauge = false; // ゲージのリセット中フラグ
+    private float resetTimer = 0f; // ゲージリセット用のタイマー
 
-    private int currentIndex = -1; // 現在の生成スプライトのインデックス
-    private int[] remainingIndices; // 未生成のスプライトのインデックスの配列
+    //public Sprite[] sprites; // 生成するスプライトの配列
+    //public Transform parentObject; // スプライトの親オブジェクト
+
+    //private int currentIndex = -1; // 現在の生成スプライトのインデックス
+    //private int[] remainingIndices; // 未生成のスプライトのインデックスの配列
 
     private void Start()
     {
         NoItem.gameObject.SetActive(false); // アイテム回数制限のtext非表示
 
-        ResetGenerator();
+        //ResetGenerator();
 
         currentAmounts = new float[gaugeImages.Length];
 
@@ -61,125 +65,161 @@ public class α_TrainingManager : MonoBehaviour
 
         KiraGauge();
 
+        if (isResettingGauge)
+        {
+            // ゲージリセット中の処理
+            resetTimer += Time.deltaTime;
+
+            if (resetTimer >= 2f)
+            {
+                // 2秒経過後にゲージをリセット
+                isResettingGauge = false;
+                resetTimer = 0f;
+                currentAmounts[4] = 0f;
+                ResetOtherGauges();
+                UpdateImage = 4;
+                UpdateGaugeDisplay();
+
+                // ボタンを再度有効化
+                isButtonEnabled = true;
+            }
+        }
     }
+
 
     // ボタンが押された時に呼ばれる関数
     public void MukiButton()
     {
-        UseLimit = DataManager.Instance.LoadInt("MukiCount");
-        if (UseLimit >= 1)
+        if (isButtonEnabled)
         {
-            UseLimit -= 1;
-            DataManager.Instance.SaveInt("MukiCount", UseLimit);
-            currentAmounts[0] += increaseAmounts[0]; // ゲージ量を増やす
-            currentAmounts[4] += increaseAmounts[4]; // きらめきゲージ量を増やす
 
-            // ゲージ量が最大値を超えた場合、ゲージをリセットする
-            if (currentAmounts[0] - 1 >= maxAmounts[0])
+        
+            UseLimit = DataManager.Instance.LoadInt("MukiCount");
+            if (UseLimit >= 1)
             {
-                GenerateNextSprite();
-                currentAmounts[0] = 0f;
+                UseLimit -= 1;
+                DataManager.Instance.SaveInt("MukiCount", UseLimit);
+                currentAmounts[0] += increaseAmounts[0]; // ゲージ量を増やす
+                currentAmounts[4] += increaseAmounts[4]; // きらめきゲージ量を増やす
+
+                // ゲージ量が最大値を超えた場合、ゲージをリセットする
+                if (currentAmounts[0] - 1 >= maxAmounts[0])
+                {
+                    //GenerateNextSprite();
+                    currentAmounts[0] = 0f;
+                }
+
+                UpdateImage = 0;
+                UpdateGaugeDisplay();
+
             }
-
-            UpdateImage = 0;
-            UpdateGaugeDisplay();
-
+            else
+            {
+                timer = 0f;
+                NoItem.gameObject.SetActive(true);
+            }
+            isButtonEnabled = false; // ボタンを無効化
         }
-        else
-        {
-            timer = 0f;
-            NoItem.gameObject.SetActive(true);
-        }
-
     }
 
     public void OmoButton()
     {
-        UseLimit = DataManager.Instance.LoadInt("OmoCount");
-        if(UseLimit >= 1)
+        if (isButtonEnabled)
         {
-            UseLimit -=1;
-            DataManager.Instance.SaveInt("OmoCount", UseLimit);
-            currentAmounts[1] += increaseAmounts[1]; // ゲージ量を増やす
-            currentAmounts[4] += increaseAmounts[4]; // きらめきゲージ量を増やす
-
-            // ゲージ量が最大値を超えた場合、ゲージをリセットする
-            if (currentAmounts[1] - 1 >= maxAmounts[1])
+            UseLimit = DataManager.Instance.LoadInt("OmoCount");
+            if (UseLimit >= 1)
             {
-                currentAmounts[1] = 0f;
+                UseLimit -= 1;
+                DataManager.Instance.SaveInt("OmoCount", UseLimit);
+                currentAmounts[1] += increaseAmounts[1]; // ゲージ量を増やす
+                currentAmounts[4] += increaseAmounts[4]; // きらめきゲージ量を増やす
+
+                // ゲージ量が最大値を超えた場合、ゲージをリセットする
+                if (currentAmounts[1] - 1 >= maxAmounts[1])
+                {
+                    currentAmounts[1] = 0f;
+                }
+
+                UpdateImage = 1;
+                UpdateGaugeDisplay();
+
             }
-
-            UpdateImage = 1;
-            UpdateGaugeDisplay();
-
+            else
+            {
+                timer = 0f;
+                NoItem.gameObject.SetActive(true);
+            }
+            isButtonEnabled = false; // ボタンを無効化
         }
-        else
-        {
-            timer = 0f;
-            NoItem.gameObject.SetActive(true);
-        }
-
     }
 
-    /*
+
     public void BetaButton()
     {
-        UseLimit = DataManager.Instance.LoadInt("BetaCount");
-        if(UseLimit >= 1)
+        if (isButtonEnabled)
         {
-            UseLimit -=1;
-            DataManager.Instance.SaveInt("BetaCount", UseLimit);
-            currentAmounts[2] += increaseAmounts[2]; // ゲージ量を増やす
-            currentAmounts[4] += increaseAmounts[4]; // きらめきゲージ量を増やす
-
-            // ゲージ量が最大値を超えた場合、ゲージをリセットする
-            if (currentAmounts[2] - 1 >= maxAmounts[2])
+            UseLimit = DataManager.Instance.LoadInt("BetaCount");
+            if (UseLimit >= 1)
             {
-                currentAmounts[2] = 0f;
+                UseLimit -= 1;
+                DataManager.Instance.SaveInt("BetaCount", UseLimit);
+                currentAmounts[2] += increaseAmounts[2]; // ゲージ量を増やす
+                currentAmounts[4] += increaseAmounts[4]; // きらめきゲージ量を増やす
+
+                // ゲージ量が最大値を超えた場合、ゲージをリセットする
+                if (currentAmounts[2] - 1 >= maxAmounts[2])
+                {
+                    currentAmounts[2] = 0f;
+                }
+
+                UpdateImage = 1;
+                UpdateGaugeDisplay();
+
             }
+            else
+            {
+                timer = 0f;
+                NoItem.gameObject.SetActive(true);
 
-            Update = 1;
-            UpdateGaugeDisplay();
-
-        }
-        else
-        {
-             timer = 0f;
-            NoItem.gameObject.SetActive(true);
-            
+            }
+            isButtonEnabled = false; // ボタンを無効化
         }
     }
 
     public void PataButton()
     {
-        UseLimit = DataManager.Instance.LoadInt("PataCount");
-        if(UseLimit >= 1)
+        if (isButtonEnabled)
         {
-            UseLimit -=1;
-            DataManager.Instance.SaveInt("PataCount", UseLimit);
-            currentAmounts[3] += increaseAmounts[3]; // ゲージ量を増やす
-            currentAmounts[4] += increaseAmounts[4]; // きらめきゲージ量を増やす
-
-            // ゲージ量が最大値を超えた場合、ゲージをリセットする
-            if (currentAmounts[3] - 1 >= maxAmounts[3])
+            UseLimit = DataManager.Instance.LoadInt("PataCount");
+            if (UseLimit >= 1)
             {
-                currentAmounts[3] = 0f;
+                UseLimit -= 1;
+                DataManager.Instance.SaveInt("PataCount", UseLimit);
+                currentAmounts[3] += increaseAmounts[3]; // ゲージ量を増やす
+                currentAmounts[4] += increaseAmounts[4]; // きらめきゲージ量を増やす
+
+                // ゲージ量が最大値を超えた場合、ゲージをリセットする
+                if (currentAmounts[3] - 1 >= maxAmounts[3])
+                {
+                    currentAmounts[3] = 0f;
+                }
+
+                UpdateImage = 1;
+                UpdateGaugeDisplay();
+
             }
+            else
+            {
+                timer = 0f;
+                NoItem.gameObject.SetActive(true);
 
-            Update = 1;
-            UpdateGaugeDisplay();
-
-        }
-        else
-        {
-             timer = 0f;
-            NoItem.gameObject.SetActive(true);
-
+            }
+            isButtonEnabled = false; // ボタンを無効化
         }
     }
-    */
+    
 
-    public void GenerateNextSprite()
+    /*public void GenerateNextSprite()
     {
         if (currentIndex >= 0 && currentIndex < transform.childCount)
         {
@@ -216,18 +256,33 @@ public class α_TrainingManager : MonoBehaviour
         {
             remainingIndices[i] = i;
         }
-    }
+    }*/
 
     public void KiraGauge()
     {
         // ゲージ量が最大値を超えた場合、ゲージをリセットする
         if (currentAmounts[4] - 1 >= maxAmounts[4])
         {
+            isButtonEnabled = false; // ボタンを無効化
+            isResettingGauge = true; // ゲージリセットフラグを有効化
             currentAmounts[4] = 0f;
+            ResetOtherGauges();
         }
 
         UpdateImage = 4;
         UpdateGaugeDisplay();
+    }
+
+    // 他のゲージをリセットする
+    private void ResetOtherGauges()
+    {
+        for (int i = 0; i < gaugeImages.Length; i++)
+        {
+            if (i != UpdateImage)
+            {
+                currentAmounts[i] = 0f;
+            }
+        }
     }
 
     // ゲージの表示を更新する
@@ -241,4 +296,3 @@ public class α_TrainingManager : MonoBehaviour
         }
     }
 }
-
