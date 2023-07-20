@@ -17,10 +17,6 @@ public class α_TrainingManager : MonoBehaviour
     private float currentAlpha;
     private float timer;
 
-    private bool isButtonEnabled = true; // ボタンの有効化フラグ
-    private bool isResettingGauge = false; // ゲージのリセット中フラグ
-    private float resetTimer = 0f; // ゲージリセット用のタイマー
-
     //public Sprite[] sprites; // 生成するスプライトの配列
     //public Transform parentObject; // スプライトの親オブジェクト
 
@@ -64,36 +60,11 @@ public class α_TrainingManager : MonoBehaviour
         }
 
         KiraGauge();
-
-        if (isResettingGauge)
-        {
-            // ゲージリセット中の処理
-            resetTimer += Time.deltaTime;
-
-            if (resetTimer >= 2f)
-            {
-                // 2秒経過後にゲージをリセット
-                isResettingGauge = false;
-                resetTimer = 0f;
-                currentAmounts[4] = 0f;
-                ResetOtherGauges();
-                UpdateImage = 4;
-                UpdateGaugeDisplay();
-
-                // ボタンを再度有効化
-                isButtonEnabled = true;
-            }
-        }
     }
-
 
     // ボタンが押された時に呼ばれる関数
     public void MukiButton()
     {
-        if (isButtonEnabled)
-        {
-
-        
             UseLimit = DataManager.Instance.LoadInt("MukiCount");
             if (UseLimit >= 1)
             {
@@ -118,14 +89,10 @@ public class α_TrainingManager : MonoBehaviour
                 timer = 0f;
                 NoItem.gameObject.SetActive(true);
             }
-            isButtonEnabled = false; // ボタンを無効化
-        }
     }
 
     public void OmoButton()
     {
-        if (isButtonEnabled)
-        {
             UseLimit = DataManager.Instance.LoadInt("OmoCount");
             if (UseLimit >= 1)
             {
@@ -149,15 +116,11 @@ public class α_TrainingManager : MonoBehaviour
                 timer = 0f;
                 NoItem.gameObject.SetActive(true);
             }
-            isButtonEnabled = false; // ボタンを無効化
-        }
     }
 
 
     public void BetaButton()
     {
-        if (isButtonEnabled)
-        {
             UseLimit = DataManager.Instance.LoadInt("BetaCount");
             if (UseLimit >= 1)
             {
@@ -182,14 +145,10 @@ public class α_TrainingManager : MonoBehaviour
                 NoItem.gameObject.SetActive(true);
 
             }
-            isButtonEnabled = false; // ボタンを無効化
-        }
     }
 
     public void PataButton()
     {
-        if (isButtonEnabled)
-        {
             UseLimit = DataManager.Instance.LoadInt("PataCount");
             if (UseLimit >= 1)
             {
@@ -214,8 +173,6 @@ public class α_TrainingManager : MonoBehaviour
                 NoItem.gameObject.SetActive(true);
 
             }
-            isButtonEnabled = false; // ボタンを無効化
-        }
     }
     
 
@@ -263,26 +220,11 @@ public class α_TrainingManager : MonoBehaviour
         // ゲージ量が最大値を超えた場合、ゲージをリセットする
         if (currentAmounts[4] - 1 >= maxAmounts[4])
         {
-            isButtonEnabled = false; // ボタンを無効化
-            isResettingGauge = true; // ゲージリセットフラグを有効化
             currentAmounts[4] = 0f;
-            ResetOtherGauges();
         }
 
         UpdateImage = 4;
         UpdateGaugeDisplay();
-    }
-
-    // 他のゲージをリセットする
-    private void ResetOtherGauges()
-    {
-        for (int i = 0; i < gaugeImages.Length; i++)
-        {
-            if (i != UpdateImage)
-            {
-                currentAmounts[i] = 0f;
-            }
-        }
     }
 
     // ゲージの表示を更新する

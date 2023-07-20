@@ -1,92 +1,194 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
+using TMPro;
 
 public class α_PowerUp : MonoBehaviour
 {
-    public List<Button> buttons; // 押せるボタンのリスト
-    public List<Image> gaugeImages; // ゲージのImageリスト
-    public List<Sprite> newSprites; // ゲージごとの追加されるSpriteリスト
-    public List<float> maxAmounts; // 各ゲージの最大値リスト
-    public GameObject characterPrefab; // 追加されるキャラクターのPrefab
-    public Transform characterParent; // キャラクターを配置する親オブジェクトのTransform
+    public float[] increaseAmounts; // 一回に増える増加量
+    public float[] maxAmounts; // 最大量
+    public Image[] gaugeImages; // ゲージの表示用イメージ
+    private float[] currentAmounts; // 各ゲージの現在の量
 
-    private List<float> currentAmounts; // 各ゲージの現在の値
-    private List<bool> isMaxed; // 各ゲージが最大値に達したかどうか
+    private int UseLimit; // アイテム使用の回数制限
+    private int UpdateImage; // 変更するゲージの指定
+
+    public TextMeshProUGUI NoItem;
+    public float fadeOutTime = 1.0f;
+    private float currentAlpha;
+    private float timer;
 
     private void Start()
     {
-        currentAmounts = new List<float>(gaugeImages.Count);
-        isMaxed = new List<bool>(gaugeImages.Count);
+        NoItem.gameObject.SetActive(false); // アイテム回数制限のtext非表示
 
-        // 各ゲージの初期化
-        for (int i = 0; i < gaugeImages.Count; i++)
+        //ResetGenerator();
+
+        currentAmounts = new float[gaugeImages.Length];
+
+        for (int i = 0; i < currentAmounts.Length; i++)
         {
-            currentAmounts.Add(0.0f);
-            isMaxed.Add(false);
+            currentAmounts[i] = 0f;
         }
 
-        // 各ボタンに対してイベントリスナーを追加
-        for (int i = 0; i < buttons.Count; i++)
-        {
-            int index = i; // ボタンのインデックスをキャプチャする必要があるため
-            buttons[i].onClick.AddListener(() => OnButtonClick(index));
-        }
+        UpdateGaugeDisplay();
+
+        currentAlpha = NoItem.alpha;
+
     }
 
-    private void OnButtonClick(int buttonIndex)
+    private void Update()
     {
-        if (!isMaxed[buttonIndex])
+        // タイマーを更新する
+        timer += Time.deltaTime;
+
+        // フェードアウト処理
+        if (timer < fadeOutTime)
         {
-            // ゲージの値を増加させる
-            currentAmounts[buttonIndex] += maxAmounts[buttonIndex] / 10.0f; // ゲージの最大値の10%ずつ増加
-            currentAmounts[buttonIndex] = Mathf.Clamp(currentAmounts[buttonIndex], 0.0f, maxAmounts[buttonIndex]);
+            float normalizedTime = timer / fadeOutTime;
+            float newAlpha = Mathf.Lerp(currentAlpha, 0f, normalizedTime);
+            NoItem.alpha = newAlpha;
+        }
+        else
+        {
+            NoItem.enabled = true;
+        }
 
-            // ゲージの表示を更新する
-            UpdateGauge(buttonIndex);
+        KiraGauge();
+    }
 
-            // ゲージが最大値に達したかどうかをチェック
-            if (currentAmounts[buttonIndex] >= maxAmounts[buttonIndex])
+    // ボタンが押された時に呼ばれる関数
+    public void MukiButton()
+    {
+        UseLimit = DataManager.Instance.LoadInt("MukiCount");
+        if (UseLimit >= 1)
+        {
+            UseLimit -= 1;
+            DataManager.Instance.SaveInt("MukiCount", UseLimit);
+            currentAmounts[0] += increaseAmounts[0]; // ゲージ量を増やす
+            currentAmounts[4] += increaseAmounts[4]; // きらめきゲージ量を増やす
+
+            // ゲージ量が最大値を超えた場合、ゲージをリセットする
+            if (currentAmounts[0] - 1 >= maxAmounts[0])
             {
-                isMaxed[buttonIndex] = true;
-                // ゲージが最大値になったらSpriteを表示する
-                ShowSprite(buttonIndex);
-
-                // ゲージを初期位置にリセットする
-                ResetGauge(buttonIndex);
+                //GenerateNextSprite();
+                currentAmounts[0] = 0f;
             }
+
+            UpdateImage = 0;
+            UpdateGaugeDisplay();
+
+        }
+        else
+        {
+            timer = 0f;
+            NoItem.gameObject.SetActive(true);
         }
     }
 
-    private void UpdateGauge(int gaugeIndex)
+    public void OmoButton()
     {
-        // ゲージの表示を更新する
-        float fillAmount = currentAmounts[gaugeIndex] / maxAmounts[gaugeIndex];
-        gaugeImages[gaugeIndex].fillAmount = fillAmount;
-    }
-
-    private void ShowSprite(int gaugeIndex)
-    {
-        // 新しいSpriteを持つキャラクターを追加する
-        GameObject newCharacter = Instantiate(characterPrefab, characterParent);
-        SpriteRenderer spriteRenderer = newCharacter.GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = newSprites[gaugeIndex];
-    }
-
-    private void ResetGauge(int gaugeIndex)
-    {
-        // ゲージを初期位置にリセットする
-        currentAmounts[gaugeIndex] = 0.0f;
-        isMaxed[gaugeIndex] = false;
-        gaugeImages[gaugeIndex].fillAmount = 0.0f;
-    }
-
-    public void ResetAllGauges()
-    {
-        // すべてのゲージをリセットする
-        for (int i = 0; i < gaugeImages.Count; i++)
+        UseLimit = DataManager.Instance.LoadInt("OmoCount");
+        if (UseLimit >= 1)
         {
-            ResetGauge(i);
+            UseLimit -= 1;
+            DataManager.Instance.SaveInt("OmoCount", UseLimit);
+            currentAmounts[1] += increaseAmounts[1]; // ゲージ量を増やす
+            currentAmounts[4] += increaseAmounts[4]; // きらめきゲージ量を増やす
+
+            // ゲージ量が最大値を超えた場合、ゲージをリセットする
+            if (currentAmounts[1] - 1 >= maxAmounts[1])
+            {
+                currentAmounts[1] = 0f;
+            }
+
+            UpdateImage = 1;
+            UpdateGaugeDisplay();
+
+        }
+        else
+        {
+            timer = 0f;
+            NoItem.gameObject.SetActive(true);
+        }
+    }
+
+
+    public void BetaButton()
+    {
+        UseLimit = DataManager.Instance.LoadInt("BetaCount");
+        if (UseLimit >= 1)
+        {
+            UseLimit -= 1;
+            DataManager.Instance.SaveInt("BetaCount", UseLimit);
+            currentAmounts[2] += increaseAmounts[2]; // ゲージ量を増やす
+            currentAmounts[4] += increaseAmounts[4]; // きらめきゲージ量を増やす
+
+            // ゲージ量が最大値を超えた場合、ゲージをリセットする
+            if (currentAmounts[2] - 1 >= maxAmounts[2])
+            {
+                currentAmounts[2] = 0f;
+            }
+
+            UpdateImage = 1;
+            UpdateGaugeDisplay();
+
+        }
+        else
+        {
+            timer = 0f;
+            NoItem.gameObject.SetActive(true);
+
+        }
+    }
+
+    public void PataButton()
+    {
+        UseLimit = DataManager.Instance.LoadInt("PataCount");
+        if (UseLimit >= 1)
+        {
+            UseLimit -= 1;
+            DataManager.Instance.SaveInt("PataCount", UseLimit);
+            currentAmounts[3] += increaseAmounts[3]; // ゲージ量を増やす
+            currentAmounts[4] += increaseAmounts[4]; // きらめきゲージ量を増やす
+
+            // ゲージ量が最大値を超えた場合、ゲージをリセットする
+            if (currentAmounts[3] - 1 >= maxAmounts[3])
+            {
+                currentAmounts[3] = 0f;
+            }
+
+            UpdateImage = 1;
+            UpdateGaugeDisplay();
+
+        }
+        else
+        {
+            timer = 0f;
+            NoItem.gameObject.SetActive(true);
+
+        }
+    }
+
+    public void KiraGauge()
+    {
+        // ゲージ量が最大値を超えた場合、ゲージをリセットする
+        if (currentAmounts[4] - 1 >= maxAmounts[4])
+        {
+            currentAmounts[4] = 0f;
+        }
+
+        UpdateImage = 4;
+        UpdateGaugeDisplay();
+    }
+
+    // ゲージの表示を更新する
+    private void UpdateGaugeDisplay()
+    {
+        for (int i = 0; i < gaugeImages.Length; i++)
+        {
+            float normalizedAmount = currentAmounts[UpdateImage] / maxAmounts[UpdateImage];
+
+            gaugeImages[UpdateImage].fillAmount = normalizedAmount;
         }
     }
 }
