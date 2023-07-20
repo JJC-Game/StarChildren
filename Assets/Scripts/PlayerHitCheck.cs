@@ -8,26 +8,26 @@ public class PlayerHitCheck : MonoBehaviour
     // アイテムカウントを表示するテキスト
     public TextMeshProUGUI MukiCountText;
     public TextMeshProUGUI OmoCountText;
-    // public TextMeshProUGUI BetaCountText;
+    public TextMeshProUGUI BetaCountText;
     // public TextMeshProUGUI PataCountText;
 
     // アクションシーンで使用するitemのカウント
     private int itemCountMuki;
     private int itemCountOmo;
-    // private int itemCountBeta;
+    private int itemCountBeta;
     // private int itemCountPata;
 
     // 育成シーンで使用するitemのカウント
     public int MukiCount;
     public int OmoCount;
-    // public int BetaCount;
+    public int BetaCount;
     // public int PataCount;
 
     private void Start()
     {
         itemCountMuki = 0;
         itemCountOmo = 0;
-        // itemCountBeta = 0;
+        itemCountBeta = 0;
         // itemCountPata = 0;
     }
 
@@ -43,11 +43,11 @@ public class PlayerHitCheck : MonoBehaviour
             case "ItemOmo":
                 CollectItemOmo(collision.gameObject);
                 break;
-                /*
+                
             case "ItemBeta":
                 CollectItemBeta(collision.gameObject);
                 break;
-
+                /*
             case "ItemPata":
                 CollectItemPata(collision.gameObject);
                 break;
@@ -78,7 +78,7 @@ public class PlayerHitCheck : MonoBehaviour
         Destroy(item);
     }
 
-    /*
+    
     private void CollectItemBeta(GameObject item)
     {
         // アイテムを取得したときの処理を実行
@@ -90,7 +90,7 @@ public class PlayerHitCheck : MonoBehaviour
         // アイテムを削除
         Destroy(item);
     }
-
+    /*
     private void CollectItemPata(GameObject item)
     {
         // アイテムを取得したときの処理を実行
