@@ -7698,7 +7698,7 @@ MonoBehaviour:
   mainGame: 0
   GameClear: 0
   TimeUp: 0
-  targetTime: 1000
+  targetTime: 90
   TimeUpCanvas: {fileID: 1312812113}
   MainGameCanvas: {fileID: 1746048110}
   timerText: {fileID: 848214560}
