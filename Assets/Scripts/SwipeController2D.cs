@@ -11,11 +11,16 @@ public class SwipeController2D : MonoBehaviour
     private Vector2 swipeStartPosition;
     private Vector2 swipeEndPosition;
     private Rigidbody2D rb;
+    private Vector2 gravity;
+    private float angularVelocity;
     public bool isOnFloor;
+    public bool Beta;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        gravity = rb.gravityScale * Physics2D.gravity;
+        angularVelocity = rb.angularVelocity;
     }
 
     private void Update()
@@ -30,6 +35,7 @@ public class SwipeController2D : MonoBehaviour
             {
                 swipeEndPosition = Input.mousePosition;
                 DetectSwipeDirection();
+
             }
         }
     }
@@ -59,7 +65,20 @@ public class SwipeController2D : MonoBehaviour
         if (collision.gameObject.CompareTag("Floor"))
         {
             isOnFloor = true;
+            DataManager.Instance.SaveInt("BetaPoint", 0);
         }
+
+        // 壁に触れたらくっつく、BetaPointがない場合はくっつかない
+        if (collision.gameObject.CompareTag("Wall") && DataManager.Instance.LoadInt("BetaPoint") >= 1)
+        {
+            isOnFloor = true;
+            rb.velocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+            rb.gravityScale = 0f;
+            DataManager.Instance.SaveInt("BetaPoint", 0);
+            Beta = true;
+        }
+
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -68,6 +87,15 @@ public class SwipeController2D : MonoBehaviour
         if (collision.gameObject.CompareTag("Floor"))
         {
             isOnFloor = false;
+        }
+
+        // 一度壁にくっついた後壁から離れるとBetaCountを減らし、重力と回転を戻す
+        if (collision.gameObject.CompareTag("Wall") && Beta == true)
+        {
+            rb.angularVelocity = angularVelocity;
+            rb.gravityScale = 0.8f;
+            isOnFloor = false;
+            Beta = false;
         }
     }
 }

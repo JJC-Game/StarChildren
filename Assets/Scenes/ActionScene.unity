@@ -1281,7 +1281,7 @@ MonoBehaviour:
   mainGame: 0
   GameClear: 0
   TimeUp: 0
-  targetTime: 5
+  targetTime: 90
   TimeUpCanvas: {fileID: 1488278699}
   MainGameCanvas: {fileID: 1995191621}
   timerText: {fileID: 713295110}
@@ -5315,6 +5315,7 @@ GameObject:
   - component: {fileID: 1504715741}
   - component: {fileID: 1504715737}
   - component: {fileID: 1504715736}
+  - component: {fileID: 1504715742}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5393,6 +5394,7 @@ MonoBehaviour:
   swipeDistanceThreshold: 50
   speed: 0.6
   isOnFloor: 0
+  Beta: 0
 --- !u!4 &1504715739
 Transform:
   m_ObjectHideFlags: 0
@@ -5430,6 +5432,7 @@ MonoBehaviour:
   swipeDistanceThreshold: 50
   speed: 5
   isOnFloor: 0
+  Beta: 0
   minSize: 0.05
   maxSize: 7
   imageObject: {fileID: 4600513384928677659}
@@ -5447,8 +5450,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MukiCountText: {fileID: 517846210}
   OmoCountText: {fileID: 1165712943}
+  BetaCountText: {fileID: 0}
   MukiCount: 0
   OmoCount: 0
+  BetaCount: 0
+--- !u!58 &1504715742
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504715735}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 9155e342af3526d4086fa799b3a7473e, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.06, y: -0.05}
+  serializedVersion: 2
+  m_Radius: 0.71
 --- !u!1 &1528449003
 GameObject:
   m_ObjectHideFlags: 0
