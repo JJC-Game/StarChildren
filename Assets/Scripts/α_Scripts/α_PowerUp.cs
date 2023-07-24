@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
@@ -70,7 +71,6 @@ public class α_PowerUp : MonoBehaviour
             // ゲージ量が最大値を超えた場合、ゲージをリセットする
             if (currentAmounts[0] - 1 >= maxAmounts[0])
             {
-                //GenerateNextSprite();
                 currentAmounts[0] = 0f;
             }
 
@@ -171,24 +171,23 @@ public class α_PowerUp : MonoBehaviour
     public void KiraGauge()
     {
         // ゲージ量が最大値を超えた場合、ゲージとイメージをリセットする
-        if (currentAmounts[4] - 1 >= maxAmounts[4])
+        if (currentAmounts[4] >= maxAmounts[4])
         {
-            currentAmounts[4] = 0f;
-            ResetAllGaugesAndImages();
+            currentAmounts[4] = maxAmounts[4];
+            gaugeImages[4].fillAmount = 0f;
+            StartCoroutine(ResetGaugeAfterDelay(4));
         }
 
         UpdateImage = 4;
         UpdateGaugeDisplay();
     }
 
-    // すべてのゲージとイメージをリセットする
-    private void ResetAllGaugesAndImages()
+    private IEnumerator ResetGaugeAfterDelay(int gaugeIndex)
     {
-        for (int i = 0; i < gaugeImages.Length; i++)
-        {
-            currentAmounts[i] = 0f;
-            gaugeImages[i].fillAmount = 0f;
-        }
+        yield return new WaitForSeconds(2f);
+
+        currentAmounts[gaugeIndex] = 0f;
+        gaugeImages[gaugeIndex].fillAmount = 0f;
     }
 
 
@@ -207,14 +206,17 @@ public class α_PowerUp : MonoBehaviour
 
 
 
+
     public void DebugIncreaseMukiGauge()
     {
         currentAmounts[0] += increaseAmounts[0];
         currentAmounts[4] += increaseAmounts[4];
 
-        if (currentAmounts[0] -1 >= maxAmounts[0])
+        if (currentAmounts[0]  >= maxAmounts[0])
         {
-            currentAmounts[0] = 0f;
+            currentAmounts[0] = maxAmounts[0];
+            gaugeImages[0].fillAmount = 0f;
+            StartCoroutine(ResetGaugeAfterDelay(0));
         }
 
         UpdateImage = 0;
