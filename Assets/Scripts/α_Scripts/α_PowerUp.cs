@@ -5,6 +5,8 @@ using TMPro;
 
 public class α_PowerUp : MonoBehaviour
 {
+    public Button DebugMukiButton;//MukiButtonを2秒後にリセットする変数の宣言
+
     public float[] increaseAmounts; // 一回に増える増加量
     public float[] maxAmounts; // 最大量
     public Image[] gaugeImages; // ゲージの表示用イメージ
@@ -18,11 +20,12 @@ public class α_PowerUp : MonoBehaviour
     private float currentAlpha;
     private float timer;
 
+    private bool isAllGaugeResetting = false;
+    private bool isMukiButtonResetting = false;
+
     private void Start()
     {
         NoItem.gameObject.SetActive(false); // アイテム回数制限のtext非表示
-
-        //ResetGenerator();
 
         currentAmounts = new float[gaugeImages.Length];
 
@@ -168,27 +171,124 @@ public class α_PowerUp : MonoBehaviour
         }
     }
 
+
+
+
+    //Debug用のButtton
+    public void DebugIncreaseMukiGauge()
+    {
+        if (isMukiButtonResetting) // リセット中はボタンを無効化
+            return;
+
+        currentAmounts[0] += increaseAmounts[0];
+        currentAmounts[4] += increaseAmounts[4];
+
+        if (currentAmounts[0] >= maxAmounts[0])
+        {
+            gaugeImages[0].fillAmount = 0f;
+            StartCoroutine(ResetMukiGaugeAfterDelay());
+        }
+
+        UpdateImage = 0;
+        UpdateGaugeDisplay();
+    }
+
+    public void DebugIncreaseOmoGauge()
+    {
+        currentAmounts[1] += increaseAmounts[1];
+        currentAmounts[4] += increaseAmounts[4];
+
+        if (currentAmounts[1] >= maxAmounts[1])
+        {
+            currentAmounts[1] = 0f;
+        }
+
+        UpdateImage = 1;
+        UpdateGaugeDisplay();
+    }
+
+    public void DebugIncreaseBetaGauge()
+    {
+        currentAmounts[2] += increaseAmounts[2];
+        currentAmounts[4] += increaseAmounts[4];
+
+        if (currentAmounts[2] >= maxAmounts[2])
+        {
+            currentAmounts[2] = 0f;
+        }
+
+        UpdateImage = 2;
+        UpdateGaugeDisplay();
+    }
+
+    public void DebugIncreasePataGauge()
+    {
+        currentAmounts[3] += increaseAmounts[3];
+        currentAmounts[4] += increaseAmounts[4];
+
+        if (currentAmounts[3] >= maxAmounts[3])
+        {
+            currentAmounts[3] = 0f;
+        }
+
+        UpdateImage = 3;
+        UpdateGaugeDisplay();
+    }
+
+
+
+
+    //MukiButtonがMAXになったら2秒後にリセットされる
+    private IEnumerator ResetMukiGaugeAfterDelay()
+    {
+        isMukiButtonResetting = true;
+        DebugMukiButton.interactable = false; // ボタンを無効化
+
+        // ボタンを無効化
+
+        yield return new WaitForSeconds(2f);
+
+        currentAmounts[0] = 0f;
+        gaugeImages[0].fillAmount = 0f;
+
+        // ボタンを有効化
+        DebugMukiButton.interactable = true; // ボタンを有効化
+        isMukiButtonResetting = false;
+    }
+
+
+
+
+
     public void KiraGauge()
     {
-        // ゲージ量が最大値を超えた場合、ゲージとイメージをリセットする
-        if (currentAmounts[4] >= maxAmounts[4])
+        // ゲージ量が最大値を超えた場合、ゲージをリセットする
+        if (currentAmounts[4] >= maxAmounts[4] && !isAllGaugeResetting)
         {
-            currentAmounts[4] = maxAmounts[4];
-            gaugeImages[4].fillAmount = 0f;
-            StartCoroutine(ResetGaugeAfterDelay(4));
+            StartCoroutine(ResetGaugeAfterDelay());
         }
 
         UpdateImage = 4;
         UpdateGaugeDisplay();
     }
 
-    private IEnumerator ResetGaugeAfterDelay(int gaugeIndex)
+    //KiraGaugeがMAXになったらすべてのゲージが2秒後にリセットされる
+    private IEnumerator ResetGaugeAfterDelay()
     {
+        isAllGaugeResetting = true;
+
         yield return new WaitForSeconds(2f);
 
-        currentAmounts[gaugeIndex] = 0f;
-        gaugeImages[gaugeIndex].fillAmount = 0f;
+        // すべてのゲージをリセット
+        for (int i = 0; i < gaugeImages.Length; i++)
+        {
+            currentAmounts[i] = 0f;
+            gaugeImages[i].fillAmount = 0f;
+        }
+
+        isAllGaugeResetting = false;
     }
+
 
 
     // ゲージの表示を更新する
@@ -204,64 +304,4 @@ public class α_PowerUp : MonoBehaviour
 
 
 
-
-
-
-    public void DebugIncreaseMukiGauge()
-    {
-        currentAmounts[0] += increaseAmounts[0];
-        currentAmounts[4] += increaseAmounts[4];
-
-        if (currentAmounts[0]  >= maxAmounts[0])
-        {
-            currentAmounts[0] = maxAmounts[0];
-            gaugeImages[0].fillAmount = 0f;
-            StartCoroutine(ResetGaugeAfterDelay(0));
-        }
-
-        UpdateImage = 0;
-        UpdateGaugeDisplay();
-    }
-
-    public void DebugIncreaseOmoGauge()
-    {
-        currentAmounts[1] += increaseAmounts[1];
-        currentAmounts[4] += increaseAmounts[4];
-
-        if (currentAmounts[1] -1 >= maxAmounts[1])
-        {
-            currentAmounts[1] = 0f;
-        }
-
-        UpdateImage = 1;
-        UpdateGaugeDisplay();
-    }
-
-    public void DebugIncreaseBetaGauge()
-    {
-        currentAmounts[2] += increaseAmounts[2];
-        currentAmounts[4] += increaseAmounts[4];
-
-        if (currentAmounts[2] -1 >= maxAmounts[2])
-        {
-            currentAmounts[2] = 0f;
-        }
-
-        UpdateImage = 2;
-        UpdateGaugeDisplay();
-    }
-
-    public void DebugIncreasePataGauge()
-    {
-        currentAmounts[3] += increaseAmounts[3];
-        currentAmounts[4] += increaseAmounts[4];
-
-        if (currentAmounts[3] -1 >= maxAmounts[3])
-        {
-            currentAmounts[3] = 0f;
-        }
-
-        UpdateImage = 3;
-        UpdateGaugeDisplay();
-    }
 }

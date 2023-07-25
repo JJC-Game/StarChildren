@@ -1301,6 +1301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a049fad9fcd993468cb1d553b2393f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DebugMukiButton: {fileID: 0}
   increaseAmounts:
   - 1
   - 1
