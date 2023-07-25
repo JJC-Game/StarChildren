@@ -172,6 +172,12 @@ public class α_PowerUp : MonoBehaviour
     }
 
 
+    /*StartCoroutineは、Unityのコルーチン（Coroutine）を開始するための特別な関数です。
+    コルーチンは、一時停止・再開可能な関数のことで、非同期的な処理を実現するために使用されます。
+
+    一般的なメソッドは、実行されると最後まで実行されるまで制御が戻らないのに対し、
+    コルーチンは途中で一時停止し、あとで再開できる特殊なメソッドです。非同期的な処理をシンプルに実装する際に便利です。
+    */
 
 
     //Debug用のButtton
@@ -244,14 +250,14 @@ public class α_PowerUp : MonoBehaviour
         isMukiButtonResetting = true;
         DebugMukiButton.interactable = false; // ボタンを無効化
 
-        // ボタンを無効化
-
+        //yield return new WaitForSeconds(秒数)を使って一時停止をし、
+        //指定した秒数後に再開されるようになっている。
+        //(例 : アニメーション、待ち時間を含む処理、サーバーとの通信など)
         yield return new WaitForSeconds(2f);
 
         currentAmounts[0] = 0f;
         gaugeImages[0].fillAmount = 0f;
 
-        // ボタンを有効化
         DebugMukiButton.interactable = true; // ボタンを有効化
         isMukiButtonResetting = false;
     }
@@ -262,9 +268,11 @@ public class α_PowerUp : MonoBehaviour
 
     public void KiraGauge()
     {
+
         // ゲージ量が最大値を超えた場合、ゲージをリセットする
         if (currentAmounts[4] >= maxAmounts[4] && !isAllGaugeResetting)
         {
+            StartCoroutine(ResetMukiGaugeAfterDelay());
             StartCoroutine(ResetGaugeAfterDelay());
         }
 
