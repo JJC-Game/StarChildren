@@ -62,7 +62,7 @@ public class DataManager : Singleton<DataManager>
         PlayerPrefs.DeleteKey("ItemCountOmo");
         PlayerPrefs.Save();
     }
-    /*
+    
     public void ResetBetaCount()
     {
         PlayerPrefs.DeleteKey("ItemCountBeta");
@@ -74,7 +74,7 @@ public class DataManager : Singleton<DataManager>
         PlayerPrefs.DeleteKey("ItemCountPata");
         PlayerPrefs.Save();
     }
-    */
+    
     /*
     特定の変数をリセットする場合
     PlayerPrefs.DeleteKey("任意");

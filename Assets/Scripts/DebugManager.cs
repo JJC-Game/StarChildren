@@ -8,6 +8,7 @@ public class DebugManager : MonoBehaviour
     public TextMeshProUGUI Muki;
     public TextMeshProUGUI Omo;
     public TextMeshProUGUI Beta;
+    public TextMeshProUGUI BetaMin;
     public TextMeshProUGUI Pata;
     private bool BetaOn;
     private bool PataOn;
@@ -16,10 +17,24 @@ public class DebugManager : MonoBehaviour
     {
         string convertedString1 = DataManager.Instance.LoadInt("MukiCount").ToString();
         Muki.text = convertedString1;
+
         string convertedString2 = DataManager.Instance.LoadInt("OmoCount").ToString();
         Omo.text = convertedString2;
-        string convertedString3 = DataManager.Instance.LoadInt("BetaCount").ToString();
-        Beta.text = convertedString3;
+
+        if (BetaOn == false)
+        {
+            string beta = "true";
+            Beta.text = beta;
+        }
+        else
+        {
+            string beta = "false";
+            Beta.text = beta;
+        }
+
+        string convertedString3 = DataManager.Instance.LoadFloat("BetaMin").ToString();
+        BetaMin.text = convertedString3;
+
         string convertedString4 = DataManager.Instance.LoadInt("PataCount").ToString();
         Pata.text = convertedString4;
 
@@ -29,12 +44,14 @@ public class DebugManager : MonoBehaviour
     {
         if(BetaOn == true)
         {
-            DataManager.Instance.SaveInt("BetaCount", 1);
+            DataManager.Instance.SaveBool("Beta", true);
+            DataManager.Instance.SaveFloat("BetaMin", 0.5f);
             BetaOn = false;
         }
         else
         {
-            DataManager.Instance.SaveInt("BetaCount", 0);
+            DataManager.Instance.SaveBool("Beta", false);
+            DataManager.Instance.SaveFloat("BetaMin", 0f);
             BetaOn = true;
         }
     }

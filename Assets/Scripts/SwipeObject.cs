@@ -25,6 +25,7 @@ public class SwipeObject : SwipeController2D
 
     private void Update()
     {
+        // メインゲームがtrueかつタップされている間画像を表示
         if (Input.GetMouseButtonDown(0) && ObjectView && GameManager.Instance.mainGame)
         {
             startPosition = Input.mousePosition;
@@ -32,17 +33,21 @@ public class SwipeObject : SwipeController2D
             // オブジェクトを表示する
             imageObject.SetActive(true);
         }
-        else if (Input.GetMouseButtonUp(0) && ObjectView)
+        // 二段ジャンプの能力がない状態で空中にいるときに画像を表示しない
+        else if (DataManager.Instance.LoadInt("PataLimit") == 0 && Pata == true)
+        {
+            isSwiping = false;
+            imageObject.SetActive(false);
+        }
+        // メインゲームがtrueかつタップしていない間画像を表示しない
+        else if (Input.GetMouseButtonUp(0) && GameManager.Instance.mainGame)
         {
             endPosition = Input.mousePosition;
             isSwiping = false;
             imageObject.SetActive(false);
         }
-        else if (isOnFloor == false && ObjectView == false)
-        {
-            imageObject.SetActive(false);
-        }
-
+        
+        // スワイプしている間は画像の大きさ、角度を変える
         if (isSwiping)
         {
             endPosition = Input.mousePosition;

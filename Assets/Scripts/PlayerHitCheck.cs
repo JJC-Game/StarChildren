@@ -9,26 +9,26 @@ public class PlayerHitCheck : MonoBehaviour
     public TextMeshProUGUI MukiCountText;
     public TextMeshProUGUI OmoCountText;
     public TextMeshProUGUI BetaCountText;
-    // public TextMeshProUGUI PataCountText;
+    public TextMeshProUGUI PataCountText;
 
     // アクションシーンで使用するitemのカウント
     private int itemCountMuki;
     private int itemCountOmo;
     private int itemCountBeta;
-    // private int itemCountPata;
+    private int itemCountPata;
 
     // 育成シーンで使用するitemのカウント
     public int MukiCount;
     public int OmoCount;
     public int BetaCount;
-    // public int PataCount;
+    public int PataCount;
 
     private void Start()
     {
         itemCountMuki = 0;
         itemCountOmo = 0;
         itemCountBeta = 0;
-        // itemCountPata = 0;
+        itemCountPata = 0;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -47,11 +47,11 @@ public class PlayerHitCheck : MonoBehaviour
             case "ItemBeta":
                 CollectItemBeta(collision.gameObject);
                 break;
-                /*
+                
             case "ItemPata":
                 CollectItemPata(collision.gameObject);
                 break;
-                */
+                
         }
 
     }
@@ -81,36 +81,32 @@ public class PlayerHitCheck : MonoBehaviour
     
     private void CollectItemBeta(GameObject item)
     {
-        // アイテムを取得したときの処理を実行
-        itemCountBeta++; // アイテムカウントを増やす
+        itemCountBeta++;
         BetaCount = DataManager.Instance.LoadInt("BetaCount") + 1;
         DataManager.Instance.SaveInt("BetaCount", BetaCount);
         UpdateItemCountText();
 
-        // アイテムを削除
         Destroy(item);
     }
-    /*
+    
     private void CollectItemPata(GameObject item)
     {
-        // アイテムを取得したときの処理を実行
-        itemCountPata++; // アイテムカウントを増やす
+        itemCountPata++;
         PataCount = DataManager.Instance.LoadInt("PataCount") + 1;
         DataManager.Instance.SaveInt("PataCount", PataCount);
         UpdateItemCountText();
 
-        // アイテムを削除
         Destroy(item);
     }
-    */
+    
 
     private void UpdateItemCountText()
     {
         // アイテムカウントをテキストに表示
         MukiCountText.text = itemCountMuki.ToString();
         OmoCountText.text = itemCountOmo.ToString();
-        // BetaCountText.text = "ItemBeta: " + itemCountBeta.ToString();
-        // PataCountText.text = "  ItemPata: " + itemCountPata.ToString();
+        BetaCountText.text = itemCountBeta.ToString();
+        PataCountText.text = itemCountPata.ToString();
 
     }
 
