@@ -51,9 +51,24 @@ public class PlayerHitCheck : MonoBehaviour
             case "ItemPata":
                 CollectItemPata(collision.gameObject);
                 break;
-                
+
         }
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case "Mukib":
+                Mukibreak(collision.gameObject);
+                break;
+
+            case "Omob":
+                Omobreak(collision.gameObject);
+                break;
+
+        }
     }
 
     private void CollectItemMuki(GameObject item)
@@ -98,7 +113,24 @@ public class PlayerHitCheck : MonoBehaviour
 
         Destroy(item);
     }
-    
+
+    private void Mukibreak(GameObject floor)
+    {
+        if(DataManager.Instance.LoadBool("Muki"))
+        {
+            Destroy(floor);
+        }
+
+    }
+
+    private void Omobreak(GameObject floor)
+    {
+        if (DataManager.Instance.LoadBool("Omo"))
+        {
+            Destroy(floor);
+        }
+    }
+
 
     private void UpdateItemCountText()
     {

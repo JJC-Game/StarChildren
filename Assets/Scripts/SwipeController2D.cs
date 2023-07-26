@@ -22,7 +22,7 @@ public class SwipeController2D : MonoBehaviour
 
     public bool isOnFloor; // 地面についてるかどうか
     public bool Pata;  // ぱたぱたの能力を持っているか
-    public bool Beta; // くっついているか
+    public bool Beta; // 壁にくっついているか
     public bool MoreJump; // 二段ジャンプできる状態か
     public bool ObjectView; // 矢印の画像が表示されるか
 
@@ -121,7 +121,7 @@ public class SwipeController2D : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // 床に接触した場合、isOnFloorをtrueにする
-        if (collision.gameObject.CompareTag("Floor"))
+        if (collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Omob"))
         {
             ObjectView = true;
             isOnFloor = true;
@@ -149,7 +149,7 @@ public class SwipeController2D : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         // 床から離れた場合、isOnFloorをfalseにする
-        if (collision.gameObject.CompareTag("Floor"))
+        if (collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Omob"))
         {
             isOnFloor = false;
 

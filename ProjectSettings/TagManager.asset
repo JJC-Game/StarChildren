@@ -9,6 +9,9 @@ TagManager:
   - ItemMuki
   - ItemOmo
   - ItemBeta
+  - ItemPata
+  - Mukib
+  - Omob
   layers:
   - Default
   - TransparentFX
