@@ -12,6 +12,7 @@ TagManager:
   - ItemPata
   - Mukib
   - Omob
+  - Touch
   layers:
   - Default
   - TransparentFX

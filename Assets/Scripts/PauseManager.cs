@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseManager : MonoBehaviour
+public class PauseManager : Singleton<PauseManager>
 {
     public Canvas PauseCanvas;
     public Canvas MainGame;
@@ -34,12 +34,13 @@ public class PauseManager : MonoBehaviour
         if(isPause)
         {
             GameManager.Instance.mainGame = true;
+            Time.timeScale = 1; // ゲーム再開
             MainGame.enabled = true;
             PauseCanvas.enabled = false;
             isPause = false;
-            Time.timeScale = 1; // ゲーム再開
-
+            
         }
+
     }
 
     public void ResetPause()

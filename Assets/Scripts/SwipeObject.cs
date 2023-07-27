@@ -34,7 +34,7 @@ public class SwipeObject : SwipeController2D
             imageObject.SetActive(true);
         }
         // 二段ジャンプの能力がない状態で空中にいるときに画像を表示しない
-        else if (DataManager.Instance.LoadInt("PataLimit") == 0 && Pata == true)
+        else if (DataManager.Instance.LoadInt("PataLimit") == 0 && Pata == true || PauseManager.Instance.isPause)
         {
             isSwiping = false;
             imageObject.SetActive(false);
