@@ -107,6 +107,7 @@ public class SoundManager : Singleton<SoundManager>
         SE_GameSource[i].Play();
     }
 
+    /*
     //Silderによる音量の調整
     //（第1引数でBGM、第2引数でSEのボリューム）
     public void VolumeChange(int vol1, int vol2)
@@ -116,6 +117,7 @@ public class SoundManager : Singleton<SoundManager>
 
         bgmVol = vol_BGM[vol1];
     }
+    */
 
     //画面がフェードアウトする時
     //音量も一緒にフェードアウト フェードするのはBGMのみ
