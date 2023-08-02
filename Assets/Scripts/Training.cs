@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class α_PowerUp : MonoBehaviour
+public class Training : MonoBehaviour
 {
     public Button[] invalidButton;//MukiButtonを2秒後にリセットする変数の宣言
 
@@ -11,6 +11,7 @@ public class α_PowerUp : MonoBehaviour
     public float[] maxAmounts; // 最大量
     public Image[] gaugeImages; // ゲージの表示用イメージ
     private float[] currentAmounts; // 各ゲージの現在の量
+
 
     private int UseLimit; // アイテム使用の回数制限
     private int UpdateImage; // 変更するゲージの指定
@@ -26,7 +27,6 @@ public class α_PowerUp : MonoBehaviour
     private int[] buttonPressCount; // 各ボタンの押された回数を格納する配列
     private int mostPressedButtonIndex; // 最も押されたボタンのインデックス
     private bool isKiraGaugeMax = false; // KiraGaugeがMAXになったフラグ
-
 
     private bool isAllGaugeResetting = false;
     private bool isMukiButtonResetting = false;
@@ -99,12 +99,10 @@ public class α_PowerUp : MonoBehaviour
                 gaugeImages[0].fillAmount = 0f;
                 StartCoroutine(ResetMukiGauge());
             }
-
             UpdateImage = 0;
             UpdateGaugeDisplay();
 
             buttonPressCount[0]++;
-
         }
         else
         {
@@ -132,12 +130,10 @@ public class α_PowerUp : MonoBehaviour
                 gaugeImages[1].fillAmount = 0f;
                 StartCoroutine(ResetOmoGauge());
             }
-
             UpdateImage = 1;
             UpdateGaugeDisplay();
 
             buttonPressCount[1]++;
-
         }
         else
         {
@@ -166,7 +162,6 @@ public class α_PowerUp : MonoBehaviour
                 gaugeImages[2].fillAmount = 0f;
                 StartCoroutine(ResetBetaGauge());
             }
-
             UpdateImage = 2;
             UpdateGaugeDisplay();
 
@@ -198,7 +193,6 @@ public class α_PowerUp : MonoBehaviour
                 gaugeImages[3].fillAmount = 0f;
                 StartCoroutine(ResetPataGauge());
             }
-
             UpdateImage = 3;
             UpdateGaugeDisplay();
 
@@ -214,7 +208,6 @@ public class α_PowerUp : MonoBehaviour
 
     public void KiraGauge()
     {
-
         // ゲージ量が最大値を超えた場合、ゲージをリセットする
         if (currentAmounts[4] >= maxAmounts[4] && !isAllGaugeResetting && !isKiraGaugeMax)
         {
@@ -360,91 +353,5 @@ public class α_PowerUp : MonoBehaviour
 
         invalidButton[3].interactable = true; // ボタンを有効化
         isPataButtonResetting = false;
-    }
-
-    
-
-
-
-
-    //Debug用のButtton
-    public void DebugMukiGauge()
-    {
-        if (isMukiButtonResetting) // リセット中はボタンを無効化
-            return;
-
-        currentAmounts[0] += increaseAmounts[0];
-        currentAmounts[4] += increaseAmounts[4];
-
-        if (currentAmounts[0] >= maxAmounts[0])
-        {
-            gaugeImages[0].fillAmount = 0f;
-            StartCoroutine(ResetMukiGauge());
-        }
-
-        UpdateImage = 0;
-        UpdateGaugeDisplay();
-
-        buttonPressCount[0]++;
-    }
-
-    public void DebugOmoGauge()
-    {
-        if (isOmoButtonResetting) // リセット中はボタンを無効化
-            return;
-
-        currentAmounts[1] += increaseAmounts[1];
-        currentAmounts[4] += increaseAmounts[4];
-
-        if (currentAmounts[1] >= maxAmounts[1])
-        {
-            gaugeImages[1].fillAmount = 0f;
-            StartCoroutine(ResetOmoGauge());
-        }
-
-        UpdateImage = 1;
-        UpdateGaugeDisplay();
-
-        buttonPressCount[1]++;
-    }
-
-    public void DebugBetaGauge()
-    {
-        if (isBetaButtonResetting) // リセット中はボタンを無効化
-            return;
-
-        currentAmounts[2] += increaseAmounts[2];
-        currentAmounts[4] += increaseAmounts[4];
-
-        if (currentAmounts[2] >= maxAmounts[2])
-        {
-            gaugeImages[2].fillAmount = 0f;
-            StartCoroutine(ResetBetaGauge());
-        }
-
-        UpdateImage = 2;
-        UpdateGaugeDisplay();
-
-        buttonPressCount[2]++;
-    }
-
-    public void DebugPataGauge()
-    {
-        if (isPataButtonResetting) // リセット中はボタンを無効化
-            return;
-
-        currentAmounts[3] += increaseAmounts[3];
-        currentAmounts[4] += increaseAmounts[4];
-
-        if (currentAmounts[3] >= maxAmounts[3])
-        {
-            gaugeImages[3].fillAmount = 0f;
-            StartCoroutine(ResetPataGauge());
-        }
-
-        UpdateImage = 3;
-        UpdateGaugeDisplay();
-
-        buttonPressCount[3]++;
     }
 }
