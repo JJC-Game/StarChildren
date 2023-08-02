@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class SwipeController2D : MonoBehaviour
+public class SwipeController2D : Singleton<SwipeController2D>
 {
     // スワイプの感知距離
     public float swipeDistanceThreshold = 50f;
@@ -48,11 +49,11 @@ public class SwipeController2D : MonoBehaviour
         // スワイプ操作の処理
         if (isOnFloor && GameManager.Instance.mainGame)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (!EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButtonDown(0))
             {
                 swipeStartPosition = Input.mousePosition;
             }
-            else if (Input.GetMouseButtonUp(0))
+            else if (!EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButtonUp(0))
             {
                 swipeEndPosition = Input.mousePosition;
                 DetectSwipeDirection();
@@ -66,11 +67,11 @@ public class SwipeController2D : MonoBehaviour
         // ぱたぱたの能力を持っていて空中にいる状態で指定の回数ジャンプできる処理
         if (isOnFloor == false && GameManager.Instance.mainGame && DataManager.Instance.LoadInt("PataLimit") >= 1 && MoreJump)
         {
-            if (Input.GetMouseButtonDown(0) && MoreJump)
+            if (!EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButtonDown(0) && MoreJump)
             {
                 swipeStartPosition = Input.mousePosition;
             }
-            else if (Input.GetMouseButtonUp(0) && MoreJump)
+            else if (!EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButtonUp(0))
             {
                 swipeEndPosition = Input.mousePosition;
                 DetectSwipeDirection();
@@ -174,4 +175,5 @@ public class SwipeController2D : MonoBehaviour
             ObjectView = false;
         }
     }
+
 }
