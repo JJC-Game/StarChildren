@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems; //追加
 
-public class Sample_MainMenuManager : MonoBehaviour
+public class MainMenuManager : MonoBehaviour
 {
     [Header("各Canvas")]
     [SerializeField] GameObject[] canvas;
