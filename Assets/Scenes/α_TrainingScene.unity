@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 24747887}
   - component: {fileID: 24747886}
   m_Layer: 5
-  m_Name: Image
+  m_Name: ChangeImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -196,8 +196,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 43.862427, y: -64.67078}
-  m_SizeDelta: {x: 446.7027, y: 447.407}
+  m_AnchoredPosition: {x: 0.3591, y: -0.0846}
+  m_SizeDelta: {x: 900.0212, y: 932.1945}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &75282646
 GameObject:
@@ -9007,7 +9007,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 340a63ed874f1834185b05a539042abe, type: 3}
   - {fileID: 21300000, guid: 3872f462be3977e4e9f450c404ff2349, type: 3}
   - {fileID: 21300000, guid: 0511ce3553be11b418541efbf534d0e3, type: 3}
-  kiraMaxSpriteDisplay: {fileID: 2072289895}
+  kiraMaxSpriteDisplay: {fileID: 24747886}
 --- !u!114 &1967155396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9015,7 +9015,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1967155393}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f9602c7005d64a45a9c25c4c172a270, type: 3}
   m_Name: 
@@ -9050,7 +9050,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 340a63ed874f1834185b05a539042abe, type: 3}
   - {fileID: 21300000, guid: 3ed8639140ca186419923c29646ba4c5, type: 3}
   - {fileID: 21300000, guid: 0511ce3553be11b418541efbf534d0e3, type: 3}
-  kiraMaxSpriteDisplay: {fileID: 2072289895}
+  kiraMaxSpriteDisplay: {fileID: 24747886}
 --- !u!1 &1985203203
 GameObject:
   m_ObjectHideFlags: 0
