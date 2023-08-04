@@ -25,6 +25,13 @@ public class DataManager : Singleton<DataManager>
         PlayerPrefs.Save();
     }
 
+    // 変数の保存string型
+    public void SaveString(string key, string value)
+    {
+        PlayerPrefs.SetString(key, value);
+        PlayerPrefs.Save();
+    }
+
     // 保存した変数の呼び出しint型
     public int LoadInt(string key)
     {
@@ -41,6 +48,12 @@ public class DataManager : Singleton<DataManager>
     public bool LoadBool(string key)
     {
         return PlayerPrefs.GetInt(key) == 1;
+    }
+
+    // 保存した変数の呼び出しstring型
+    public string LoadString(string key)
+    {
+        return PlayerPrefs.GetString(key);
     }
 
 

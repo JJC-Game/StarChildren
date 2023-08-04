@@ -26,6 +26,7 @@ public class DebugButton : MonoBehaviour
     private int[] buttonPressCount; // 各ボタンの押された回数を格納する配列
     private int mostPressedButtonIndex; // 最も押されたボタンのインデックス
     private bool isKiraGaugeMax = false; // KiraGaugeがMAXになったフラグ
+    public ParticleSystem[] particleSystems; // パーティクルシステムの配列
 
 
     private bool isAllGaugeResetting = false;
@@ -98,6 +99,7 @@ public class DebugButton : MonoBehaviour
         UpdateGaugeDisplay();
 
         buttonPressCount[0]++;
+        PlayParticle(0); // パーティクル再生処理を呼び出す
     }
 
     public void DebugOmoGauge()
@@ -118,6 +120,7 @@ public class DebugButton : MonoBehaviour
         UpdateGaugeDisplay();
 
         buttonPressCount[1]++;
+        PlayParticle(1); // パーティクル再生処理を呼び出す
     }
 
     public void DebugBetaGauge()
@@ -138,6 +141,7 @@ public class DebugButton : MonoBehaviour
         UpdateGaugeDisplay();
 
         buttonPressCount[2]++;
+        PlayParticle(2); // パーティクル再生処理を呼び出す
     }
 
     public void DebugPataGauge()
@@ -158,6 +162,7 @@ public class DebugButton : MonoBehaviour
         UpdateGaugeDisplay();
 
         buttonPressCount[3]++;
+        PlayParticle(3); // パーティクル再生処理を呼び出す
     }
     
 
@@ -251,6 +256,14 @@ public class DebugButton : MonoBehaviour
         }
 
         isAllGaugeResetting = false;
+    }
+
+    private void PlayParticle(int particleIndex)
+    {
+        if (particleIndex >= 0 && particleIndex < particleSystems.Length)
+        {
+            particleSystems[particleIndex].Play();
+        }
     }
 
 

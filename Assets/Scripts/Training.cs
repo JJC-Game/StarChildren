@@ -27,6 +27,8 @@ public class Training : MonoBehaviour
     private int[] buttonPressCount; // 各ボタンの押された回数を格納する配列
     private int mostPressedButtonIndex; // 最も押されたボタンのインデックス
     private bool isKiraGaugeMax = false; // KiraGaugeがMAXになったフラグ
+    public ParticleSystem[] particleSystems; // パーティクルシステムの配列
+
 
     private bool isAllGaugeResetting = false;
     private bool isMukiButtonResetting = false;
@@ -109,6 +111,7 @@ public class Training : MonoBehaviour
             timer = 0f;
             NoItem.gameObject.SetActive(true);
         }
+        PlayParticle(0); // パーティクル再生処理を呼び出す
     }
 
     public void OmoButton()
@@ -118,7 +121,7 @@ public class Training : MonoBehaviour
 
         UseLimit = DataManager.Instance.LoadInt("OmoCount");
         if (UseLimit >= 1)
-        {
+       {
             UseLimit -= 1;
             DataManager.Instance.SaveInt("OmoCount", UseLimit);
             currentAmounts[1] += increaseAmounts[1]; // ゲージ量を増やす
@@ -140,6 +143,7 @@ public class Training : MonoBehaviour
             timer = 0f;
             NoItem.gameObject.SetActive(true);
         }
+        PlayParticle(1); // パーティクル再生処理を呼び出す
     }
 
 
@@ -172,6 +176,7 @@ public class Training : MonoBehaviour
             timer = 0f;
             NoItem.gameObject.SetActive(true);
         }
+        PlayParticle(2); // パーティクル再生処理を呼び出す
     }
 
     public void PataButton()
@@ -202,8 +207,8 @@ public class Training : MonoBehaviour
         {
             timer = 0f;
             NoItem.gameObject.SetActive(true);
-
         }
+        PlayParticle(3); // パーティクル再生処理を呼び出す
     }
 
     public void KiraGauge()
@@ -295,6 +300,14 @@ public class Training : MonoBehaviour
         }
 
         isAllGaugeResetting = false;
+    }
+
+    private void PlayParticle(int particleIndex)
+    {
+        if (particleIndex >= 0 && particleIndex < particleSystems.Length)
+        {
+            particleSystems[particleIndex].Play();
+        }
     }
 
 
