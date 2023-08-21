@@ -8,20 +8,18 @@ public class TestTraining : MonoBehaviour
     public Button[] invalidButton;//MukiButtonを2秒後にリセットする変数の宣言
 
     public float increaseAmounts = 1; // 一回に増える増加量
-    public float[] maxAmounts; // 最大量
     public Image[] gaugeImages; // ゲージの表示用イメージ
     public float[] currentAmounts; // 各ゲージの現在の量
 
 
     private int UseLimit; // アイテム使用の回数制限
-    private int UpdateImage; // 変更するゲージの指定
 
     public TextMeshProUGUI NoItem;
     public float fadeOutTime = 1.0f;
     private float currentAlpha;
     private float timer;
 
-    private int[] GaugeMaxCount; // 各ゲージがMaxになった回数
+    public int[] GaugeMaxCount; // 各ゲージがMaxになった回数
     private bool isKiraGaugeMax = false; // KiraGaugeがMAXになったフラグ
 
     public GameObject PlayerSprite;
@@ -35,12 +33,6 @@ public class TestTraining : MonoBehaviour
 
     private void Start()
     {
-        GaugeMaxCount = new int[invalidButton.Length];
-        for (int i = 0; i < GaugeMaxCount.Length; i++)
-        {
-            GaugeMaxCount[i] = 0;
-        }
-
         NoItem.gameObject.SetActive(false); // アイテム回数制限のtext非表示
 
         currentAmounts = new float[gaugeImages.Length];
@@ -50,15 +42,20 @@ public class TestTraining : MonoBehaviour
             currentAmounts[i] = 0f;
         }
 
-        UpdateGaugeDisplay();
+        UpdateGaugeDisplayM();
+        UpdateGaugeDisplayO();
+        UpdateGaugeDisplayB();
+        UpdateGaugeDisplayP();
+        UpdateGaugeDisplayK();
 
         currentAlpha = NoItem.alpha;
 
-        GaugeMaxCount[0] = DataManager.Instance.LoadInt("MMG");
-        GaugeMaxCount[1] = DataManager.Instance.LoadInt("OMG");
-        GaugeMaxCount[2] = DataManager.Instance.LoadInt("BMG");
-        GaugeMaxCount[3] = DataManager.Instance.LoadInt("PMG");
-        GaugeMaxCount[4] = DataManager.Instance.LoadInt("KMG");
+        GaugeMaxCount[0] = DataManager.Instance.LoadInt("MCMG");
+        GaugeMaxCount[1] = DataManager.Instance.LoadInt("OCMG");
+        GaugeMaxCount[2] = DataManager.Instance.LoadInt("BCMG");
+        GaugeMaxCount[3] = DataManager.Instance.LoadInt("PCMG");
+        GaugeMaxCount[4] = DataManager.Instance.LoadInt("KCMG");
+
     }
 
     private void Update()
@@ -78,8 +75,32 @@ public class TestTraining : MonoBehaviour
             NoItem.enabled = true;
         }
 
-
         KiraGauge();
+
+        if (DataManager.Instance.LoadInt("KCMG") == 0)
+        {
+            DataManager.Instance.SaveInt("MMG", 10);
+            DataManager.Instance.SaveInt("OMG", 10);
+            DataManager.Instance.SaveInt("BMG", 10);
+            DataManager.Instance.SaveInt("PMG", 10);
+            DataManager.Instance.SaveInt("KMG", 30);
+        }
+        else if (DataManager.Instance.LoadInt("KCMG") == 1)
+        {
+            DataManager.Instance.SaveInt("MMG", 20);
+            DataManager.Instance.SaveInt("OMG", 20);
+            DataManager.Instance.SaveInt("BMG", 20);
+            DataManager.Instance.SaveInt("PMG", 20);
+            DataManager.Instance.SaveInt("KMG", 60);
+        }
+        else if (DataManager.Instance.LoadInt("KCMG") == 2)
+        {
+            DataManager.Instance.SaveInt("MMG", 30);
+            DataManager.Instance.SaveInt("OMG", 30);
+            DataManager.Instance.SaveInt("BMG", 30);
+            DataManager.Instance.SaveInt("PMG", 30);
+            DataManager.Instance.SaveInt("KMG", 90);
+        }
 
     }
 
@@ -98,13 +119,13 @@ public class TestTraining : MonoBehaviour
             currentAmounts[4] += increaseAmounts; // きらめきゲージ量を増やす
 
             // ゲージ量が最大値を超えた場合、ゲージをリセットする
-            if (currentAmounts[0] - 1 >= maxAmounts[0])
+            if (currentAmounts[0] - 1 >= DataManager.Instance.LoadInt("MMG"))
             {
-                gaugeImages[0].fillAmount = 0f;
                 StartCoroutine(ResetMukiGauge());
+                GaugeMaxCount[0] += 1;
+                DataManager.Instance.SaveInt("MCMG", GaugeMaxCount[0]);
             }
-            UpdateImage = 0;
-            UpdateGaugeDisplay();
+            UpdateGaugeDisplayM();
         }
         else
         {
@@ -128,13 +149,13 @@ public class TestTraining : MonoBehaviour
             currentAmounts[4] += increaseAmounts; // きらめきゲージ量を増やす
 
             // ゲージ量が最大値を超えた場合、ゲージをリセットする
-            if (currentAmounts[1] - 1 >= maxAmounts[1])
+            if (currentAmounts[1] - 1 >= DataManager.Instance.LoadInt("OMG"))
             {
-                gaugeImages[1].fillAmount = 0f;
                 StartCoroutine(ResetOmoGauge());
+                GaugeMaxCount[1] += 1;
+                DataManager.Instance.SaveInt("OCMG", GaugeMaxCount[1]);
             }
-            UpdateImage = 1;
-            UpdateGaugeDisplay();
+            UpdateGaugeDisplayO();
         }
         else
         {
@@ -159,13 +180,13 @@ public class TestTraining : MonoBehaviour
             currentAmounts[4] += increaseAmounts; // きらめきゲージ量を増やす
 
             // ゲージ量が最大値を超えた場合、ゲージをリセットする
-            if (currentAmounts[2] - 1 >= maxAmounts[2])
+            if (currentAmounts[2] - 1 >= DataManager.Instance.LoadInt("BMG"))
             {
-                gaugeImages[2].fillAmount = 0f;
                 StartCoroutine(ResetBetaGauge());
+                GaugeMaxCount[2] += 1;
+                DataManager.Instance.SaveInt("BCMG", GaugeMaxCount[2]);
             }
-            UpdateImage = 2;
-            UpdateGaugeDisplay();
+            UpdateGaugeDisplayB();
         }
         else
         {
@@ -189,13 +210,14 @@ public class TestTraining : MonoBehaviour
             currentAmounts[4] += increaseAmounts; // きらめきゲージ量を増やす
 
             // ゲージ量が最大値を超えた場合、ゲージをリセットする
-            if (currentAmounts[3] - 1 >= maxAmounts[3])
+            if (currentAmounts[3] - 1 >= DataManager.Instance.LoadInt("PMG"))
             {
-                gaugeImages[3].fillAmount = 0f;
                 StartCoroutine(ResetPataGauge());
+                GaugeMaxCount[3] += 1;
+                DataManager.Instance.SaveInt("PCMG", GaugeMaxCount[3]);
+
             }
-            UpdateImage = 3;
-            UpdateGaugeDisplay();
+            UpdateGaugeDisplayP();
         }
         else
         {
@@ -208,7 +230,7 @@ public class TestTraining : MonoBehaviour
     public void KiraGauge()
     {
         // ゲージ量が最大値を超えた場合、ゲージをリセットする
-        if (currentAmounts[4] >= maxAmounts[4] && !isAllGaugeResetting && !isKiraGaugeMax)
+        if (currentAmounts[4] - 1 >= DataManager.Instance.LoadInt("KMG") && !isAllGaugeResetting && !isKiraGaugeMax)
         {
             StartCoroutine(ResetMukiGauge());
             StartCoroutine(ResetOmoGauge());
@@ -216,17 +238,23 @@ public class TestTraining : MonoBehaviour
             StartCoroutine(ResetPataGauge());
             StartCoroutine(AllResetGauge());
 
+            GaugeMaxCount[4] += 1;
+            DataManager.Instance.SaveInt("KCMG", GaugeMaxCount[4]);
+
             isKiraGaugeMax = true;
+            SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
+            targetSpriteRenderer.sprite = EvolveSprite[0];
+
         }
 
-        UpdateImage = 4;
-        UpdateGaugeDisplay();
-
-        SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
-        targetSpriteRenderer.sprite = EvolveSprite[0];
+        UpdateGaugeDisplayM();
+        UpdateGaugeDisplayO();
+        UpdateGaugeDisplayB();
+        UpdateGaugeDisplayP();
+        UpdateGaugeDisplayK();
 
         // KiraGaugeがMAXではない場合の処理
-        if (currentAmounts[4] < maxAmounts[4] && isKiraGaugeMax)
+        if (currentAmounts[4] < DataManager.Instance.LoadInt("KMG") && isKiraGaugeMax)
         {
             isKiraGaugeMax = false;
         }
@@ -234,14 +262,40 @@ public class TestTraining : MonoBehaviour
 
 
     // ゲージの表示を更新する
-    private void UpdateGaugeDisplay()
+    private void UpdateGaugeDisplayM()
     {
-        for (int i = 0; i < gaugeImages.Length; i++)
-        {
-            float normalizedAmount = currentAmounts[UpdateImage] / maxAmounts[UpdateImage];
+        float normalizedAmount = currentAmounts[0] / DataManager.Instance.LoadInt("MMG");
 
-            gaugeImages[UpdateImage].fillAmount = normalizedAmount;
-        }
+        gaugeImages[0].fillAmount = normalizedAmount;
+    }
+
+    private void UpdateGaugeDisplayO()
+    {
+        float normalizedAmount = currentAmounts[1] / DataManager.Instance.LoadInt("OMG");
+
+        gaugeImages[1].fillAmount = normalizedAmount;
+    }
+
+    private void UpdateGaugeDisplayB()
+    {
+        
+        float normalizedAmount = currentAmounts[2] / DataManager.Instance.LoadInt("BMG");
+
+        gaugeImages[2].fillAmount = normalizedAmount;
+    }
+
+    private void UpdateGaugeDisplayP()
+    {
+        float normalizedAmount = currentAmounts[3] / DataManager.Instance.LoadInt("PMG");
+
+        gaugeImages[3].fillAmount = normalizedAmount;
+    }
+
+    private void UpdateGaugeDisplayK()
+    {
+        float normalizedAmount = currentAmounts[4] / DataManager.Instance.LoadInt("KMG");
+
+        gaugeImages[4].fillAmount = normalizedAmount;
     }
 
     /*
@@ -257,9 +311,6 @@ public class TestTraining : MonoBehaviour
     //GaugeがMAXになったら2秒後にリセットされる
     private IEnumerator ResetMukiGauge()
     {
-        GaugeMaxCount[0] += 1;
-        DataManager.Instance.SaveInt("MMG", GaugeMaxCount[0]);
-
         isMukiButtonResetting = true;
         invalidButton[0].interactable = false; // ボタンを無効化
 
@@ -274,9 +325,6 @@ public class TestTraining : MonoBehaviour
 
     private IEnumerator ResetOmoGauge()
     {
-        GaugeMaxCount[1] += 1;
-        DataManager.Instance.SaveInt("OMG", GaugeMaxCount[1]);
-
         isOmoButtonResetting = true;
         invalidButton[1].interactable = false; // ボタンを無効化
 
@@ -291,9 +339,6 @@ public class TestTraining : MonoBehaviour
 
     private IEnumerator ResetBetaGauge()
     {
-        GaugeMaxCount[2] += 1;
-        DataManager.Instance.SaveInt("BMG", GaugeMaxCount[2]);
-
         isBetaButtonResetting = true;
         invalidButton[2].interactable = false; // ボタンを無効化
 
@@ -308,9 +353,6 @@ public class TestTraining : MonoBehaviour
 
     private IEnumerator ResetPataGauge()
     {
-        GaugeMaxCount[3] += 1;
-        DataManager.Instance.SaveInt("PMG", GaugeMaxCount[3]);
-
         isPataButtonResetting = true;
         invalidButton[3].interactable = false; // ボタンを無効化
 
@@ -326,9 +368,6 @@ public class TestTraining : MonoBehaviour
     //KiraGaugeがMAXになったらすべてのゲージが2秒後にリセットされる
     private IEnumerator AllResetGauge()
     {
-        GaugeMaxCount[4] += 1;
-        DataManager.Instance.SaveInt("KMG", GaugeMaxCount[4]);
-
         isAllGaugeResetting = true;
 
         yield return new WaitForSeconds(2f);

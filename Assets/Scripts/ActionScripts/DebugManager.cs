@@ -12,10 +12,10 @@ public class DebugManager : MonoBehaviour
     public TextMeshProUGUI Beta;
     public TextMeshProUGUI BetaMin;
     public TextMeshProUGUI Pata;
-    private bool MukiOn;
-    private bool OmoOn;
-    private bool BetaOn;
-    private bool PataOn;
+    private bool MukiOn = true;
+    private bool OmoOn = true;
+    private bool BetaOn = true;
+    private bool PataOn = true;
 
     public void Update()
     {
