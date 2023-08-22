@@ -7122,7 +7122,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1967155396}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Training, Assembly-CSharp
         m_MethodName: PataButton
         m_Mode: 1
@@ -7525,7 +7525,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1967155396}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Training, Assembly-CSharp
         m_MethodName: OmoButton
         m_Mode: 1
@@ -7659,7 +7659,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1967155396}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Training, Assembly-CSharp
         m_MethodName: BetaButton
         m_Mode: 1
@@ -8252,7 +8252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1582700010
 Transform:
   m_ObjectHideFlags: 0
@@ -8510,7 +8510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8df3e9d504638184d8acd2042c3b6cb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1202522996400206, guid: f87e7926fd589094b8a269e14b8bea5e, type: 3}
+  prefab: {fileID: 1500378020736912, guid: 2547a66872ebe45408ace228820a79e1, type: 3}
   deleteTime: 1
 --- !u!4 &1670729242
 Transform:
@@ -8960,7 +8960,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1967155396}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Training, Assembly-CSharp
         m_MethodName: MukiButton
         m_Mode: 1
@@ -9019,7 +9019,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1967155394}
-  - component: {fileID: 1967155396}
   - component: {fileID: 1967155395}
   m_Layer: 0
   m_Name: ButtonManager
@@ -9086,55 +9085,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3872f462be3977e4e9f450c404ff2349, type: 3}
   - {fileID: 21300000, guid: 0511ce3553be11b418541efbf534d0e3, type: 3}
   kiraMaxSpriteDisplay: {fileID: 24747886}
-  particleSystems:
-  - {fileID: 376382660}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &1967155396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1967155393}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f9602c7005d64a45a9c25c4c172a270, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  invalidButton:
-  - {fileID: 1827738781}
-  - {fileID: 1297610277}
-  - {fileID: 1355478304}
-  - {fileID: 1219719649}
-  increaseAmounts:
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  maxAmounts:
-  - 5
-  - 5
-  - 5
-  - 5
-  - 20
-  gaugeImages:
-  - {fileID: 442434546}
-  - {fileID: 1985203205}
-  - {fileID: 1614778399}
-  - {fileID: 1741857253}
-  - {fileID: 2072289895}
-  NoItem: {fileID: 702369501}
-  fadeOutTime: 5
-  kiraMaxSprites:
-  - {fileID: 21300000, guid: 57ef64a46e89e0d49a164e8305ad0774, type: 3}
-  - {fileID: 21300000, guid: 340a63ed874f1834185b05a539042abe, type: 3}
-  - {fileID: 21300000, guid: 3ed8639140ca186419923c29646ba4c5, type: 3}
-  - {fileID: 21300000, guid: 0511ce3553be11b418541efbf534d0e3, type: 3}
-  kiraMaxSpriteDisplay: {fileID: 24747886}
-  particleSystems: []
 --- !u!1 &1985203203
 GameObject:
   m_ObjectHideFlags: 0
