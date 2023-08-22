@@ -9,6 +9,10 @@ TagManager:
   - ItemMuki
   - ItemOmo
   - ItemBeta
+  - ItemPata
+  - Mukib
+  - Omob
+  - Touch
   layers:
   - Default
   - TransparentFX
@@ -16,7 +20,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Effect
   - 
   - 
   - 

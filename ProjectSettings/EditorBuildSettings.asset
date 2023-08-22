@@ -8,13 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HomeScene.unity
     guid: c1e1550855e9f3f43873954e53641247
-  - enabled: 1
+  - enabled: 0
     path: "Assets/Scenes/\u03B1_stage1.unity"
     guid: fcd0f7295229e984dabada509adbaa81
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/ActionScene.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   - enabled: 1
+    path: Assets/Scenes/TestTraining.unity
+    guid: 77ccb0459612dcc41a59ea5c874e6094
+  - enabled: 0
     path: "Assets/Scenes/\u03B12_TrainingScene.unity"
     guid: dec362f27a70b6640a9a0d9f9d6572b0
   - enabled: 0
