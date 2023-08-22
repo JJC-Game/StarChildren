@@ -119,7 +119,7 @@ public class TestTraining : MonoBehaviour
             currentAmounts[4] += increaseAmounts; // きらめきゲージ量を増やす
 
             // ゲージ量が最大値を超えた場合、ゲージをリセットする
-            if (currentAmounts[0] - 1 >= DataManager.Instance.LoadInt("MMG"))
+            if (currentAmounts[0] >= DataManager.Instance.LoadInt("MMG"))
             {
                 StartCoroutine(ResetMukiGauge());
                 GaugeMaxCount[0] += 1;
@@ -149,7 +149,7 @@ public class TestTraining : MonoBehaviour
             currentAmounts[4] += increaseAmounts; // きらめきゲージ量を増やす
 
             // ゲージ量が最大値を超えた場合、ゲージをリセットする
-            if (currentAmounts[1] - 1 >= DataManager.Instance.LoadInt("OMG"))
+            if (currentAmounts[1]  >= DataManager.Instance.LoadInt("OMG"))
             {
                 StartCoroutine(ResetOmoGauge());
                 GaugeMaxCount[1] += 1;
@@ -180,7 +180,7 @@ public class TestTraining : MonoBehaviour
             currentAmounts[4] += increaseAmounts; // きらめきゲージ量を増やす
 
             // ゲージ量が最大値を超えた場合、ゲージをリセットする
-            if (currentAmounts[2] - 1 >= DataManager.Instance.LoadInt("BMG"))
+            if (currentAmounts[2] >= DataManager.Instance.LoadInt("BMG"))
             {
                 StartCoroutine(ResetBetaGauge());
                 GaugeMaxCount[2] += 1;
@@ -210,7 +210,7 @@ public class TestTraining : MonoBehaviour
             currentAmounts[4] += increaseAmounts; // きらめきゲージ量を増やす
 
             // ゲージ量が最大値を超えた場合、ゲージをリセットする
-            if (currentAmounts[3] - 1 >= DataManager.Instance.LoadInt("PMG"))
+            if (currentAmounts[3] >= DataManager.Instance.LoadInt("PMG"))
             {
                 StartCoroutine(ResetPataGauge());
                 GaugeMaxCount[3] += 1;
@@ -230,7 +230,7 @@ public class TestTraining : MonoBehaviour
     public void KiraGauge()
     {
         // ゲージ量が最大値を超えた場合、ゲージをリセットする
-        if (currentAmounts[4] - 1 >= DataManager.Instance.LoadInt("KMG") && !isAllGaugeResetting && !isKiraGaugeMax)
+        if (currentAmounts[4] >= DataManager.Instance.LoadInt("KMG") && !isAllGaugeResetting && !isKiraGaugeMax)
         {
             StartCoroutine(ResetMukiGauge());
             StartCoroutine(ResetOmoGauge());
