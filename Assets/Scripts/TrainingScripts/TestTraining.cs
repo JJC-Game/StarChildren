@@ -37,11 +37,6 @@ public class TestTraining : MonoBehaviour
 
         currentAmounts = new float[gaugeImages.Length];
 
-        for (int i = 0; i < currentAmounts.Length; i++)
-        {
-            currentAmounts[i] = 0f;
-        }
-
         UpdateGaugeDisplayM();
         UpdateGaugeDisplayO();
         UpdateGaugeDisplayB();
@@ -50,11 +45,27 @@ public class TestTraining : MonoBehaviour
 
         currentAlpha = NoItem.alpha;
 
+        DataManager.Instance.SaveInt("MMG", 10);
+        DataManager.Instance.SaveInt("OMG", 10);
+        DataManager.Instance.SaveInt("BMG", 10);
+        DataManager.Instance.SaveInt("PMG", 10);
+
         GaugeMaxCount[0] = DataManager.Instance.LoadInt("MCMG");
         GaugeMaxCount[1] = DataManager.Instance.LoadInt("OCMG");
         GaugeMaxCount[2] = DataManager.Instance.LoadInt("BCMG");
         GaugeMaxCount[3] = DataManager.Instance.LoadInt("PCMG");
         GaugeMaxCount[4] = DataManager.Instance.LoadInt("KCMG");
+
+        if (DataManager.Instance.LoadBool("E1F") == true)
+        {
+            SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
+            targetSpriteRenderer.sprite = EvolveSprite[0];
+        }
+        else if (DataManager.Instance.LoadBool("E1O") == true)
+        {
+            SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
+            targetSpriteRenderer.sprite = EvolveSprite[1];
+        }
 
     }
 
@@ -79,26 +90,18 @@ public class TestTraining : MonoBehaviour
 
         if (DataManager.Instance.LoadInt("KCMG") == 0)
         {
-            DataManager.Instance.SaveInt("MMG", 10);
-            DataManager.Instance.SaveInt("OMG", 10);
-            DataManager.Instance.SaveInt("BMG", 10);
-            DataManager.Instance.SaveInt("PMG", 10);
             DataManager.Instance.SaveInt("KMG", 30);
         }
         else if (DataManager.Instance.LoadInt("KCMG") == 1)
         {
-            DataManager.Instance.SaveInt("MMG", 20);
-            DataManager.Instance.SaveInt("OMG", 20);
-            DataManager.Instance.SaveInt("BMG", 20);
-            DataManager.Instance.SaveInt("PMG", 20);
-            DataManager.Instance.SaveInt("KMG", 60);
+            DataManager.Instance.SaveInt("KMG", 50);
         }
         else if (DataManager.Instance.LoadInt("KCMG") == 2)
         {
-            DataManager.Instance.SaveInt("MMG", 30);
-            DataManager.Instance.SaveInt("OMG", 30);
-            DataManager.Instance.SaveInt("BMG", 30);
-            DataManager.Instance.SaveInt("PMG", 30);
+            DataManager.Instance.SaveInt("KMG", 70);
+        }
+        else if (DataManager.Instance.LoadInt("KCMG") == 3)
+        {
             DataManager.Instance.SaveInt("KMG", 90);
         }
 
@@ -115,15 +118,16 @@ public class TestTraining : MonoBehaviour
         {
             UseLimit -= 1;
             DataManager.Instance.SaveInt("MukiCount", UseLimit);
-            currentAmounts[0] += increaseAmounts; // ゲージ量を増やす
-            currentAmounts[4] += increaseAmounts; // きらめきゲージ量を増やす
+            DataManager.Instance.SaveFloat("FG",DataManager.Instance.LoadFloat("FG") + increaseAmounts); // ゲージ量を増やす
+            DataManager.Instance.SaveFloat("KG",DataManager.Instance.LoadFloat("KG") + increaseAmounts); // きらめきゲージ量を増やす
 
             // ゲージ量が最大値を超えた場合、ゲージをリセットする
-            if (currentAmounts[0] >= DataManager.Instance.LoadInt("MMG"))
+            if (DataManager.Instance.LoadFloat("FG") >= DataManager.Instance.LoadInt("MMG"))
             {
                 StartCoroutine(ResetMukiGauge());
                 GaugeMaxCount[0] += 1;
                 DataManager.Instance.SaveInt("MCMG", GaugeMaxCount[0]);
+                DataManager.Instance.SaveBool("Muki", true);
             }
             UpdateGaugeDisplayM();
         }
@@ -145,15 +149,16 @@ public class TestTraining : MonoBehaviour
         {
             UseLimit -= 1;
             DataManager.Instance.SaveInt("OmoCount", UseLimit);
-            currentAmounts[1] += increaseAmounts; // ゲージ量を増やす
-            currentAmounts[4] += increaseAmounts; // きらめきゲージ量を増やす
+            DataManager.Instance.SaveFloat("OG", DataManager.Instance.LoadFloat("OG") + increaseAmounts); // ゲージ量を増やす
+            DataManager.Instance.SaveFloat("KG",DataManager.Instance.LoadFloat("KG") + increaseAmounts); // きらめきゲージ量を増やす
 
             // ゲージ量が最大値を超えた場合、ゲージをリセットする
-            if (currentAmounts[1]  >= DataManager.Instance.LoadInt("OMG"))
+            if (DataManager.Instance.LoadFloat("OG") >= DataManager.Instance.LoadInt("OMG"))
             {
                 StartCoroutine(ResetOmoGauge());
                 GaugeMaxCount[1] += 1;
                 DataManager.Instance.SaveInt("OCMG", GaugeMaxCount[1]);
+                DataManager.Instance.SaveBool("Omo", true);
             }
             UpdateGaugeDisplayO();
         }
@@ -176,11 +181,11 @@ public class TestTraining : MonoBehaviour
         {
             UseLimit -= 1;
             DataManager.Instance.SaveInt("BetaCount", UseLimit);
-            currentAmounts[2] += increaseAmounts; // ゲージ量を増やす
-            currentAmounts[4] += increaseAmounts; // きらめきゲージ量を増やす
+            DataManager.Instance.SaveFloat("BG", DataManager.Instance.LoadFloat("BG") + increaseAmounts); // ゲージ量を増やす
+            DataManager.Instance.SaveFloat("KG",DataManager.Instance.LoadFloat("KG") + increaseAmounts); // きらめきゲージ量を増やす
 
             // ゲージ量が最大値を超えた場合、ゲージをリセットする
-            if (currentAmounts[2] >= DataManager.Instance.LoadInt("BMG"))
+            if (DataManager.Instance.LoadFloat("BG") >= DataManager.Instance.LoadInt("BMG"))
             {
                 StartCoroutine(ResetBetaGauge());
                 GaugeMaxCount[2] += 1;
@@ -206,11 +211,11 @@ public class TestTraining : MonoBehaviour
         {
             UseLimit -= 1;
             DataManager.Instance.SaveInt("PataCount", UseLimit);
-            currentAmounts[3] += increaseAmounts; // ゲージ量を増やす
-            currentAmounts[4] += increaseAmounts; // きらめきゲージ量を増やす
+            DataManager.Instance.SaveFloat("PG", DataManager.Instance.LoadFloat("PG") + increaseAmounts); // ゲージ量を増やす
+            DataManager.Instance.SaveFloat("KG",DataManager.Instance.LoadFloat("KG") + increaseAmounts); // きらめきゲージ量を増やす
 
             // ゲージ量が最大値を超えた場合、ゲージをリセットする
-            if (currentAmounts[3] >= DataManager.Instance.LoadInt("PMG"))
+            if (DataManager.Instance.LoadFloat("PG") >= DataManager.Instance.LoadInt("PMG"))
             {
                 StartCoroutine(ResetPataGauge());
                 GaugeMaxCount[3] += 1;
@@ -230,7 +235,7 @@ public class TestTraining : MonoBehaviour
     public void KiraGauge()
     {
         // ゲージ量が最大値を超えた場合、ゲージをリセットする
-        if (currentAmounts[4] >= DataManager.Instance.LoadInt("KMG") && !isAllGaugeResetting && !isKiraGaugeMax)
+        if (DataManager.Instance.LoadFloat("KG") >= DataManager.Instance.LoadInt("KMG") && !isAllGaugeResetting && !isKiraGaugeMax)
         {
             StartCoroutine(ResetMukiGauge());
             StartCoroutine(ResetOmoGauge());
@@ -238,12 +243,40 @@ public class TestTraining : MonoBehaviour
             StartCoroutine(ResetPataGauge());
             StartCoroutine(AllResetGauge());
 
-            GaugeMaxCount[4] += 1;
-            DataManager.Instance.SaveInt("KCMG", GaugeMaxCount[4]);
-
             isKiraGaugeMax = true;
             SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
-            targetSpriteRenderer.sprite = EvolveSprite[0];
+            if (DataManager.Instance.LoadInt("KCMG") > DataManager.Instance.LoadInt("OCMG") && DataManager.Instance.LoadBool("E1") == false)
+            {
+                targetSpriteRenderer.sprite = EvolveSprite[0];
+                MaxCountReset();
+                DataManager.Instance.SaveBool("E1",true);
+                DataManager.Instance.SaveBool("E1F", true);
+            }
+            else if (DataManager.Instance.LoadInt("KCMG") < DataManager.Instance.LoadInt("OCMG") && DataManager.Instance.LoadBool("E1") == false)
+            {
+                targetSpriteRenderer.sprite = EvolveSprite[1];
+                MaxCountReset();
+                DataManager.Instance.SaveBool("E1", true);
+                DataManager.Instance.SaveBool("E1O", true);
+            }
+            else if (DataManager.Instance.LoadInt("KCMG") == DataManager.Instance.LoadInt("OCMG") && DataManager.Instance.LoadBool("E1") == false)
+            {
+                int randomIndex = Random.Range(0, 2);
+                if (randomIndex == 0)
+                {
+                    targetSpriteRenderer.sprite = EvolveSprite[0];
+                    MaxCountReset();
+                    DataManager.Instance.SaveBool("E1", true);
+                    DataManager.Instance.SaveBool("E1F", true);
+                }
+                else
+                {
+                    targetSpriteRenderer.sprite = EvolveSprite[1];
+                    MaxCountReset();
+                    DataManager.Instance.SaveBool("E1", true);
+                    DataManager.Instance.SaveBool("E1O", true);
+                }
+            }
 
         }
 
@@ -260,18 +293,31 @@ public class TestTraining : MonoBehaviour
         }
     }
 
+    public void MaxCountReset()
+    {
+        DataManager.Instance.SaveInt("MCMG", 0);
+        DataManager.Instance.SaveInt("MCMG", 0);
+        DataManager.Instance.SaveInt("MCMG", 0);
+        DataManager.Instance.SaveInt("MCMG", 0);
+
+        GaugeMaxCount[0] = DataManager.Instance.LoadInt("MCMG");
+        GaugeMaxCount[1] = DataManager.Instance.LoadInt("OCMG");
+        GaugeMaxCount[2] = DataManager.Instance.LoadInt("BCMG");
+        GaugeMaxCount[3] = DataManager.Instance.LoadInt("PCMG");
+    }
+
 
     // ゲージの表示を更新する
     private void UpdateGaugeDisplayM()
     {
-        float normalizedAmount = currentAmounts[0] / DataManager.Instance.LoadInt("MMG");
+        float normalizedAmount = DataManager.Instance.LoadFloat("FG") / DataManager.Instance.LoadInt("MMG");
 
         gaugeImages[0].fillAmount = normalizedAmount;
     }
 
     private void UpdateGaugeDisplayO()
     {
-        float normalizedAmount = currentAmounts[1] / DataManager.Instance.LoadInt("OMG");
+        float normalizedAmount = DataManager.Instance.LoadFloat("OG") / DataManager.Instance.LoadInt("OMG");
 
         gaugeImages[1].fillAmount = normalizedAmount;
     }
@@ -279,21 +325,21 @@ public class TestTraining : MonoBehaviour
     private void UpdateGaugeDisplayB()
     {
         
-        float normalizedAmount = currentAmounts[2] / DataManager.Instance.LoadInt("BMG");
+        float normalizedAmount = DataManager.Instance.LoadFloat("BG") / DataManager.Instance.LoadInt("BMG");
 
         gaugeImages[2].fillAmount = normalizedAmount;
     }
 
     private void UpdateGaugeDisplayP()
     {
-        float normalizedAmount = currentAmounts[3] / DataManager.Instance.LoadInt("PMG");
+        float normalizedAmount = DataManager.Instance.LoadFloat("PG") / DataManager.Instance.LoadInt("PMG");
 
         gaugeImages[3].fillAmount = normalizedAmount;
     }
 
     private void UpdateGaugeDisplayK()
     {
-        float normalizedAmount = currentAmounts[4] / DataManager.Instance.LoadInt("KMG");
+        float normalizedAmount = DataManager.Instance.LoadFloat("KG") / DataManager.Instance.LoadInt("KMG");
 
         gaugeImages[4].fillAmount = normalizedAmount;
     }
@@ -316,7 +362,7 @@ public class TestTraining : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        currentAmounts[0] = 0f;
+        DataManager.Instance.SaveFloat("FG", 0);
         gaugeImages[0].fillAmount = 0f;
 
         invalidButton[0].interactable = true; // ボタンを有効化
@@ -330,7 +376,7 @@ public class TestTraining : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        currentAmounts[1] = 0f;
+        DataManager.Instance.SaveFloat("OG", 0);
         gaugeImages[1].fillAmount = 0f;
 
         invalidButton[1].interactable = true; // ボタンを有効化
@@ -344,7 +390,7 @@ public class TestTraining : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        currentAmounts[2] = 0f;
+        DataManager.Instance.SaveFloat("BG",0);
         gaugeImages[2].fillAmount = 0f;
 
         invalidButton[2].interactable = true; // ボタンを有効化
@@ -358,7 +404,7 @@ public class TestTraining : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        currentAmounts[3] = 0f;
+        DataManager.Instance.SaveFloat("PG",0);
         gaugeImages[3].fillAmount = 0f;
 
         invalidButton[3].interactable = true; // ボタンを有効化
@@ -372,13 +418,19 @@ public class TestTraining : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
+        DataManager.Instance.SaveFloat("FG", 0);
+        DataManager.Instance.SaveFloat("OG", 0);
+        DataManager.Instance.SaveFloat("BG", 0);
+        DataManager.Instance.SaveFloat("PG", 0);
+        DataManager.Instance.SaveFloat("KG", 0);
         // すべてのゲージをリセット
         for (int i = 0; i < gaugeImages.Length; i++)
         {
-            currentAmounts[i] = 0f;
             gaugeImages[i].fillAmount = 0f;
         }
 
         isAllGaugeResetting = false;
+        GaugeMaxCount[4] += 1;
+        DataManager.Instance.SaveInt("KCMG", GaugeMaxCount[4]);
     }
 }

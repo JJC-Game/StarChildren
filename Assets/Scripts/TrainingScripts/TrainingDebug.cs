@@ -18,6 +18,9 @@ public class TrainingDebug : MonoBehaviour
     public TextMeshProUGUI mc3;
     public TextMeshProUGUI mc4;
 
+    // キャラクターが変化したかどうか
+    public TextMeshProUGUI evo;
+
     public void Update()
     {
         ul1.text = DataManager.Instance.LoadInt("MukiCount").ToString();
@@ -30,6 +33,8 @@ public class TrainingDebug : MonoBehaviour
         mc2.text = DataManager.Instance.LoadInt("BCMG").ToString();
         mc3.text = DataManager.Instance.LoadInt("PCMG").ToString();
         mc4.text = DataManager.Instance.LoadInt("KCMG").ToString();
+
+        evo.text = DataManager.Instance.LoadBool("E1").ToString();
     }
 
     // 各ボタンを押したら使用可能数を増やせる
@@ -92,15 +97,7 @@ public class TrainingDebug : MonoBehaviour
 
     public void MaxCount0()
     {
-        if (DataManager.Instance.LoadInt("MCMG") == 0)
-        {
-            DataManager.Instance.SaveInt("MCMG", 1);
-        }
-        else if (DataManager.Instance.LoadInt("MCMG") == 1)
-        {
-            DataManager.Instance.SaveInt("MCMG", 2);
-        }
-        else if (DataManager.Instance.LoadInt("MCMG") != 0 || DataManager.Instance.LoadInt("MCMG") != 1)
+        if (DataManager.Instance.LoadInt("MCMG") != 0)
         {
             DataManager.Instance.SaveInt("MCMG", 0);
         }
@@ -108,15 +105,7 @@ public class TrainingDebug : MonoBehaviour
 
     public void MaxCount1()
     {
-        if (DataManager.Instance.LoadInt("OCMG") == 0)
-        {
-            DataManager.Instance.SaveInt("OCMG", 1);
-        }
-        else if (DataManager.Instance.LoadInt("OCMG") == 1)
-        {
-            DataManager.Instance.SaveInt("OCMG", 2);
-        }
-        else if (DataManager.Instance.LoadInt("OCMG") != 0 || DataManager.Instance.LoadInt("OCMG") != 1)
+        if (DataManager.Instance.LoadInt("OCMG") != 0)
         {
             DataManager.Instance.SaveInt("OCMG", 0);
         }
@@ -124,15 +113,7 @@ public class TrainingDebug : MonoBehaviour
 
     public void MaxCount2()
     {
-        if (DataManager.Instance.LoadInt("BCMG") == 0)
-        {
-            DataManager.Instance.SaveInt("BCMG", 1);
-        }
-        else if (DataManager.Instance.LoadInt("BCMG") == 1)
-        {
-            DataManager.Instance.SaveInt("BCMG", 2);
-        }
-        else if (DataManager.Instance.LoadInt("BCMG") != 0 || DataManager.Instance.LoadInt("BCMG") != 1)
+        if (DataManager.Instance.LoadInt("BCMG") != 0)
         {
             DataManager.Instance.SaveInt("BCMG", 0);
         }
@@ -140,15 +121,7 @@ public class TrainingDebug : MonoBehaviour
 
     public void MaxCount3()
     {
-        if (DataManager.Instance.LoadInt("PCMG") == 0)
-        {
-            DataManager.Instance.SaveInt("PCMG", 1);
-        }
-        else if (DataManager.Instance.LoadInt("PCMG") == 1)
-        {
-            DataManager.Instance.SaveInt("PCMG", 2);
-        }
-        else if (DataManager.Instance.LoadInt("PCMG") != 0 || DataManager.Instance.LoadInt("PCMG") != 1)
+        if (DataManager.Instance.LoadInt("PCMG") != 0)
         {
             DataManager.Instance.SaveInt("PCMG", 0);
         }
@@ -156,18 +129,17 @@ public class TrainingDebug : MonoBehaviour
 
     public void MaxCount4()
     {
-        if (DataManager.Instance.LoadInt("KCMG") == 0)
-        {
-            DataManager.Instance.SaveInt("KCMG", 1);
-        }
-        else if (DataManager.Instance.LoadInt("KCMG") == 1)
-        {
-            DataManager.Instance.SaveInt("KCMG", 2);
-        }
-        else if (DataManager.Instance.LoadInt("KCMG") != 0 || DataManager.Instance.LoadInt("KCMG") != 1)
+        if (DataManager.Instance.LoadInt("KCMG") != 0)
         {
             DataManager.Instance.SaveInt("KCMG", 0);
         }
+    }
+
+    public void EvoReset()
+    {
+        DataManager.Instance.SaveBool("E1", false);
+        DataManager.Instance.SaveBool("E1F", false);
+        DataManager.Instance.SaveBool("E1O", false);
     }
 
 }

@@ -21,7 +21,7 @@ public class DataManager : Singleton<DataManager>
     // 変数の保存bool型（1がtrue、0がfalse）
     public void SaveBool(string key, bool value)
     {
-        PlayerPrefs.SetInt(key, value ? 1 : 0); // 1 for true, 0 for false
+        PlayerPrefs.SetInt(key, value ? 1 : 0); // 1がtrue, 0がfalse
         PlayerPrefs.Save();
     }
 
