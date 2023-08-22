@@ -5,6 +5,10 @@ public class SceneReset : MonoBehaviour
 {
     public void ResetScene()
     {
+        DataManager.Instance.ResetMukiCount();
+        DataManager.Instance.ResetOmoCount();
+        DataManager.Instance.ResetBetaCount();
+        DataManager.Instance.ResetPataCount();
         Time.timeScale = 1f;
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
@@ -16,6 +20,14 @@ public class SceneReset : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void ChangeSceneHome()
+    {
+        DataManager.Instance.SaveInt("MeraLimit", DataManager.Instance.LoadInt("MukiCount") + DataManager.Instance.LoadInt("MeraLimit"));
+        DataManager.Instance.SaveInt("OmoLimit", DataManager.Instance.LoadInt("OmoCount") + DataManager.Instance.LoadInt("OmoLimit"));
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
+    }
+
     public void ChangeScene1()
     {
         SceneManager.LoadScene(1);
@@ -23,6 +35,13 @@ public class SceneReset : MonoBehaviour
 
     public void ChangeScene2()
     {
+        SceneManager.LoadScene(2);
+    }
+
+    public void ChangeSceneTraining()
+    {
+        DataManager.Instance.SaveInt("MeraLimit", DataManager.Instance.LoadInt("MukiCount") + DataManager.Instance.LoadInt("MeraLimit"));
+        DataManager.Instance.SaveInt("OmoLimit", DataManager.Instance.LoadInt("OmoCount") + DataManager.Instance.LoadInt("OmoLimit"));
         SceneManager.LoadScene(2);
     }
 

@@ -66,25 +66,25 @@ public class DataManager : Singleton<DataManager>
 
     public void ResetMukiCount()
     {
-        PlayerPrefs.DeleteKey("ItemCountMuki");
+        PlayerPrefs.DeleteKey("MukiCount");
         PlayerPrefs.Save();
     }
 
     public void ResetOmoCount()
     {
-        PlayerPrefs.DeleteKey("ItemCountOmo");
+        PlayerPrefs.DeleteKey("OmoCount");
         PlayerPrefs.Save();
     }
     
     public void ResetBetaCount()
     {
-        PlayerPrefs.DeleteKey("ItemCountBeta");
+        PlayerPrefs.DeleteKey("BetaCount");
         PlayerPrefs.Save();
     }
 
     public void ResetPataCount()
     {
-        PlayerPrefs.DeleteKey("ItemCountPata");
+        PlayerPrefs.DeleteKey("PataCount");
         PlayerPrefs.Save();
     }
     

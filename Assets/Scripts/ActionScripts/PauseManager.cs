@@ -45,6 +45,10 @@ public class PauseManager : Singleton<PauseManager>
 
     public void ResetPause()
     {
+        DataManager.Instance.ResetMukiCount();
+        DataManager.Instance.ResetOmoCount();
+        DataManager.Instance.ResetBetaCount();
+        DataManager.Instance.ResetPataCount();
         MainGame.enabled = true;
         PauseCanvas.enabled = false;
         isPause = false;
@@ -55,6 +59,10 @@ public class PauseManager : Singleton<PauseManager>
 
     public void HomePause()
     {
+        DataManager.Instance.ResetMukiCount();
+        DataManager.Instance.ResetOmoCount();
+        DataManager.Instance.ResetBetaCount();
+        DataManager.Instance.ResetPataCount();
         MainGame.enabled = true;
         PauseCanvas.enabled = false;
         isPause = false;
