@@ -221,7 +221,7 @@ public class DebugButton : MonoBehaviour
         if (mostPressedButtonIndex < kiraMaxSprites.Length)
         {
             kiraMaxSpriteDisplay.sprite = kiraMaxSprites[mostPressedButtonIndex];
-            E
+            
         }
     }
 
