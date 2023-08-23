@@ -20,6 +20,8 @@ public class DebugButton : MonoBehaviour
     private float currentAlpha;
     private float timer;
 
+    public Transform spawnPosition; // エフェクトを再生する位置を設定するためのTransform
+
 
     public Sprite[] kiraMaxSprites; // 新しいスプライトを格納する配列
     public Image kiraMaxSpriteDisplay; // 新しいスプライトの表示に使用するImageコンポーネント
@@ -176,6 +178,8 @@ public class DebugButton : MonoBehaviour
 
             isKiraGaugeMax = true;
             UpdateMostPressedButton();
+
+            
         }
 
         UpdateImage = 4;
@@ -221,7 +225,12 @@ public class DebugButton : MonoBehaviour
         if (mostPressedButtonIndex < kiraMaxSprites.Length)
         {
             kiraMaxSpriteDisplay.sprite = kiraMaxSprites[mostPressedButtonIndex];
-            
+
+            // エフェクトを再生する
+            if (spawnPosition != null)
+            {
+                EffectManager.Instance.PlayEffect(0, spawnPosition.position); // 0はエフェクトのインデックスです
+            }
         }
     }
 
