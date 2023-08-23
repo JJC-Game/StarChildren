@@ -7,24 +7,33 @@ public class TestTraining : MonoBehaviour
 {
     public Button[] invalidButton;//MukiButtonを2秒後にリセットする変数の宣言
 
+    // ゲージ関連
     public float increaseAmounts = 1; // 一回に増える増加量
     public Image[] gaugeImages; // ゲージの表示用イメージ
     public float[] currentAmounts; // 各ゲージの現在の量
-
-
-    private int UseLimit; // アイテム使用の回数制限
-
-    public TextMeshProUGUI NoItem;
-    public float fadeOutTime = 1.0f;
-    private float currentAlpha;
-    private float timer;
-
     public int[] GaugeMaxCount; // 各ゲージがMaxになった回数
     private bool isKiraGaugeMax = false; // KiraGaugeがMAXになったフラグ
 
-    public GameObject PlayerSprite;
-    public Sprite[] EvolveSprite;
+    public int kiraMax0;
+    public int kiraMax1;
+    public int kiraMax2;
+    public int kiraMax3;
 
+    public GameObject PlayerSprite; //キャラクターの見た目
+    public Sprite[] EvolveSprite; //進化後のキャラクターの見た目
+
+    public GameObject MainCanvas;
+    public GameObject FinishCanvas;
+
+    private int UseLimit; // アイテム使用の回数制限
+
+    // アイテムがないときのtext表示関連
+    public TextMeshProUGUI NoItem; // アイテムがないときに表示するtext
+    public float fadeOutTime = 1.0f; // 上のtextが消える時間
+    private float currentAlpha;
+    private float timer;
+
+    // ゲージリセット時のフラグ
     private bool isAllGaugeResetting = false;
     private bool isMukiButtonResetting = false;
     private bool isOmoButtonResetting = false;
@@ -34,6 +43,7 @@ public class TestTraining : MonoBehaviour
     private void Start()
     {
         NoItem.gameObject.SetActive(false); // アイテム回数制限のtext非表示
+        FinishCanvas.gameObject.SetActive(false); // 終了ボタンの非表示
 
         currentAmounts = new float[gaugeImages.Length];
 
@@ -66,6 +76,41 @@ public class TestTraining : MonoBehaviour
             SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
             targetSpriteRenderer.sprite = EvolveSprite[1];
         }
+        else if (DataManager.Instance.LoadBool("E2FF") == true)
+        {
+            SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
+            targetSpriteRenderer.sprite = EvolveSprite[2];
+        }
+        else if (DataManager.Instance.LoadBool("E1OO") == true)
+        {
+            SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
+            targetSpriteRenderer.sprite = EvolveSprite[3];
+        }
+        else if (DataManager.Instance.LoadBool("E2FO") == true)
+        {
+            SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
+            targetSpriteRenderer.sprite = EvolveSprite[4];
+        }
+        else if (DataManager.Instance.LoadBool("E3FFF") == true)
+        {
+            SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
+            targetSpriteRenderer.sprite = EvolveSprite[5];
+        }
+        else if (DataManager.Instance.LoadBool("E3OOO") == true)
+        {
+            SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
+            targetSpriteRenderer.sprite = EvolveSprite[6];
+        }
+        else if (DataManager.Instance.LoadBool("E3FFO") == true)
+        {
+            SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
+            targetSpriteRenderer.sprite = EvolveSprite[7];
+        }
+        else if (DataManager.Instance.LoadBool("E3FOO") == true)
+        {
+            SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
+            targetSpriteRenderer.sprite = EvolveSprite[8];
+        }
 
     }
 
@@ -90,19 +135,19 @@ public class TestTraining : MonoBehaviour
 
         if (DataManager.Instance.LoadInt("KCMG") == 0)
         {
-            DataManager.Instance.SaveInt("KMG", 30);
+            DataManager.Instance.SaveInt("KMG", kiraMax0);
         }
         else if (DataManager.Instance.LoadInt("KCMG") == 1)
         {
-            DataManager.Instance.SaveInt("KMG", 50);
+            DataManager.Instance.SaveInt("KMG", kiraMax1);
         }
         else if (DataManager.Instance.LoadInt("KCMG") == 2)
         {
-            DataManager.Instance.SaveInt("KMG", 70);
+            DataManager.Instance.SaveInt("KMG", kiraMax2);
         }
         else if (DataManager.Instance.LoadInt("KCMG") == 3)
         {
-            DataManager.Instance.SaveInt("KMG", 90);
+            DataManager.Instance.SaveInt("KMG", kiraMax3);
         }
 
     }
@@ -244,40 +289,23 @@ public class TestTraining : MonoBehaviour
             StartCoroutine(AllResetGauge());
 
             isKiraGaugeMax = true;
-            SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
-            if (DataManager.Instance.LoadInt("KCMG") > DataManager.Instance.LoadInt("OCMG") && DataManager.Instance.LoadBool("E1") == false)
+            if (DataManager.Instance.LoadBool("E1") == false)
             {
-                targetSpriteRenderer.sprite = EvolveSprite[0];
-                MaxCountReset();
-                DataManager.Instance.SaveBool("E1",true);
-                DataManager.Instance.SaveBool("E1F", true);
+                EVO1();
             }
-            else if (DataManager.Instance.LoadInt("KCMG") < DataManager.Instance.LoadInt("OCMG") && DataManager.Instance.LoadBool("E1") == false)
+            else if (DataManager.Instance.LoadBool("E1") == true && DataManager.Instance.LoadBool("E2") == false)
             {
-                targetSpriteRenderer.sprite = EvolveSprite[1];
-                MaxCountReset();
-                DataManager.Instance.SaveBool("E1", true);
-                DataManager.Instance.SaveBool("E1O", true);
+                EVO2();
             }
-            else if (DataManager.Instance.LoadInt("KCMG") == DataManager.Instance.LoadInt("OCMG") && DataManager.Instance.LoadBool("E1") == false)
+            else if (DataManager.Instance.LoadBool("E1") == true && DataManager.Instance.LoadBool("E2") == true && DataManager.Instance.LoadBool("E3") == false)
             {
-                int randomIndex = Random.Range(0, 2);
-                if (randomIndex == 0)
-                {
-                    targetSpriteRenderer.sprite = EvolveSprite[0];
-                    MaxCountReset();
-                    DataManager.Instance.SaveBool("E1", true);
-                    DataManager.Instance.SaveBool("E1F", true);
-                }
-                else
-                {
-                    targetSpriteRenderer.sprite = EvolveSprite[1];
-                    MaxCountReset();
-                    DataManager.Instance.SaveBool("E1", true);
-                    DataManager.Instance.SaveBool("E1O", true);
-                }
+                EVO3();
             }
-
+            else if (DataManager.Instance.LoadBool("E1") == true && DataManager.Instance.LoadBool("E2") == true && DataManager.Instance.LoadBool("E3") == true && DataManager.Instance.LoadBool("E4") == false)
+            {
+                EVOF();
+            }
+  
         }
 
         UpdateGaugeDisplayM();
@@ -291,6 +319,125 @@ public class TestTraining : MonoBehaviour
         {
             isKiraGaugeMax = false;
         }
+    }
+
+    public void EVO1()
+    {
+        SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
+        // １回目の進化
+        if (DataManager.Instance.LoadInt("MCMG") > DataManager.Instance.LoadInt("OCMG"))
+        {
+            targetSpriteRenderer.sprite = EvolveSprite[0];
+            MaxCountReset();
+            DataManager.Instance.SaveBool("E1", true);
+            DataManager.Instance.SaveBool("E1F", true);
+        }
+        else if (DataManager.Instance.LoadInt("MCMG") < DataManager.Instance.LoadInt("OCMG"))
+        {
+            targetSpriteRenderer.sprite = EvolveSprite[1];
+            MaxCountReset();
+            DataManager.Instance.SaveBool("E1", true);
+            DataManager.Instance.SaveBool("E1O", true);
+        }
+        else if (DataManager.Instance.LoadInt("MCMG") == DataManager.Instance.LoadInt("OCMG"))
+        {
+            int randomIndex = Random.Range(0, 2);
+            if (randomIndex == 0)
+            {
+                targetSpriteRenderer.sprite = EvolveSprite[0];
+                MaxCountReset();
+                DataManager.Instance.SaveBool("E1", true);
+                DataManager.Instance.SaveBool("E1F", true);
+            }
+            else
+            {
+                targetSpriteRenderer.sprite = EvolveSprite[1];
+                MaxCountReset();
+                DataManager.Instance.SaveBool("E1", true);
+                DataManager.Instance.SaveBool("E1O", true);
+            }
+        }
+    }
+
+    public void EVO2()
+    {
+        SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
+        // ２回目の進化
+        if (DataManager.Instance.LoadInt("MCMG") > DataManager.Instance.LoadInt("OCMG") && DataManager.Instance.LoadBool("E1F") == true)
+        {
+            targetSpriteRenderer.sprite = EvolveSprite[2];
+            MaxCountReset();
+            DataManager.Instance.SaveBool("E2", true);
+            DataManager.Instance.SaveBool("E2FF", true);
+            DataManager.Instance.SaveBool("E1F", false);
+        }
+        else if (DataManager.Instance.LoadInt("MCMG") < DataManager.Instance.LoadInt("OCMG") && DataManager.Instance.LoadBool("E1O") == true)
+        {
+            targetSpriteRenderer.sprite = EvolveSprite[3];
+            MaxCountReset();
+            DataManager.Instance.SaveBool("E2", true);
+            DataManager.Instance.SaveBool("E2OO", true);
+            DataManager.Instance.SaveBool("E1O", false);
+        }
+        else if (DataManager.Instance.LoadInt("MCMG") == DataManager.Instance.LoadInt("OCMG") && (DataManager.Instance.LoadBool("E1F") == true || DataManager.Instance.LoadBool("E1O") == true))
+        {
+            targetSpriteRenderer.sprite = EvolveSprite[4];
+            MaxCountReset();
+            DataManager.Instance.SaveBool("E2", true);
+            DataManager.Instance.SaveBool("E2FO", true);
+            DataManager.Instance.SaveBool("E1F", false);
+            DataManager.Instance.SaveBool("E1O", false);
+        }
+    }
+
+    public void EVO3()
+    {
+        SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
+        // ３回目の進化
+        if (DataManager.Instance.LoadInt("MCMG") > DataManager.Instance.LoadInt("OCMG") && DataManager.Instance.LoadBool("E2FF") == true)
+        {
+            targetSpriteRenderer.sprite = EvolveSprite[5];
+            MaxCountReset();
+            DataManager.Instance.SaveBool("E3", true);
+            DataManager.Instance.SaveBool("E3FFF", true);
+            DataManager.Instance.SaveBool("E2FF", false);
+        }
+        else if (DataManager.Instance.LoadInt("MCMG") < DataManager.Instance.LoadInt("OCMG") && DataManager.Instance.LoadBool("E2OO") == true)
+        {
+            targetSpriteRenderer.sprite = EvolveSprite[6];
+            MaxCountReset();
+            DataManager.Instance.SaveBool("E3", true);
+            DataManager.Instance.SaveBool("E3OOO", true);
+            DataManager.Instance.SaveBool("E2OO", false);
+        }
+        else if (DataManager.Instance.LoadInt("MCMG") > DataManager.Instance.LoadInt("OCMG") && DataManager.Instance.LoadBool("E2FO") == true)
+        {
+            targetSpriteRenderer.sprite = EvolveSprite[7];
+            MaxCountReset();
+            DataManager.Instance.SaveBool("E3", true);
+            DataManager.Instance.SaveBool("E3FFO", true);
+            DataManager.Instance.SaveBool("E2FO", false);
+        }
+        else if (DataManager.Instance.LoadInt("MCMG") < DataManager.Instance.LoadInt("OCMG") && DataManager.Instance.LoadBool("E2FO") == true)
+        {
+            targetSpriteRenderer.sprite = EvolveSprite[8];
+            MaxCountReset();
+            DataManager.Instance.SaveBool("E3", true);
+            DataManager.Instance.SaveBool("E3FOO", true);
+            DataManager.Instance.SaveBool("E2FO", false);
+        }
+
+    }
+
+    public void EVOF()
+    {
+        DataManager.Instance.SaveBool("E3FFF", false);
+        DataManager.Instance.SaveBool("E3OOO", false);
+        DataManager.Instance.SaveBool("E3FFO", false);
+        DataManager.Instance.SaveBool("E3FOO", false);
+
+        MainCanvas.gameObject.SetActive(false);
+        FinishCanvas.gameObject.SetActive(true);
     }
 
     public void MaxCountReset()

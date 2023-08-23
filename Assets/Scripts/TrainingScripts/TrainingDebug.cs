@@ -138,8 +138,18 @@ public class TrainingDebug : MonoBehaviour
     public void EvoReset()
     {
         DataManager.Instance.SaveBool("E1", false);
+        DataManager.Instance.SaveBool("E2", false);
+        DataManager.Instance.SaveBool("E3", false);
         DataManager.Instance.SaveBool("E1F", false);
         DataManager.Instance.SaveBool("E1O", false);
+        DataManager.Instance.SaveBool("E2FF", false);
+        DataManager.Instance.SaveBool("E2OO", false);
+        DataManager.Instance.SaveBool("E2FO", false);
+        DataManager.Instance.SaveBool("E3FFF", false);
+        DataManager.Instance.SaveBool("E3OOO", false);
+        DataManager.Instance.SaveBool("E3FFO", false);
+        DataManager.Instance.SaveBool("E3FOO", false);
+
     }
 
 }
