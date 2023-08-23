@@ -10,7 +10,7 @@ public class PlayerHitCheck : MonoBehaviour
     public TextMeshProUGUI OmoCountText;
     public TextMeshProUGUI BetaCountText;
     public TextMeshProUGUI PataCountText;
-
+    
     // アクションシーンで使用するitemのカウント
     private int itemCountMuki;
     private int itemCountOmo;

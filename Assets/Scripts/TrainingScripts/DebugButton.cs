@@ -221,6 +221,7 @@ public class DebugButton : MonoBehaviour
         if (mostPressedButtonIndex < kiraMaxSprites.Length)
         {
             kiraMaxSpriteDisplay.sprite = kiraMaxSprites[mostPressedButtonIndex];
+            E
         }
     }
 
@@ -231,9 +232,6 @@ public class DebugButton : MonoBehaviour
         {
             buttonPressCount[i] = 0;
         }
-
-        // 最も押されたボタンをリセットして初期スプライトを表示
-        //kiraMaxSpriteDisplay.sprite = kiraMaxSprites[0];
     }
 
 
