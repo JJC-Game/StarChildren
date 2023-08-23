@@ -11,8 +11,8 @@ public class GameManager : Singleton<GameManager>
     public bool GameClear;
     public bool TimeUp;
     public float targetTime = 90f; // 目標の経過時間（1分30秒）
-    public Canvas TimeUpCanvas;
-    public Canvas MainGameCanvas;
+    public GameObject TimeUpCanvas;
+    public GameObject MainGameCanvas;
     //public PlayableDirector timeline; // ゲーム終了時に再生するタイムライン
 
     public TextMeshProUGUI timerText; // 残り時間を表示するテキスト
@@ -25,11 +25,14 @@ public class GameManager : Singleton<GameManager>
     private float remainingTime;
     private bool isTimerRunning;
 
+    public PlayableDirector StartTimeLine;
+    public PlayableDirector TimeUpTimeLine;
+
     void Start()
     {
-        TimeUpCanvas.enabled = false;
-        mainGame = true;
-        StartTimer();
+        mainGame = false;
+        TimeUpCanvas.SetActive(false);
+        PlayStartTimeLine();
 
         DataManager.Instance.ResetMukiCount();
         DataManager.Instance.ResetOmoCount();
@@ -50,18 +53,11 @@ public class GameManager : Singleton<GameManager>
             {
                 StopTimer();
                 High();
-                mainGame = false;
+                PlayTimeUpTimeLine();
+
             }
         }
 
-        if (!mainGame && remainingTime == 0)
-        {
-            MainGameCanvas.enabled = false;
-            TimeUpCanvas.enabled = true;
-
-            // ゲームが終了した場合の処理
-            EndGame();
-        }
     }
 
     public void StartTimer()
@@ -113,6 +109,24 @@ public class GameManager : Singleton<GameManager>
             timeline.Play();
         }*/
 
+    }
+
+    public void MainGame()
+    {
+        mainGame = true;
+        StartTimer();
+    }
+
+    public void PlayStartTimeLine()
+    {
+        StartTimeLine.Play();
+    }
+
+    public void PlayTimeUpTimeLine()
+    {
+        mainGame = false;
+        TimeUpCanvas.SetActive(true);
+        TimeUpTimeLine.Play();
     }
 
 }
