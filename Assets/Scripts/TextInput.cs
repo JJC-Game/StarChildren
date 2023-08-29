@@ -10,12 +10,15 @@ public class TextInput : MonoBehaviour
     private string inputText; // ユーザーが入力した文字を保持する変数
     private int maxInputLength = 8; // 入力上限の文字数
     public bool Name;
+    public GameObject MainGameCanvas;
+    public GameObject Back;
 
     void Start()
     {
-        inputText = DataManager.Instance.LoadString("Name"); // 初期化して空にする
+        inputText = DataManager.Instance.LoadString("Name");
         UpdateDisplay();
         Name = false;
+        Back.gameObject.SetActive(false);
     }
 
     void Update()
@@ -51,10 +54,14 @@ public class TextInput : MonoBehaviour
         if (Name == false)
         {
             Name = true;
+            MainGameCanvas.gameObject.SetActive(false);
+            Back.gameObject.SetActive(true);
         }
         else if (Name == true)
         {
             Name = false;
+            MainGameCanvas.gameObject.SetActive(true);
+            Back.gameObject.SetActive(false);
         }
     }
 }

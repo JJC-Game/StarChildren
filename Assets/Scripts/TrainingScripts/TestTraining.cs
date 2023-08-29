@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TestTraining : MonoBehaviour
 {
@@ -25,6 +26,9 @@ public class TestTraining : MonoBehaviour
     public GameObject MainCanvas;
     public GameObject FinishCanvas;
     public GameObject KakuninCanvas;
+    public GameObject ResetCheckCanvas;
+    private bool Finish;
+    private bool Reset;
 
     private int UseLimit; // アイテム使用の回数制限
 
@@ -46,6 +50,9 @@ public class TestTraining : MonoBehaviour
         NoItem.gameObject.SetActive(false); // アイテム回数制限のtext非表示
         FinishCanvas.gameObject.SetActive(false); // 終了ボタンの非表示
         KakuninCanvas.gameObject.SetActive(false);
+        ResetCheckCanvas.gameObject.SetActive(false);
+        Finish = false;
+        Reset = false;
 
         currentAmounts = new float[gaugeImages.Length];
 
@@ -181,7 +188,6 @@ public class TestTraining : MonoBehaviour
                 StartCoroutine(ResetMukiGauge());
                 GaugeMaxCount[0] += 1;
                 DataManager.Instance.SaveInt("MCMG", GaugeMaxCount[0]);
-                DataManager.Instance.SaveBool("Muki", true);
             }
             UpdateGaugeDisplayM();
         }
@@ -212,7 +218,6 @@ public class TestTraining : MonoBehaviour
                 StartCoroutine(ResetOmoGauge());
                 GaugeMaxCount[1] += 1;
                 DataManager.Instance.SaveInt("OCMG", GaugeMaxCount[1]);
-                DataManager.Instance.SaveBool("Omo", true);
             }
             UpdateGaugeDisplayO();
         }
@@ -340,6 +345,7 @@ public class TestTraining : MonoBehaviour
             MaxCountReset();
             DataManager.Instance.SaveBool("E1", true);
             DataManager.Instance.SaveBool("E1F", true);
+            DataManager.Instance.SaveBool("Muki", true);
         }
         else if (DataManager.Instance.LoadInt("MCMG") < DataManager.Instance.LoadInt("OCMG"))
         {
@@ -347,6 +353,7 @@ public class TestTraining : MonoBehaviour
             MaxCountReset();
             DataManager.Instance.SaveBool("E1", true);
             DataManager.Instance.SaveBool("E1O", true);
+            DataManager.Instance.SaveBool("Omo", true);
         }
         else if (DataManager.Instance.LoadInt("MCMG") == DataManager.Instance.LoadInt("OCMG"))
         {
@@ -357,6 +364,7 @@ public class TestTraining : MonoBehaviour
                 MaxCountReset();
                 DataManager.Instance.SaveBool("E1", true);
                 DataManager.Instance.SaveBool("E1F", true);
+                DataManager.Instance.SaveBool("Muki", true);
             }
             else
             {
@@ -364,6 +372,7 @@ public class TestTraining : MonoBehaviour
                 MaxCountReset();
                 DataManager.Instance.SaveBool("E1", true);
                 DataManager.Instance.SaveBool("E1O", true);
+                DataManager.Instance.SaveBool("Omo", true);
             }
         }
     }
@@ -396,6 +405,8 @@ public class TestTraining : MonoBehaviour
             DataManager.Instance.SaveBool("E2FO", true);
             DataManager.Instance.SaveBool("E1F", false);
             DataManager.Instance.SaveBool("E1O", false);
+            DataManager.Instance.SaveBool("Omo", true);
+            DataManager.Instance.SaveBool("Muki", true);
         }
     }
 
@@ -426,6 +437,8 @@ public class TestTraining : MonoBehaviour
             DataManager.Instance.SaveBool("E3", true);
             DataManager.Instance.SaveBool("E3FFO", true);
             DataManager.Instance.SaveBool("E2FO", false);
+            DataManager.Instance.SaveBool("Omo", true);
+            DataManager.Instance.SaveBool("Muki", true);
         }
         else if (DataManager.Instance.LoadInt("MCMG") < DataManager.Instance.LoadInt("OCMG") && DataManager.Instance.LoadBool("E2FO") == true)
         {
@@ -434,6 +447,8 @@ public class TestTraining : MonoBehaviour
             DataManager.Instance.SaveBool("E3", true);
             DataManager.Instance.SaveBool("E3FOO", true);
             DataManager.Instance.SaveBool("E2FO", false);
+            DataManager.Instance.SaveBool("Omo", true);
+            DataManager.Instance.SaveBool("Muki", true);
         }
 
     }
@@ -441,10 +456,6 @@ public class TestTraining : MonoBehaviour
     public void EVOF()
     {
         DataManager.Instance.SaveBool("Finish", true);
-        DataManager.Instance.SaveBool("E3FFF", false);
-        DataManager.Instance.SaveBool("E3OOO", false);
-        DataManager.Instance.SaveBool("E3FFO", false);
-        DataManager.Instance.SaveBool("E3FOO", false);
 
         MainCanvas.gameObject.SetActive(false);
         FinishCanvas.gameObject.SetActive(true);
@@ -454,12 +465,39 @@ public class TestTraining : MonoBehaviour
     {
         FinishCanvas.gameObject.SetActive(false);
         KakuninCanvas.gameObject.SetActive(true);
+        Finish = true;
     }
 
     public void Return()
     {
-        KakuninCanvas.gameObject.SetActive(false);
-        FinishCanvas.gameObject.SetActive(false);
+        if (Finish)
+        {
+            KakuninCanvas.gameObject.SetActive(false);
+            FinishCanvas.gameObject.SetActive(true);
+            Finish = false;
+        }
+
+        if (Reset)
+        {
+            ResetCheckCanvas.gameObject.SetActive(false);
+            MainCanvas.gameObject.SetActive(true);
+            Reset = false;
+        }
+
+    }
+
+    public void ResetCheck()
+    {
+        MainCanvas.gameObject.SetActive(false);
+        ResetCheckCanvas.gameObject.SetActive(true);
+        Reset = true;
+    }
+
+    public void AllReset()
+    {
+        DataManager.Instance.ResetAllVariables();
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
     }
 
     public void MaxCountReset()

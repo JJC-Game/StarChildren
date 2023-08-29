@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class End : MonoBehaviour
 {
     public bool Tap;
+    public int clearcount;
 
     private void Start()
     {
@@ -16,7 +17,7 @@ public class End : MonoBehaviour
     {
         if (Tap == true && Input.GetMouseButtonDown(0))
         {
-            TapTitle();
+            TapAlbum();
         }
     }
 
@@ -25,8 +26,10 @@ public class End : MonoBehaviour
         Tap = true;
     }
 
-    public void TapTitle()
+    public void TapAlbum()
     {
-        SceneManager.LoadScene(4);
+        clearcount = DataManager.Instance.LoadInt("Clear");
+        DataManager.Instance.SaveInt("Clear", clearcount + 1);
+        SceneManager.LoadScene(3);
     }
 }

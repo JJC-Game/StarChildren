@@ -27,12 +27,15 @@ EditorBuildSettings:
     path: Assets/Scenes/EndingScene.unity
     guid: 772970af38eb0584cb92f4925260ac01
   - enabled: 1
+    path: Assets/Scenes/AlbumScene.unity
+    guid: ca01cc9fea1bb4e4196fc4e2d913cc4f
+  - enabled: 0
     path: Assets/Scenes/OptionScene.unity
     guid: b804ee990f618f54a904c384521f894f
-  - enabled: 1
+  - enabled: 0
     path: "Assets/Scenes/\u03B1_Save.unity"
     guid: 633a8e5fe6fdb57478f708faa01ed6eb
-  - enabled: 1
+  - enabled: 0
     path: "Assets/Scenes/\u03B1_ijiri.unity"
     guid: 7ebdfea29c120bd4da1516b6fa176848
   m_configObjects:

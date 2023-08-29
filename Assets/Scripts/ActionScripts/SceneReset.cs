@@ -34,14 +34,16 @@ public class SceneReset : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
-    public void ChangeSceneAlbum()
+    public void ChangeSceneEnding()
     {
         SceneManager.LoadScene(3);
     }
-    public void ChangeScene4()
+
+    public void ChangeSceneAlbum()
     {
         SceneManager.LoadScene(4);
     }
+
     public void ChangeScene5()
     {
         SceneManager.LoadScene(5);
