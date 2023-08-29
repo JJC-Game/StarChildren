@@ -23,9 +23,9 @@ EditorBuildSettings:
   - enabled: 0
     path: "Assets/Scenes/\u03B1_TrainingScene.unity"
     guid: 69ba0c78049bc234394ec5c3a3020d42
-  - enabled: 0
-    path: Assets/Scenes/TrainingScene.unity
-    guid: 1167fb0bde264e84ebbef25125044bc1
+  - enabled: 1
+    path: Assets/Scenes/EndingScene.unity
+    guid: 772970af38eb0584cb92f4925260ac01
   - enabled: 1
     path: Assets/Scenes/OptionScene.unity
     guid: b804ee990f618f54a904c384521f894f

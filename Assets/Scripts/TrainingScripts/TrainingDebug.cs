@@ -149,6 +149,7 @@ public class TrainingDebug : MonoBehaviour
         DataManager.Instance.SaveBool("E3OOO", false);
         DataManager.Instance.SaveBool("E3FFO", false);
         DataManager.Instance.SaveBool("E3FOO", false);
+        DataManager.Instance.SaveBool("Finish", false);
 
     }
 

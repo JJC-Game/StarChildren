@@ -24,6 +24,7 @@ public class TestTraining : MonoBehaviour
 
     public GameObject MainCanvas;
     public GameObject FinishCanvas;
+    public GameObject KakuninCanvas;
 
     private int UseLimit; // アイテム使用の回数制限
 
@@ -44,6 +45,7 @@ public class TestTraining : MonoBehaviour
     {
         NoItem.gameObject.SetActive(false); // アイテム回数制限のtext非表示
         FinishCanvas.gameObject.SetActive(false); // 終了ボタンの非表示
+        KakuninCanvas.gameObject.SetActive(false);
 
         currentAmounts = new float[gaugeImages.Length];
 
@@ -110,6 +112,13 @@ public class TestTraining : MonoBehaviour
         {
             SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
             targetSpriteRenderer.sprite = EvolveSprite[8];
+        }
+
+        if(DataManager.Instance.LoadBool("Finish") == true)
+        {
+            MainCanvas.gameObject.SetActive(false);
+            FinishCanvas.gameObject.SetActive(true);
+            KakuninCanvas.gameObject.SetActive(false);
         }
 
     }
@@ -431,6 +440,7 @@ public class TestTraining : MonoBehaviour
 
     public void EVOF()
     {
+        DataManager.Instance.SaveBool("Finish", true);
         DataManager.Instance.SaveBool("E3FFF", false);
         DataManager.Instance.SaveBool("E3OOO", false);
         DataManager.Instance.SaveBool("E3FFO", false);
@@ -438,6 +448,18 @@ public class TestTraining : MonoBehaviour
 
         MainCanvas.gameObject.SetActive(false);
         FinishCanvas.gameObject.SetActive(true);
+    }
+
+    public void Kakunin()
+    {
+        FinishCanvas.gameObject.SetActive(false);
+        KakuninCanvas.gameObject.SetActive(true);
+    }
+
+    public void Return()
+    {
+        KakuninCanvas.gameObject.SetActive(false);
+        FinishCanvas.gameObject.SetActive(false);
     }
 
     public void MaxCountReset()

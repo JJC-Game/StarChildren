@@ -14,12 +14,6 @@ public class SceneReset : MonoBehaviour
         SceneManager.LoadScene(currentSceneIndex);
     }
 
-    public void ChangeScene0()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(0);
-    }
-
     public void ChangeSceneHome()
     {
         DataManager.Instance.SaveInt("MeraLimit", DataManager.Instance.LoadInt("MukiCount") + DataManager.Instance.LoadInt("MeraLimit"));
@@ -28,14 +22,9 @@ public class SceneReset : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void ChangeScene1()
+    public void ChangeSceneAction()
     {
         SceneManager.LoadScene(1);
-    }
-
-    public void ChangeScene2()
-    {
-        SceneManager.LoadScene(2);
     }
 
     public void ChangeSceneTraining()
@@ -45,7 +34,7 @@ public class SceneReset : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
-    public void ChangeScene3()
+    public void ChangeSceneAlbum()
     {
         SceneManager.LoadScene(3);
     }
