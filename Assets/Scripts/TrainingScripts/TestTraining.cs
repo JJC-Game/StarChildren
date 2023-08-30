@@ -495,7 +495,7 @@ public class TestTraining : MonoBehaviour
 
     public void AllReset()
     {
-        DataManager.Instance.ResetAllVariables();
+        DataManager.Instance.ResetAll();
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
     }

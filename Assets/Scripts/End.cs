@@ -17,7 +17,7 @@ public class End : MonoBehaviour
     {
         if (Tap == true && Input.GetMouseButtonDown(0))
         {
-            TapAlbum();
+            TapToAlbum();
         }
     }
 
@@ -26,10 +26,12 @@ public class End : MonoBehaviour
         Tap = true;
     }
 
-    public void TapAlbum()
+    public void TapToAlbum()
     {
         clearcount = DataManager.Instance.LoadInt("Clear");
         DataManager.Instance.SaveInt("Clear", clearcount + 1);
+        DataManager.Instance.ResetGame();
+        DataManager.Instance.SaveBool("Album", true);
         SceneManager.LoadScene(3);
     }
 }
