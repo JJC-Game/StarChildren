@@ -314,13 +314,4 @@ public class DebugButton : MonoBehaviour
         invalidButton[3].interactable = true; // ボタンを有効化
         isPataButtonResetting = false;
     }
-
-    /*public void OnItemCollected(int collectedItemIndex, Transform playerTransform)
-    {
-        // TrainingEffectManagerのインスタンスを取得
-        EffectManager effectManager = EffectManager.Instance;
-
-        // エフェクトを再生
-        effectManager.PlayEffect(collectedItemIndex, playerTransform);
-    }*/
 }
