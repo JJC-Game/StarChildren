@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HomeScene.unity
     guid: c1e1550855e9f3f43873954e53641247
-  - enabled: 0
-    path: "Assets/Scenes/\u03B1_stage1.unity"
-    guid: fcd0f7295229e984dabada509adbaa81
   - enabled: 1
     path: Assets/Scenes/ActionScene.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
@@ -38,6 +35,15 @@ EditorBuildSettings:
   - enabled: 0
     path: "Assets/Scenes/\u03B1_ijiri.unity"
     guid: 7ebdfea29c120bd4da1516b6fa176848
+  - enabled: 0
+    path: "Assets/Scenes/\u03B1_stage1.unity"
+    guid: fcd0f7295229e984dabada509adbaa81
+  - enabled: 1
+    path: "Assets/Scenes/\u03B1_stage2.unity"
+    guid: 4ffac5104b689084db1160d44ed0dfe4
+  - enabled: 1
+    path: "Assets/Scenes/\u03B1_stage3.unity"
+    guid: aa78e6bf6e41a6247b69df9bdcc93d1a
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 596d82867437ba24abcc45795a37a9b5, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 75864d60218577c40bc3817618f22e79, type: 2}
