@@ -4289,7 +4289,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3872f462be3977e4e9f450c404ff2349, type: 3}
   - {fileID: 21300000, guid: 0511ce3553be11b418541efbf534d0e3, type: 3}
   kiraMaxSpriteDisplay: {fileID: 24747886}
-  effectSpawnPoint: {fileID: 2072289894}
+  KiraMaxSpawnPoint: {fileID: 2072289894}
 --- !u!1 &1985203203
 GameObject:
   m_ObjectHideFlags: 0
