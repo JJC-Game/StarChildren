@@ -23,6 +23,8 @@ public class PlayerHitCheck : MonoBehaviour
     public int BetaCount;
     public int PataCount;
 
+    public Transform player;
+
     private void Start()
     {
         itemCountMuki = 0;
@@ -38,6 +40,7 @@ public class PlayerHitCheck : MonoBehaviour
         {
             case "ItemMuki":
                 CollectItemMuki(collision.gameObject);
+                EffectManager.Instance.PlayEffect(0, player);
                 break;
 
             case "ItemOmo":
@@ -78,7 +81,7 @@ public class PlayerHitCheck : MonoBehaviour
         MukiCount = DataManager.Instance.LoadInt("MukiCount") +1;
         DataManager.Instance.SaveInt("MukiCount", MukiCount);
         UpdateItemCountText();
-
+        
         // アイテムを削除
         Destroy(item);
     }

@@ -226,7 +226,7 @@ public class DebugButton : MonoBehaviour
             kiraMaxSpriteDisplay.sprite = kiraMaxSprites[mostPressedButtonIndex];
 
             // 再生するエフェクトのインデックス
-            TrainingEffectManager.Instance.PlayEffect(0, KiraMaxSpawnPoint);
+            EffectManager.Instance.PlayEffect(0, KiraMaxSpawnPoint);
         }
     }
 
@@ -315,12 +315,12 @@ public class DebugButton : MonoBehaviour
         isPataButtonResetting = false;
     }
 
-    public void OnItemCollected(int collectedItemIndex, Transform playerTransform)
+    /*public void OnItemCollected(int collectedItemIndex, Transform playerTransform)
     {
         // TrainingEffectManagerのインスタンスを取得
-        TrainingEffectManager effectManager = TrainingEffectManager.Instance;
+        EffectManager effectManager = EffectManager.Instance;
 
         // エフェクトを再生
         effectManager.PlayEffect(collectedItemIndex, playerTransform);
-    }
+    }*/
 }
