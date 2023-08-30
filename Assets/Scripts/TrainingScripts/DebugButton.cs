@@ -27,7 +27,7 @@ public class DebugButton : MonoBehaviour
     private int mostPressedButtonIndex; // 最も押されたボタンのインデックス
     private bool isKiraGaugeMax = false; // KiraGaugeがMAXになったフラグ
 
-    public Transform effectSpawnPoint; // エフェクトを出す位置のTransform
+    public Transform KiraMaxSpawnPoint;
 
     private bool isAllGaugeResetting = false;
     private bool isMukiButtonResetting = false;
@@ -225,8 +225,8 @@ public class DebugButton : MonoBehaviour
         {
             kiraMaxSpriteDisplay.sprite = kiraMaxSprites[mostPressedButtonIndex];
 
-            int effectIndex = 0; // 再生するエフェクトのインデックス
-            EffectManager.Instance.PlayEffect(effectIndex, effectSpawnPoint);
+            // 再生するエフェクトのインデックス
+            TrainingEffectManager.Instance.PlayEffect(0, KiraMaxSpawnPoint);
         }
     }
 
@@ -313,5 +313,14 @@ public class DebugButton : MonoBehaviour
 
         invalidButton[3].interactable = true; // ボタンを有効化
         isPataButtonResetting = false;
+    }
+
+    public void OnItemCollected(int collectedItemIndex, Transform playerTransform)
+    {
+        // TrainingEffectManagerのインスタンスを取得
+        TrainingEffectManager effectManager = TrainingEffectManager.Instance;
+
+        // エフェクトを再生
+        effectManager.PlayEffect(collectedItemIndex, playerTransform);
     }
 }

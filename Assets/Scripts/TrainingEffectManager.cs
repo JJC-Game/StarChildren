@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EffectManager : Singleton<EffectManager>
+public class TrainingEffectManager : Singleton<TrainingEffectManager>
 {
     // 2Dパーティクルエフェクトのプレハブ配列
     public GameObject[] particleEffectPrefabs;
