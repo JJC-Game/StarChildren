@@ -2576,7 +2576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &379677371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5101,8 +5101,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 769107198}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.918684, y: -0.65838784, z: -747.90436}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5122,7 +5122,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleEffectPrefabs:
-  - {fileID: 1500378020736912, guid: 2547a66872ebe45408ace228820a79e1, type: 3}
+  - {fileID: 1459862227383078, guid: ffc5b412a73018949810148ed54b7867, type: 3}
+  - {fileID: 1517738648265306, guid: d1fbff3227e65a143b2f53a6f47faaca, type: 3}
+  - {fileID: 1459862227383078, guid: 8ce82991f4f39ce41bfce98e8d25f01f, type: 3}
   deleteTime: 1
 --- !u!1 &778460903
 GameObject:
@@ -6038,7 +6040,9 @@ MonoBehaviour:
   OmoCount: 0
   BetaCount: 0
   PataCount: 0
-  player: {fileID: 974274432}
+  itemEffect: {fileID: 974274432}
+  muki: {fileID: 1033780752}
+  omo: {fileID: 1707430031}
 --- !u!114 &974274437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6058,6 +6062,7 @@ MonoBehaviour:
   Beta: 0
   MoreJump: 0
   ObjectView: 0
+  player: {fileID: 0}
   minSize: 0.05
   maxSize: 7
   imageObject: {fileID: 186443051}
@@ -6080,6 +6085,7 @@ MonoBehaviour:
   Beta: 0
   MoreJump: 0
   ObjectView: 0
+  player: {fileID: 974274432}
 --- !u!1 &1027738433
 GameObject:
   m_ObjectHideFlags: 0

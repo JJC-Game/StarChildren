@@ -23,7 +23,9 @@ public class PlayerHitCheck : MonoBehaviour
     public int BetaCount;
     public int PataCount;
 
-    public Transform player;
+    public Transform itemEffect;
+    public Transform muki;
+    public Transform omo;
 
     private void Start()
     {
@@ -40,19 +42,22 @@ public class PlayerHitCheck : MonoBehaviour
         {
             case "ItemMuki":
                 CollectItemMuki(collision.gameObject);
-                EffectManager.Instance.PlayEffect(0, player);
+                EffectManager.Instance.PlayEffect(0, itemEffect);
                 break;
 
             case "ItemOmo":
                 CollectItemOmo(collision.gameObject);
+                EffectManager.Instance.PlayEffect(0, itemEffect);
                 break;
                 
             case "ItemBeta":
                 CollectItemBeta(collision.gameObject);
+                EffectManager.Instance.PlayEffect(0, itemEffect);
                 break;
                 
             case "ItemPata":
                 CollectItemPata(collision.gameObject);
+                EffectManager.Instance.PlayEffect(0, itemEffect);
                 break;
 
         }
@@ -121,15 +126,18 @@ public class PlayerHitCheck : MonoBehaviour
     {
         if(DataManager.Instance.LoadBool("Muki"))
         {
+            EffectManager.Instance.PlayEffect(1, muki);
+
             Destroy(floor);
         }
-
     }
 
     private void Omobreak(GameObject floor)
     {
         if (DataManager.Instance.LoadBool("Omo"))
         {
+            EffectManager.Instance.PlayEffect(2, omo);
+
             Destroy(floor);
         }
     }
