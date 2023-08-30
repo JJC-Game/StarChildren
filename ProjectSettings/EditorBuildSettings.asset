@@ -35,7 +35,10 @@ EditorBuildSettings:
   - enabled: 0
     path: "Assets/Scenes/\u03B1_ijiri.unity"
     guid: 7ebdfea29c120bd4da1516b6fa176848
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Scenes/StageSelect.unity
+    guid: a558361ee203e614ca8582f6111c05e7
+  - enabled: 1
     path: "Assets/Scenes/\u03B1_stage1.unity"
     guid: fcd0f7295229e984dabada509adbaa81
   - enabled: 1

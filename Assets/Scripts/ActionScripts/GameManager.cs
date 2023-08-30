@@ -115,11 +115,13 @@ public class GameManager : Singleton<GameManager>
     {
         mainGame = true;
         StartTimer();
+        
     }
 
     public void PlayStartTimeLine()
     {
         StartTimeLine.Play();
+
     }
 
     public void PlayTimeUpTimeLine()
