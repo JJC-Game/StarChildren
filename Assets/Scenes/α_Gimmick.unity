@@ -5123,7 +5123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleEffectPrefabs:
   - {fileID: 1459862227383078, guid: ffc5b412a73018949810148ed54b7867, type: 3}
-  - {fileID: 1517738648265306, guid: d1fbff3227e65a143b2f53a6f47faaca, type: 3}
+  - {fileID: 1150934714579380, guid: 779aa8c25fbd0e1488637639c9fff976, type: 3}
   - {fileID: 1459862227383078, guid: 8ce82991f4f39ce41bfce98e8d25f01f, type: 3}
   deleteTime: 1
 --- !u!1 &778460903
@@ -6041,8 +6041,6 @@ MonoBehaviour:
   BetaCount: 0
   PataCount: 0
   itemEffect: {fileID: 974274432}
-  muki: {fileID: 1033780752}
-  omo: {fileID: 1707430031}
 --- !u!114 &974274437
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -24,8 +24,6 @@ public class PlayerHitCheck : MonoBehaviour
     public int PataCount;
 
     public Transform itemEffect;
-    public Transform muki;
-    public Transform omo;
 
     private void Start()
     {
@@ -124,9 +122,10 @@ public class PlayerHitCheck : MonoBehaviour
 
     private void Mukibreak(GameObject floor)
     {
-        if(DataManager.Instance.LoadBool("Muki"))
+        if (DataManager.Instance.LoadBool("Muki"))
         {
-            EffectManager.Instance.PlayEffect(1, muki);
+
+            EffectManager.Instance.PlayEffectOnTaggedObjects(1, "Mukib");
 
             Destroy(floor);
         }
@@ -136,7 +135,7 @@ public class PlayerHitCheck : MonoBehaviour
     {
         if (DataManager.Instance.LoadBool("Omo"))
         {
-            EffectManager.Instance.PlayEffect(2, omo);
+            EffectManager.Instance.PlayEffectOnTaggedObjects(2, "Omob");
 
             Destroy(floor);
         }
