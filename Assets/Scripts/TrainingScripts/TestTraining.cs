@@ -47,6 +47,12 @@ public class TestTraining : MonoBehaviour
 
     private void Start()
     {
+        if (DataManager.Instance.LoadBool("ClearReset"))
+        {
+            AllReset();
+            DataManager.Instance.SaveBool("ClearReset", false);
+        }
+
         NoItem.gameObject.SetActive(false); // アイテム回数制限のtext非表示
         FinishCanvas.gameObject.SetActive(false); // 終了ボタンの非表示
         KakuninCanvas.gameObject.SetActive(false);
@@ -90,7 +96,7 @@ public class TestTraining : MonoBehaviour
             SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
             targetSpriteRenderer.sprite = EvolveSprite[2];
         }
-        else if (DataManager.Instance.LoadBool("E1OO") == true)
+        else if (DataManager.Instance.LoadBool("E2OO") == true)
         {
             SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
             targetSpriteRenderer.sprite = EvolveSprite[3];
@@ -120,11 +126,17 @@ public class TestTraining : MonoBehaviour
             SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
             targetSpriteRenderer.sprite = EvolveSprite[8];
         }
+        else if (DataManager.Instance.LoadBool("E1") == false)
+        {
+            SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
+            targetSpriteRenderer.sprite = EvolveSprite[9];
+        }
 
         if(DataManager.Instance.LoadBool("Finish") == true)
         {
             MainCanvas.gameObject.SetActive(false);
             FinishCanvas.gameObject.SetActive(true);
+            MainCanvas.gameObject.SetActive(false);
             KakuninCanvas.gameObject.SetActive(false);
         }
 
@@ -132,6 +144,7 @@ public class TestTraining : MonoBehaviour
 
     private void Update()
     {
+
         // タイマーを更新する
         timer += Time.deltaTime;
 
@@ -495,17 +508,32 @@ public class TestTraining : MonoBehaviour
 
     public void AllReset()
     {
-        DataManager.Instance.ResetAll();
+        DataManager.Instance.SaveFloat("FG", 0);
+        DataManager.Instance.SaveFloat("OG", 0);
+        DataManager.Instance.SaveFloat("BG", 0);
+        DataManager.Instance.SaveFloat("PG", 0);
+        DataManager.Instance.SaveFloat("KG", 0);
+        DataManager.Instance.SaveInt("MMG", 10);
+        DataManager.Instance.SaveInt("OMG", 10);
+        DataManager.Instance.SaveInt("BMG", 10);
+        DataManager.Instance.SaveInt("PMG", 10);
+        DataManager.Instance.SaveInt("MCMG", 0);
+        DataManager.Instance.SaveInt("OCMG", 0);
+        DataManager.Instance.SaveInt("BCMG", 0);
+        DataManager.Instance.SaveInt("PCMG", 0);
+        DataManager.Instance.SaveInt("KCMG", 0);
+        DataManager.Instance.ResetAllBool();
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
+
     }
 
     public void MaxCountReset()
     {
         DataManager.Instance.SaveInt("MCMG", 0);
-        DataManager.Instance.SaveInt("MCMG", 0);
-        DataManager.Instance.SaveInt("MCMG", 0);
-        DataManager.Instance.SaveInt("MCMG", 0);
+        DataManager.Instance.SaveInt("OCMG", 0);
+        DataManager.Instance.SaveInt("BCMG", 0);
+        DataManager.Instance.SaveInt("PCMG", 0);
 
         GaugeMaxCount[0] = DataManager.Instance.LoadInt("MCMG");
         GaugeMaxCount[1] = DataManager.Instance.LoadInt("OCMG");

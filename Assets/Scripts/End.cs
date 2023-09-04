@@ -32,6 +32,6 @@ public class End : MonoBehaviour
         DataManager.Instance.SaveInt("Clear", clearcount + 1);
         DataManager.Instance.ResetGame();
         DataManager.Instance.SaveBool("Album", true);
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
     }
 }

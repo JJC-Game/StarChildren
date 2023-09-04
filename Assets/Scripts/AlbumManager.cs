@@ -16,145 +16,151 @@ public class AlbumManager : MonoBehaviour
         {
             if (DataManager.Instance.LoadBool("E3FFF"))
             {
-                DataManager.Instance.SaveInt("Display0", 0);
+                DataManager.Instance.SaveInt("Display0", 1);
                 DataManager.Instance.SaveString("CName0", DataManager.Instance.LoadString("Name"));
             }
             else if (DataManager.Instance.LoadBool("E3OOO"))
             {
-                DataManager.Instance.SaveInt("Display0", 1);
+                DataManager.Instance.SaveInt("Display0", 2);
                 DataManager.Instance.SaveString("CName0", DataManager.Instance.LoadString("Name"));
             }
             else if (DataManager.Instance.LoadBool("E3FFO"))
             {
-                DataManager.Instance.SaveInt("Display0", 2);
+                DataManager.Instance.SaveInt("Display0", 3);
                 DataManager.Instance.SaveString("CName0", DataManager.Instance.LoadString("Name"));
             }
             else if (DataManager.Instance.LoadBool("E3OOF"))
             {
-                DataManager.Instance.SaveInt("Display0", 3);
+                DataManager.Instance.SaveInt("Display0", 4);
                 DataManager.Instance.SaveString("CName0", DataManager.Instance.LoadString("Name"));
             }
-            DataManager.Instance.SaveBool("Album",false);
+            DataManager.Instance.ResetAllBool();
+            DataManager.Instance.SaveBool("ClearReset", true);
         }
         else if (DataManager.Instance.LoadInt("Clear") == 2 && DataManager.Instance.LoadBool("Album"))
         {
             if (DataManager.Instance.LoadBool("E3FFF"))
             {
-                DataManager.Instance.SaveInt("Display1", 0);
+                DataManager.Instance.SaveInt("Display1", 1);
                 DataManager.Instance.SaveString("CName1", DataManager.Instance.LoadString("Name"));
             }
             else if (DataManager.Instance.LoadBool("E3OOO"))
             {
-                DataManager.Instance.SaveInt("Display1", 1);
+                DataManager.Instance.SaveInt("Display1", 2);
                 DataManager.Instance.SaveString("CName1", DataManager.Instance.LoadString("Name"));
             }
             else if (DataManager.Instance.LoadBool("E3FFO"))
             {
-                DataManager.Instance.SaveInt("Display1", 2);
+                DataManager.Instance.SaveInt("Display1", 3);
                 DataManager.Instance.SaveString("CName1", DataManager.Instance.LoadString("Name"));
             }
             else if (DataManager.Instance.LoadBool("E3OOF"))
             {
-                DataManager.Instance.SaveInt("Display1", 3);
+                DataManager.Instance.SaveInt("Display1", 4);
                 DataManager.Instance.SaveString("CName1", DataManager.Instance.LoadString("Name"));
             }
-            DataManager.Instance.SaveBool("Album", false);
+            DataManager.Instance.ResetAllBool();
+            DataManager.Instance.SaveBool("ClearReset", true);
         }
         else if (DataManager.Instance.LoadInt("Clear") == 3 && DataManager.Instance.LoadBool("Album"))
         {
             if (DataManager.Instance.LoadBool("E3FFF"))
             {
-                DataManager.Instance.SaveInt("Display2", 0);
+                DataManager.Instance.SaveInt("Display2", 1);
                 DataManager.Instance.SaveString("CName2", DataManager.Instance.LoadString("Name"));
             }
             else if (DataManager.Instance.LoadBool("E3OOO"))
             {
-                DataManager.Instance.SaveInt("Display2", 1);
+                DataManager.Instance.SaveInt("Display2", 2);
                 DataManager.Instance.SaveString("CName2", DataManager.Instance.LoadString("Name"));
             }
             else if (DataManager.Instance.LoadBool("E3FFO"))
             {
-                DataManager.Instance.SaveInt("Display2", 2);
+                DataManager.Instance.SaveInt("Display2", 3);
                 DataManager.Instance.SaveString("CName2", DataManager.Instance.LoadString("Name"));
             }
             else if (DataManager.Instance.LoadBool("E3OOF"))
             {
-                DataManager.Instance.SaveInt("Display2", 3);
+                DataManager.Instance.SaveInt("Display2", 4);
                 DataManager.Instance.SaveString("CName2", DataManager.Instance.LoadString("Name"));
             }
-            DataManager.Instance.SaveBool("Album", false);
+            DataManager.Instance.ResetAllBool();
+            DataManager.Instance.SaveBool("ClearReset", true);
         }
         else if (DataManager.Instance.LoadInt("Clear") == 4 && DataManager.Instance.LoadBool("Album"))
         {
             if (DataManager.Instance.LoadBool("E3FFF"))
             {
-                DataManager.Instance.SaveInt("Display3", 0);
+                DataManager.Instance.SaveInt("Display3", 1);
                 DataManager.Instance.SaveString("CName3", DataManager.Instance.LoadString("Name"));
             }
             else if (DataManager.Instance.LoadBool("E3OOO"))
             {
-                DataManager.Instance.SaveInt("Display3", 1);
+                DataManager.Instance.SaveInt("Display3", 2);
                 DataManager.Instance.SaveString("CName3", DataManager.Instance.LoadString("Name"));
             }
             else if (DataManager.Instance.LoadBool("E3FFO"))
             {
-                DataManager.Instance.SaveInt("Display3", 2);
+                DataManager.Instance.SaveInt("Display3", 3);
                 DataManager.Instance.SaveString("CName3", DataManager.Instance.LoadString("Name"));
             }
             else if (DataManager.Instance.LoadBool("E3OOF"))
             {
-                DataManager.Instance.SaveInt("Display3", 3);
+                DataManager.Instance.SaveInt("Display3", 4);
                 DataManager.Instance.SaveString("CName3", DataManager.Instance.LoadString("Name"));
             }
-            DataManager.Instance.SaveBool("Album", false);
+            DataManager.Instance.ResetAllBool();
+            DataManager.Instance.SaveBool("ClearReset", true);
         }
         else if (DataManager.Instance.LoadInt("Clear") == 5 && DataManager.Instance.LoadBool("Album"))
         {
             if (DataManager.Instance.LoadBool("E3FFF"))
             {
-                DataManager.Instance.SaveInt("Display4", 0);
+                DataManager.Instance.SaveInt("Display4", 1);
                 DataManager.Instance.SaveString("CName4", DataManager.Instance.LoadString("Name"));
             }
             else if (DataManager.Instance.LoadBool("E3OOO"))
             {
-                DataManager.Instance.SaveInt("Display4", 1);
+                DataManager.Instance.SaveInt("Display4", 2);
                 DataManager.Instance.SaveString("CName4", DataManager.Instance.LoadString("Name"));
             }
             else if (DataManager.Instance.LoadBool("E3FFO"))
             {
-                DataManager.Instance.SaveInt("Display4", 2);
+                DataManager.Instance.SaveInt("Display4", 3);
                 DataManager.Instance.SaveString("CName4", DataManager.Instance.LoadString("Name"));
             }
             else if (DataManager.Instance.LoadBool("E3OOF"))
             {
-                DataManager.Instance.SaveInt("Display4", 3);
+                DataManager.Instance.SaveInt("Display4", 4);
                 DataManager.Instance.SaveString("CName4", DataManager.Instance.LoadString("Name"));
             }
-            DataManager.Instance.SaveBool("Album", false);
+            DataManager.Instance.ResetAllBool();
+            DataManager.Instance.SaveBool("ClearReset", true);
         }
         else if (DataManager.Instance.LoadInt("Clear") == 6 && DataManager.Instance.LoadBool("Album"))
         {
             if (DataManager.Instance.LoadBool("E3FFF"))
             {
-                DataManager.Instance.SaveInt("Display5", 0);
+                DataManager.Instance.SaveInt("Display5", 1);
                 DataManager.Instance.SaveString("CName5", DataManager.Instance.LoadString("Name"));
             }
             else if (DataManager.Instance.LoadBool("E3OOO"))
             {
-                DataManager.Instance.SaveInt("Display5", 1);
+                DataManager.Instance.SaveInt("Display5", 2);
                 DataManager.Instance.SaveString("CName5", DataManager.Instance.LoadString("Name"));
             }
             else if (DataManager.Instance.LoadBool("E3FFO"))
             {
-                DataManager.Instance.SaveInt("Display5", 2);
+                DataManager.Instance.SaveInt("Display5", 3);
                 DataManager.Instance.SaveString("CName5", DataManager.Instance.LoadString("Name"));
             }
             else if (DataManager.Instance.LoadBool("E3OOF"))
             {
-                DataManager.Instance.SaveInt("Display5", 3);
+                DataManager.Instance.SaveInt("Display5", 4);
                 DataManager.Instance.SaveString("CName5", DataManager.Instance.LoadString("Name"));
             }
-            DataManager.Instance.SaveBool("Album", false);
+            DataManager.Instance.ResetAllBool();
+            DataManager.Instance.SaveBool("ClearReset", true);
         }
 
         DisplayCharacter0();
