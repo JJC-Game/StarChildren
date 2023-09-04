@@ -11650,7 +11650,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1379813790}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1638658280}
+        m_TargetAssemblyTypeName: TweetController, Assembly-CSharp
+        m_MethodName: Tweet
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1379813790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12426,6 +12438,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89630b9630479a344b60ebd3407be6bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clearcount: 0
+  Display0: 0
+  Display1: 0
+  Display2: 0
+  Display3: 0
+  Display4: 0
+  Display5: 0
+  FFF: 0
+  OOO: 0
+  FFO: 0
+  OOF: 0
+  Name: 
+  CName0: 
+  CName1: 
+  CName2: 
+  CName3: 
+  CName4: 
+  CName5: 
 --- !u!4 &1581254120
 Transform:
   m_ObjectHideFlags: 0
@@ -12653,6 +12683,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1616376627}
   m_CullTransparentMesh: 1
+--- !u!1 &1638658279
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1638658281}
+  - component: {fileID: 1638658280}
+  m_Layer: 0
+  m_Name: TwitterControllerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1638658280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638658279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6f768ea4ab5ec4ab431a119fc164b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1638658281
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638658279}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1658699578
 GameObject:
   m_ObjectHideFlags: 0
