@@ -5122,9 +5122,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleEffectPrefabs:
-  - {fileID: 1459862227383078, guid: ffc5b412a73018949810148ed54b7867, type: 3}
+  - {fileID: 1459862227383078, guid: 50d2fd2e2db70d545841442d2aae539b, type: 3}
+  - {fileID: 1459862227383078, guid: 9ee35ea2ccf1d4c4b8f2f9c1744a9fc6, type: 3}
+  - {fileID: 1271764609937064, guid: 8b47f39d91e61384889cff33839361dc, type: 3}
   - {fileID: 1150934714579380, guid: 779aa8c25fbd0e1488637639c9fff976, type: 3}
-  - {fileID: 1459862227383078, guid: 8ce82991f4f39ce41bfce98e8d25f01f, type: 3}
   deleteTime: 1
 --- !u!1 &778460903
 GameObject:

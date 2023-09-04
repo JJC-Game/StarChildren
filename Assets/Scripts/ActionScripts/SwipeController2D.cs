@@ -61,7 +61,7 @@ public class SwipeController2D : Singleton<SwipeController2D>
                 DetectSwipeDirection();
                 isOnFloor = false;
                 ObjectView = false;
-                EffectManager.Instance.PlayEffect(0, player);
+                EffectManager.Instance.PlayEffect(1, player);
 
             }
            
