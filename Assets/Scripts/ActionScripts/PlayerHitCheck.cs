@@ -125,7 +125,7 @@ public class PlayerHitCheck : MonoBehaviour
         if (DataManager.Instance.LoadBool("Muki"))
         {
 
-            EffectManager.Instance.PlayEffectOnTaggedObjects(1, "Mukib");
+            EffectManager.Instance.PlayEffectOnTaggedObjects(2, "Mukib");
 
             Destroy(floor);
         }
@@ -135,7 +135,7 @@ public class PlayerHitCheck : MonoBehaviour
     {
         if (DataManager.Instance.LoadBool("Omo"))
         {
-            EffectManager.Instance.PlayEffectOnTaggedObjects(2, "Omob");
+            EffectManager.Instance.PlayEffectOnTaggedObjects(3, "Omob");
 
             Destroy(floor);
         }
