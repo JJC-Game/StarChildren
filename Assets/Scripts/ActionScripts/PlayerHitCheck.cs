@@ -124,7 +124,6 @@ public class PlayerHitCheck : MonoBehaviour
     {
         if (DataManager.Instance.LoadBool("Muki"))
         {
-
             EffectManager.Instance.PlayEffectOnTaggedObjects(2, "Mukib");
 
             Destroy(floor);
