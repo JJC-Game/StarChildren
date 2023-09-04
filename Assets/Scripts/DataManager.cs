@@ -75,6 +75,11 @@ public class DataManager : Singleton<DataManager>
         return PlayerPrefs.GetString(key);
     }
 
+    public void Reset()
+    {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+    }
 
     // 全変数のリセット
     public void ResetAll()
@@ -174,7 +179,30 @@ public class DataManager : Singleton<DataManager>
         PlayerPrefs.DeleteKey("PataCount");
         PlayerPrefs.Save();
     }
-    
+
+    public void ResetAllBool()
+    {
+        SaveBool("E1F", false);
+        SaveBool("E1O", false);
+        SaveBool("E2FF", false);
+        SaveBool("E2OO", false);
+        SaveBool("E2FO", false);
+        SaveBool("E3FFF", false);
+        SaveBool("E3OOO", false);
+        SaveBool("E3FFO", false);
+        SaveBool("E3FOO", false);
+        SaveBool("Finish", false);
+        SaveBool("E1", false);
+        SaveBool("E2", false);
+        SaveBool("E3", false);
+        SaveBool("E4", false);
+        SaveBool("Muki", false);
+        SaveBool("Omo", false);
+        SaveBool("Album", false);
+    }
+
+    //"E1F", "E1O","E2FF", "E1OO", "E2FO", "E3FFF", "E3OOO", "E3FFO", "E3FOO", "Finish", "E1", "E2", "E3", "E4", "Muki", "Omo", "Album" 
+
     /*
     特定の変数をリセットする場合
     PlayerPrefs.DeleteKey("任意");
