@@ -25,6 +25,10 @@ public class MainMenuManager : MonoBehaviour
 
         //タイトルの初期カーソル位置を設定
         EventSystem.current.SetSelectedGameObject(focusObject[0]);
+
+        //SoundManager.Instance.PlayBGM(1);
+
+
     }
 
     void Update()

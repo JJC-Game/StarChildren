@@ -85,6 +85,8 @@ public class SoundManager : Singleton<SoundManager>
                 SE_GameSource[i].outputAudioMixerGroup = SEGroup;
             }
         }
+
+        PlayBGM(0);
     }
 
     //BGMを外部から呼び出す時

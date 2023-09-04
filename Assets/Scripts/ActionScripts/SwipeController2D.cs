@@ -27,6 +27,8 @@ public class SwipeController2D : Singleton<SwipeController2D>
     public bool MoreJump; // 二段ジャンプできる状態か
     public bool ObjectView; // 矢印の画像が表示されるか
 
+    public Transform player;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -59,6 +61,7 @@ public class SwipeController2D : Singleton<SwipeController2D>
                 DetectSwipeDirection();
                 isOnFloor = false;
                 ObjectView = false;
+                EffectManager.Instance.PlayEffect(0, player);
 
             }
            

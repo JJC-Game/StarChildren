@@ -4,6 +4,25 @@ using UnityEngine;
 
 public class DataManager : Singleton<DataManager>
 {
+    public int clearcount;
+    public int Display0;
+    public int Display1;
+    public int Display2;
+    public int Display3;
+    public int Display4;
+    public int Display5;
+    public bool FFF;
+    public bool OOO;
+    public bool FFO;
+    public bool OOF;
+    public string Name;
+    public string CName0;
+    public string CName1;
+    public string CName2;
+    public string CName3;
+    public string CName4;
+    public string CName5;
+
     // 変数の保存int型
     public void SaveInt(string key, int value)
     {
@@ -58,10 +77,78 @@ public class DataManager : Singleton<DataManager>
 
 
     // 全変数のリセット
-    public void ResetAllVariables()
+    public void ResetAll()
     {
+        clearcount = LoadInt("Clear");
+        Display0 = LoadInt("Display0");
+        Display1 = LoadInt("Display1");
+        Display2 = LoadInt("Display2");
+        Display3 = LoadInt("Display3");
+        Display4 = LoadInt("Display4");
+        Display5 = LoadInt("Display5");
+        CName0 = LoadString("CName0");
+        CName1 = LoadString("CName1");
+        CName2 = LoadString("CName2");
+        CName3 = LoadString("CName3");
+        CName4 = LoadString("CName4");
+        CName5 = LoadString("CName5");
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
+        SaveInt("Clear", clearcount);
+        SaveInt("Display0", Display0);
+        SaveInt("Display1", Display1);
+        SaveInt("Display2", Display2);
+        SaveInt("Display3", Display3);
+        SaveInt("Display4", Display4);
+        SaveInt("Display5", Display5);
+        SaveString("CName0", CName0);
+        SaveString("CName1", CName1);
+        SaveString("CName2", CName2);
+        SaveString("CName3", CName3);
+        SaveString("CName4", CName4);
+        SaveString("CName5", CName5);
+    }
+
+    public void ResetGame()
+    {
+        clearcount =  LoadInt("Clear");
+        Display0 = LoadInt("Display0");
+        Display1 = LoadInt("Display1");
+        Display2 = LoadInt("Display2");
+        Display3 = LoadInt("Display3");
+        Display4 = LoadInt("Display4");
+        Display5 = LoadInt("Display5");
+        FFF = LoadBool("E3FFF");
+        OOO = LoadBool("E3OOO");
+        FFO = LoadBool("E3FFO");
+        OOF = LoadBool("E3OOF");
+        Name = LoadString("Name");
+        CName0 = LoadString("CName0");
+        CName1 = LoadString("CName1");
+        CName2 = LoadString("CName2");
+        CName3 = LoadString("CName3");
+        CName4 = LoadString("CName4");
+        CName5 = LoadString("CName5");
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+        SaveInt("Clear", clearcount);
+        SaveInt("Display0", Display0);
+        SaveInt("Display1", Display1);
+        SaveInt("Display2", Display2);
+        SaveInt("Display3", Display3);
+        SaveInt("Display4", Display4);
+        SaveInt("Display5", Display5);
+        SaveBool("E3FFF", FFF);
+        SaveBool("E3OOO", OOO);
+        SaveBool("E3FFO", FFO);
+        SaveBool("E3OOF", OOF);
+        SaveString("Name", Name);
+        SaveString("CName0", CName0);
+        SaveString("CName1", CName1);
+        SaveString("CName2", CName2);
+        SaveString("CName3", CName3);
+        SaveString("CName4", CName4);
+        SaveString("CName5", CName5);
     }
 
     public void ResetMukiCount()

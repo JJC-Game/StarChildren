@@ -23,6 +23,8 @@ public class PlayerHitCheck : MonoBehaviour
     public int BetaCount;
     public int PataCount;
 
+    public Transform itemEffect;
+
     private void Start()
     {
         itemCountMuki = 0;
@@ -38,18 +40,22 @@ public class PlayerHitCheck : MonoBehaviour
         {
             case "ItemMuki":
                 CollectItemMuki(collision.gameObject);
+                EffectManager.Instance.PlayEffect(0, itemEffect);
                 break;
 
             case "ItemOmo":
                 CollectItemOmo(collision.gameObject);
+                EffectManager.Instance.PlayEffect(0, itemEffect);
                 break;
                 
             case "ItemBeta":
                 CollectItemBeta(collision.gameObject);
+                EffectManager.Instance.PlayEffect(0, itemEffect);
                 break;
                 
             case "ItemPata":
                 CollectItemPata(collision.gameObject);
+                EffectManager.Instance.PlayEffect(0, itemEffect);
                 break;
 
         }
@@ -78,7 +84,7 @@ public class PlayerHitCheck : MonoBehaviour
         MukiCount = DataManager.Instance.LoadInt("MukiCount") +1;
         DataManager.Instance.SaveInt("MukiCount", MukiCount);
         UpdateItemCountText();
-
+        
         // アイテムを削除
         Destroy(item);
     }
@@ -116,17 +122,21 @@ public class PlayerHitCheck : MonoBehaviour
 
     private void Mukibreak(GameObject floor)
     {
-        if(DataManager.Instance.LoadBool("Muki"))
+        if (DataManager.Instance.LoadBool("Muki"))
         {
+
+            EffectManager.Instance.PlayEffectOnTaggedObjects(1, "Mukib");
+
             Destroy(floor);
         }
-
     }
 
     private void Omobreak(GameObject floor)
     {
         if (DataManager.Instance.LoadBool("Omo"))
         {
+            EffectManager.Instance.PlayEffectOnTaggedObjects(2, "Omob");
+
             Destroy(floor);
         }
     }
