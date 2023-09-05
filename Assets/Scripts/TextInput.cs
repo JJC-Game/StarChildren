@@ -34,13 +34,14 @@ public class TextInput : MonoBehaviour
             }
 
             DataManager.Instance.SaveString("Name", inputText);
-            UpdateDisplay();
 
             // キーボードを解放
             keyboard = null;
             MainGameCanvas.gameObject.SetActive(true);
             Back.gameObject.SetActive(false);
         }
+        UpdateDisplay();
+
     }
 
     public void NameChange()

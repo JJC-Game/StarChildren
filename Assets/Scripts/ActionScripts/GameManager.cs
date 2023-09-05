@@ -21,6 +21,8 @@ public class GameManager : Singleton<GameManager>
     public TextMeshProUGUI timerText; // 残り時間を表示するテキスト
     public TextMeshProUGUI heightText; // 高さを表示するテキスト
     public TextMeshProUGUI BestheightText; // 最高記録を表示するテキスト
+    public string high;
+    public string besthigh;
 
     public GameObject Player; // 高さを取得するプレイヤー
 
