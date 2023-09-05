@@ -47,12 +47,6 @@ public class TestTraining : MonoBehaviour
 
     private void Start()
     {
-        if (DataManager.Instance.LoadBool("ClearReset"))
-        {
-            AllReset();
-            DataManager.Instance.SaveBool("ClearReset", false);
-        }
-
         NoItem.gameObject.SetActive(false); // アイテム回数制限のtext非表示
         FinishCanvas.gameObject.SetActive(false); // 終了ボタンの非表示
         KakuninCanvas.gameObject.SetActive(false);
@@ -144,7 +138,6 @@ public class TestTraining : MonoBehaviour
 
     private void Update()
     {
-
         // タイマーを更新する
         timer += Time.deltaTime;
 
@@ -427,7 +420,7 @@ public class TestTraining : MonoBehaviour
     {
         SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
         // ３回目の進化
-        if (DataManager.Instance.LoadInt("MCMG") > DataManager.Instance.LoadInt("OCMG") && DataManager.Instance.LoadBool("E2FF") == true)
+        if (DataManager.Instance.LoadInt("MCMG") >= DataManager.Instance.LoadInt("OCMG") && DataManager.Instance.LoadBool("E2FF") == true)
         {
             targetSpriteRenderer.sprite = EvolveSprite[5];
             MaxCountReset();
@@ -435,7 +428,7 @@ public class TestTraining : MonoBehaviour
             DataManager.Instance.SaveBool("E3FFF", true);
             DataManager.Instance.SaveBool("E2FF", false);
         }
-        else if (DataManager.Instance.LoadInt("MCMG") < DataManager.Instance.LoadInt("OCMG") && DataManager.Instance.LoadBool("E2OO") == true)
+        else if (DataManager.Instance.LoadInt("MCMG") <= DataManager.Instance.LoadInt("OCMG") && DataManager.Instance.LoadBool("E2OO") == true)
         {
             targetSpriteRenderer.sprite = EvolveSprite[6];
             MaxCountReset();
@@ -443,7 +436,7 @@ public class TestTraining : MonoBehaviour
             DataManager.Instance.SaveBool("E3OOO", true);
             DataManager.Instance.SaveBool("E2OO", false);
         }
-        else if (DataManager.Instance.LoadInt("MCMG") > DataManager.Instance.LoadInt("OCMG") && DataManager.Instance.LoadBool("E2FO") == true)
+        else if (DataManager.Instance.LoadInt("MCMG") >= DataManager.Instance.LoadInt("OCMG") && DataManager.Instance.LoadBool("E2FO") == true)
         {
             targetSpriteRenderer.sprite = EvolveSprite[7];
             MaxCountReset();
@@ -453,7 +446,7 @@ public class TestTraining : MonoBehaviour
             DataManager.Instance.SaveBool("Omo", true);
             DataManager.Instance.SaveBool("Muki", true);
         }
-        else if (DataManager.Instance.LoadInt("MCMG") < DataManager.Instance.LoadInt("OCMG") && DataManager.Instance.LoadBool("E2FO") == true)
+        else if (DataManager.Instance.LoadInt("MCMG") <= DataManager.Instance.LoadInt("OCMG") && DataManager.Instance.LoadBool("E2FO") == true)
         {
             targetSpriteRenderer.sprite = EvolveSprite[8];
             MaxCountReset();

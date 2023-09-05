@@ -214,6 +214,7 @@ public class DataManager : Singleton<DataManager>
         SaveBool("Muki", false);
         SaveBool("Omo", false);
         SaveBool("Album", false);
+        SaveBool("ClearReset", false);
     }
 
     //"E1F", "E1O","E2FF", "E1OO", "E2FO", "E3FFF", "E3OOO", "E3FFO", "E3FOO", "Finish", "E1", "E2", "E3", "E4", "Muki", "Omo", "Album" 

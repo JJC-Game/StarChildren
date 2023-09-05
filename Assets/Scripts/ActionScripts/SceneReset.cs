@@ -31,6 +31,28 @@ public class SceneReset : MonoBehaviour
     {
         DataManager.Instance.SaveInt("MeraLimit", DataManager.Instance.LoadInt("MukiCount") + DataManager.Instance.LoadInt("MeraLimit"));
         DataManager.Instance.SaveInt("OmoLimit", DataManager.Instance.LoadInt("OmoCount") + DataManager.Instance.LoadInt("OmoLimit"));
+        if (DataManager.Instance.LoadBool("ClearReset"))
+        {
+            DataManager.Instance.SaveBool("E1F", false);
+            DataManager.Instance.SaveBool("E1O", false);
+            DataManager.Instance.SaveBool("E2FF", false);
+            DataManager.Instance.SaveBool("E2OO", false);
+            DataManager.Instance.SaveBool("E2FO", false);
+            DataManager.Instance.SaveBool("E3FFF", false);
+            DataManager.Instance.SaveBool("E3OOO", false);
+            DataManager.Instance.SaveBool("E3FFO", false);
+            DataManager.Instance.SaveBool("E3FOO", false);
+            DataManager.Instance.SaveBool("Finish", false);
+            DataManager.Instance.SaveBool("E1", false);
+            DataManager.Instance.SaveBool("E2", false);
+            DataManager.Instance.SaveBool("E3", false);
+            DataManager.Instance.SaveBool("E4", false);
+            DataManager.Instance.SaveBool("Muki", false);
+            DataManager.Instance.SaveBool("Omo", false);
+            DataManager.Instance.SaveBool("Album", false);
+            DataManager.Instance.SaveBool("ClearReset", false);
+            Debug.Log("a");
+        }
         SceneManager.LoadScene(2);
     }
 
