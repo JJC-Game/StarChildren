@@ -13,7 +13,10 @@ public class GameManager : Singleton<GameManager>
     public float targetTime = 90f; // 目標の経過時間（1分30秒）
     public GameObject TimeUpCanvas;
     public GameObject MainGameCanvas;
-    //public PlayableDirector timeline; // ゲーム終了時に再生するタイムライン
+    public GameObject StartTimeLineCanvas;
+
+    public GameObject PlayerSprite; //キャラクターの見た目
+    public Sprite[] EvolveSprite; //進化後のキャラクターの見た目
 
     public TextMeshProUGUI timerText; // 残り時間を表示するテキスト
     public TextMeshProUGUI heightText; // 高さを表示するテキスト
@@ -38,6 +41,58 @@ public class GameManager : Singleton<GameManager>
         DataManager.Instance.ResetOmoCount();
         DataManager.Instance.ResetBetaCount();
         DataManager.Instance.ResetPataCount();
+
+        if (DataManager.Instance.LoadBool("E1F") == true)
+        {
+            SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
+            targetSpriteRenderer.sprite = EvolveSprite[0];
+        }
+        else if (DataManager.Instance.LoadBool("E1O") == true)
+        {
+            SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
+            targetSpriteRenderer.sprite = EvolveSprite[1];
+        }
+        else if (DataManager.Instance.LoadBool("E2FF") == true)
+        {
+            SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
+            targetSpriteRenderer.sprite = EvolveSprite[2];
+        }
+        else if (DataManager.Instance.LoadBool("E2OO") == true)
+        {
+            SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
+            targetSpriteRenderer.sprite = EvolveSprite[3];
+        }
+        else if (DataManager.Instance.LoadBool("E2FO") == true)
+        {
+            SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
+            targetSpriteRenderer.sprite = EvolveSprite[4];
+        }
+        else if (DataManager.Instance.LoadBool("E3FFF") == true)
+        {
+            SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
+            targetSpriteRenderer.sprite = EvolveSprite[5];
+        }
+        else if (DataManager.Instance.LoadBool("E3OOO") == true)
+        {
+            SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
+            targetSpriteRenderer.sprite = EvolveSprite[6];
+        }
+        else if (DataManager.Instance.LoadBool("E3FFO") == true)
+        {
+            SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
+            targetSpriteRenderer.sprite = EvolveSprite[7];
+        }
+        else if (DataManager.Instance.LoadBool("E3FOO") == true)
+        {
+            SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
+            targetSpriteRenderer.sprite = EvolveSprite[8];
+        }
+        else if (DataManager.Instance.LoadBool("E1") == false)
+        {
+            SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
+            targetSpriteRenderer.sprite = EvolveSprite[9];
+        }
+
     }
 
     void Update()
@@ -56,6 +111,11 @@ public class GameManager : Singleton<GameManager>
                 PlayTimeUpTimeLine();
 
             }
+        }
+
+        if (StartTimeLine.state == PlayState.Playing && Input.GetMouseButtonDown(0))
+        {
+            DemoSkip();
         }
 
     }
@@ -100,17 +160,6 @@ public class GameManager : Singleton<GameManager>
         BestheightText.text = Mathf.RoundToInt(DataManager.Instance.LoadFloat("PlayerBest1")).ToString();
     }
 
-    private void EndGame()
-    {
-        // ゲーム終了時の処理
-        // タイムラインを再生し、操作を無効化する
-        /*if (timeline != null)
-        {
-            timeline.Play();
-        }*/
-
-    }
-
     public void MainGame()
     {
         mainGame = true;
@@ -129,6 +178,16 @@ public class GameManager : Singleton<GameManager>
         mainGame = false;
         TimeUpCanvas.SetActive(true);
         TimeUpTimeLine.Play();
+    }
+
+    public void DemoSkip()
+    {
+        mainGame = true;
+        StartTimer();
+        StartTimeLine.Stop();
+
+        MainGameCanvas.SetActive(true);
+        StartTimeLineCanvas.SetActive(false);
     }
 
 }
