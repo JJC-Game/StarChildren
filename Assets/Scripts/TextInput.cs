@@ -7,39 +7,49 @@ using UnityEngine.UI;
 public class TextInput : MonoBehaviour
 {
     public TextMeshProUGUI displayText; // 表示するテキストUIオブジェクト
-    private string inputText; // ユーザーが入力した文字を保持する変数
-    private int maxInputLength = 8; // 入力上限の文字数
-    public bool Name;
     public GameObject MainGameCanvas;
     public GameObject Back;
+
+    private TouchScreenKeyboard keyboard; // キーボードのインスタンス
+    public string inputText;
+    public int Limit = 8; // 文字制限
 
     void Start()
     {
         inputText = DataManager.Instance.LoadString("Name");
         UpdateDisplay();
-        Name = false;
         Back.gameObject.SetActive(false);
     }
 
     void Update()
     {
-        // ユーザーの入力を受け取る
-        if (Input.inputString.Length > 0 && Name)
+        // キーボードが非アクティブになった場合、入力を受け取る
+        if (keyboard != null && !keyboard.active)
         {
-            char c = Input.inputString[0];
-            // 入力された文字がバックスペースでない場合は、inputTextに追加
-            if (c != '\b' && inputText.Length < maxInputLength)
+            // 入力されたテキストを取得して制限を適用し、UIに表示
+            string inputText = keyboard.text;
+            if (inputText.Length > Limit)
             {
-                inputText += c;
-            }
-            // 入力された文字がバックスペースの場合は、inputTextの末尾を削除
-            else if (c == '\b' && inputText.Length > 0)
-            {
-                inputText = inputText.Substring(0, inputText.Length - 1);
+                inputText = inputText.Substring(0, Limit);
             }
 
-            UpdateDisplay();
             DataManager.Instance.SaveString("Name", inputText);
+            UpdateDisplay();
+
+            // キーボードを解放
+            keyboard = null;
+        }
+    }
+
+    public void NameChange()
+    {
+        MainGameCanvas.gameObject.SetActive(false);
+        Back.gameObject.SetActive(true);
+        // キーボードが表示されていない場合のみ表示する
+        if (keyboard == null || !keyboard.active)
+        {
+            // キーボードを表示し、入力を待つ
+            keyboard = TouchScreenKeyboard.Open(DataManager.Instance.LoadString("Name"), TouchScreenKeyboardType.Default);
         }
     }
 
@@ -49,19 +59,4 @@ public class TextInput : MonoBehaviour
         displayText.text = inputText;
     }
 
-    public void NameChange()
-    {
-        if (Name == false)
-        {
-            Name = true;
-            MainGameCanvas.gameObject.SetActive(false);
-            Back.gameObject.SetActive(true);
-        }
-        else if (Name == true)
-        {
-            Name = false;
-            MainGameCanvas.gameObject.SetActive(true);
-            Back.gameObject.SetActive(false);
-        }
-    }
 }

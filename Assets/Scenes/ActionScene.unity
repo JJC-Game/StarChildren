@@ -2061,6 +2061,7 @@ MonoBehaviour:
   targetTime: 90
   TimeUpCanvas: {fileID: 1488278696}
   MainGameCanvas: {fileID: 1995191618}
+  StartTimeLineCanvas: {fileID: 1469686604}
   PlayerSprite: {fileID: 167014703}
   EvolveSprite:
   - {fileID: 21300000, guid: ec009388c47f0ce4d8e2afb95492e7dd, type: 3}
