@@ -38,6 +38,8 @@ public class TextInput : MonoBehaviour
 
             // キーボードを解放
             keyboard = null;
+            MainGameCanvas.gameObject.SetActive(true);
+            Back.gameObject.SetActive(false);
         }
     }
 

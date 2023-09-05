@@ -5122,7 +5122,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 269837645}
         m_TargetAssemblyTypeName: TextInput, Assembly-CSharp
-        m_MethodName: SelectButton
+        m_MethodName: NameChange
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
