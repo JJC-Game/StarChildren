@@ -22,6 +22,9 @@ public class DataManager : Singleton<DataManager>
     public string CName3;
     public string CName4;
     public string CName5;
+    public float PB1;
+    public float PB2;
+    public float PB3;
 
     // 変数の保存int型
     public void SaveInt(string key, int value)
@@ -97,6 +100,9 @@ public class DataManager : Singleton<DataManager>
         CName3 = LoadString("CName3");
         CName4 = LoadString("CName4");
         CName5 = LoadString("CName5");
+        PB1 = LoadFloat("PlayBest1");
+        PB2 = LoadFloat("PlayBest2");
+        PB3 = LoadFloat("PlayBest3");
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
         SaveInt("Clear", clearcount);
@@ -112,6 +118,9 @@ public class DataManager : Singleton<DataManager>
         SaveString("CName3", CName3);
         SaveString("CName4", CName4);
         SaveString("CName5", CName5);
+        SaveFloat("PlayBest1", PB1);
+        SaveFloat("PlayBest2", PB2);
+        SaveFloat("PlayBest3", PB3);
     }
 
     public void ResetGame()
@@ -134,6 +143,9 @@ public class DataManager : Singleton<DataManager>
         CName3 = LoadString("CName3");
         CName4 = LoadString("CName4");
         CName5 = LoadString("CName5");
+        PB1 = LoadFloat("PlayBest1");
+        PB2 = LoadFloat("PlayBest2");
+        PB3 = LoadFloat("PlayBest3");
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
         SaveInt("Clear", clearcount);
@@ -154,6 +166,9 @@ public class DataManager : Singleton<DataManager>
         SaveString("CName3", CName3);
         SaveString("CName4", CName4);
         SaveString("CName5", CName5);
+        SaveFloat("PlayBest1", PB1);
+        SaveFloat("PlayBest2", PB2);
+        SaveFloat("PlayBest3", PB3);
     }
 
     public void ResetMukiCount()

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TextInput : MonoBehaviour
 {
@@ -39,8 +39,10 @@ public class TextInput : MonoBehaviour
             keyboard = null;
             MainGameCanvas.gameObject.SetActive(true);
             Back.gameObject.SetActive(false);
+            UpdateDisplay();
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(currentSceneIndex);
         }
-        UpdateDisplay();
 
     }
 

@@ -52,16 +52,19 @@ public class SceneReset : MonoBehaviour
     public void ChangeSceneα_stage1()
     {
         SceneManager.LoadScene(6);
+        DataManager.Instance.SaveInt("Stage", 1);
     }
 
     public void ChangeSceneα_stage2()
     {
         SceneManager.LoadScene(7);
+        DataManager.Instance.SaveInt("Stage", 2);
     }
 
     public void ChangeSceneα_stage3()
     {
         SceneManager.LoadScene(8);
+        DataManager.Instance.SaveInt("Stage", 3);
     }
 
 }

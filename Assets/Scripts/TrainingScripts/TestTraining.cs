@@ -522,6 +522,7 @@ public class TestTraining : MonoBehaviour
         DataManager.Instance.SaveInt("BCMG", 0);
         DataManager.Instance.SaveInt("PCMG", 0);
         DataManager.Instance.SaveInt("KCMG", 0);
+        DataManager.Instance.SaveString("Name","");
         DataManager.Instance.ResetAllBool();
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);

@@ -150,16 +150,39 @@ public class GameManager : Singleton<GameManager>
     {
         // プレイヤーの現在の高さを取得
         float playerHeight = Player.transform.localPosition.y + 7;
-        DataManager.Instance.SaveFloat("PlayerHigh1",playerHeight);
+        DataManager.Instance.SaveFloat("PlayerHigh",playerHeight);
 
         if (playerHeight > DataManager.Instance.LoadFloat("PlayerBest1"))
         {
-            DataManager.Instance.SaveFloat("PlayerBest1", playerHeight);
+            if (DataManager.Instance.LoadInt("Stage") == 1)
+            {
+                DataManager.Instance.SaveFloat("PlayerBest1", playerHeight);
+            }
+            else if (DataManager.Instance.LoadInt("Stage") == 2)
+            {
+                DataManager.Instance.SaveFloat("PlayerBest2", playerHeight);
+            }
+            else if (DataManager.Instance.LoadInt("Stage") == 3)
+            {
+                DataManager.Instance.SaveFloat("PlayerBest3", playerHeight);
+            }
+
         }
 
         // 高さをテキストに表示
-        heightText.text = Mathf.RoundToInt(DataManager.Instance.LoadFloat("PlayerHigh1")).ToString();
-        BestheightText.text = Mathf.RoundToInt(DataManager.Instance.LoadFloat("PlayerBest1")).ToString();
+        heightText.text = Mathf.RoundToInt(DataManager.Instance.LoadFloat("PlayerHigh")).ToString();
+        if(DataManager.Instance.LoadInt("Stage") == 1)
+        {
+            BestheightText.text = Mathf.RoundToInt(DataManager.Instance.LoadFloat("PlayerBest1")).ToString();
+        }
+        else if (DataManager.Instance.LoadInt("Stage") == 2)
+        {
+            BestheightText.text = Mathf.RoundToInt(DataManager.Instance.LoadFloat("PlayerBest2")).ToString();
+        }
+        else if (DataManager.Instance.LoadInt("Stage") == 3)
+        {
+            BestheightText.text = Mathf.RoundToInt(DataManager.Instance.LoadFloat("PlayerBest3")).ToString();
+        }
     }
 
     public void MainGame()
