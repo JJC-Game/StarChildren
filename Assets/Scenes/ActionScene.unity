@@ -2077,6 +2077,8 @@ MonoBehaviour:
   timerText: {fileID: 713295110}
   heightText: {fileID: 147203662}
   BestheightText: {fileID: 1355908770}
+  high: 
+  besthigh: 
   Player: {fileID: 1504715735}
   StartTimeLine: {fileID: 923600435}
   TimeUpTimeLine: {fileID: 1011934293}
@@ -3197,7 +3199,7 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 0
   m_HDR: 1
-  m_AllowMSAA: 0
+  m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 0
@@ -6375,6 +6377,9 @@ MonoBehaviour:
   CName3: 
   CName4: 
   CName5: 
+  PB1: 0
+  PB2: 0
+  PB3: 0
 --- !u!1 &1056653144
 GameObject:
   m_ObjectHideFlags: 0

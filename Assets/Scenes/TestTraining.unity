@@ -13327,6 +13327,9 @@ MonoBehaviour:
   CName3: 
   CName4: 
   CName5: 
+  PB1: 0
+  PB2: 0
+  PB3: 0
 --- !u!4 &1581254120
 Transform:
   m_ObjectHideFlags: 0
@@ -15976,6 +15979,10 @@ MonoBehaviour:
   - {fileID: 1297610277}
   - {fileID: 1355478304}
   - {fileID: 1219719649}
+  - {fileID: 1218795131}
+  - {fileID: 1379813789}
+  - {fileID: 839707414}
+  - {fileID: 1294903720}
   increaseAmounts: 1
   gaugeImages:
   - {fileID: 442434546}
