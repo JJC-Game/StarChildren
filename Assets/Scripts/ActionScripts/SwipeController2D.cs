@@ -15,11 +15,11 @@ public class SwipeController2D : Singleton<SwipeController2D>
 
     // べたべたに関する変数
     private Rigidbody2D rb;
-    private Vector2 gravity;
-    private float angularVelocity;
-    private float timer = 0f;
-    private bool timeron;
-    private int BetaCount = 1;
+    //private Vector2 gravity;
+    //private float angularVelocity;
+    //private float timer = 0f;
+    //private bool timeron;
+    //private int BetaCount = 1;
 
     public bool isOnFloor; // 地面についてるかどうか
     //public bool Pata;  // ぱたぱたの能力を持っているか
@@ -32,8 +32,8 @@ public class SwipeController2D : Singleton<SwipeController2D>
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        gravity = rb.gravityScale * Physics2D.gravity;
-        angularVelocity = rb.angularVelocity;
+        //gravity = rb.gravityScale * Physics2D.gravity;
+        //angularVelocity = rb.angularVelocity;
         DataManager.Instance.SaveInt("PataLimit", DataManager.Instance.LoadInt("PataCount"));
         /*
         if (DataManager.Instance.LoadInt("PataCount") >= 1)

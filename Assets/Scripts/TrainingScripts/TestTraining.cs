@@ -42,8 +42,8 @@ public class TestTraining : MonoBehaviour
     private bool isAllGaugeResetting = false;
     private bool isMukiButtonResetting = false;
     private bool isOmoButtonResetting = false;
-    private bool isBetaButtonResetting = false;
-    private bool isPataButtonResetting = false;
+    //private bool isBetaButtonResetting = false;
+    //private bool isPataButtonResetting = false;
 
     public Transform MukiMaxEffect;
     public Transform OmoMaxEffect;
