@@ -102,7 +102,7 @@ public class SwipeController2D : Singleton<SwipeController2D>
     }
 
     // スワイプの距離計測と飛ばす処理
-    private void DetectSwipeDirection()
+    public void DetectSwipeDirection()
     {
         Vector2 swipeDirection = swipeEndPosition - swipeStartPosition;
         float swipeDistance = swipeDirection.magnitude;
