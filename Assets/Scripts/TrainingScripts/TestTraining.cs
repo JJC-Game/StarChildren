@@ -27,6 +27,9 @@ public class TestTraining : MonoBehaviour
     public GameObject FinishCanvas;
     public GameObject KakuninCanvas;
     public GameObject ResetCheckCanvas;
+    public GameObject HomeButton;
+    public GameObject SNSButton;
+    public GameObject NameCanvas;
     private bool Finish;
     private bool Reset;
 
@@ -63,6 +66,23 @@ public class TestTraining : MonoBehaviour
         UpdateGaugeDisplayK();
 
         currentAlpha = NoItem.alpha;
+
+        if (DataManager.Instance.LoadInt("KCMG") == 0)
+        {
+            DataManager.Instance.SaveInt("KMG", kiraMax0);
+        }
+        else if (DataManager.Instance.LoadInt("KCMG") == 1)
+        {
+            DataManager.Instance.SaveInt("KMG", kiraMax1);
+        }
+        else if (DataManager.Instance.LoadInt("KCMG") == 2)
+        {
+            DataManager.Instance.SaveInt("KMG", kiraMax2);
+        }
+        else if (DataManager.Instance.LoadInt("KCMG") == 3)
+        {
+            DataManager.Instance.SaveInt("KMG", kiraMax3);
+        }
 
         DataManager.Instance.SaveInt("MMG", 10);
         DataManager.Instance.SaveInt("OMG", 10);
@@ -134,6 +154,13 @@ public class TestTraining : MonoBehaviour
             KakuninCanvas.gameObject.SetActive(false);
         }
 
+        if(DataManager.Instance.LoadBool("ClearReset"))
+        {
+            AllReset();
+            DataManager.Instance.SaveBool("ClearReset", false);
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(currentSceneIndex);
+        }
     }
 
     private void Update()
@@ -323,6 +350,11 @@ public class TestTraining : MonoBehaviour
             }
             else if (DataManager.Instance.LoadBool("E1") == true && DataManager.Instance.LoadBool("E2") == true && DataManager.Instance.LoadBool("E3") == true && DataManager.Instance.LoadBool("E4") == false)
             {
+                UpdateGaugeDisplayM();
+                UpdateGaugeDisplayO();
+                UpdateGaugeDisplayB();
+                UpdateGaugeDisplayP();
+                UpdateGaugeDisplayK();
                 EVOF();
             }
   
@@ -588,6 +620,9 @@ public class TestTraining : MonoBehaviour
     {
         isMukiButtonResetting = true;
         invalidButton[0].interactable = false; // ボタンを無効化
+        HomeButton.gameObject.SetActive(false);
+        SNSButton.gameObject.SetActive(false);
+        NameCanvas.gameObject.SetActive(false);
 
         yield return new WaitForSeconds(2f);
 
@@ -596,12 +631,18 @@ public class TestTraining : MonoBehaviour
 
         invalidButton[0].interactable = true; // ボタンを有効化
         isMukiButtonResetting = false;
+        HomeButton.gameObject.SetActive(true);
+        SNSButton.gameObject.SetActive(true);
+        NameCanvas.gameObject.SetActive(true);
     }
 
     private IEnumerator ResetOmoGauge()
     {
         isOmoButtonResetting = true;
         invalidButton[1].interactable = false; // ボタンを無効化
+        HomeButton.gameObject.SetActive(false);
+        SNSButton.gameObject.SetActive(false);
+        NameCanvas.gameObject.SetActive(false);
 
         yield return new WaitForSeconds(2f);
 
@@ -610,12 +651,18 @@ public class TestTraining : MonoBehaviour
 
         invalidButton[1].interactable = true; // ボタンを有効化
         isOmoButtonResetting = false;
+        HomeButton.gameObject.SetActive(true);
+        SNSButton.gameObject.SetActive(true);
+        NameCanvas.gameObject.SetActive(true);
     }
 
     private IEnumerator ResetBetaGauge()
     {
         isBetaButtonResetting = true;
         invalidButton[2].interactable = false; // ボタンを無効化
+        HomeButton.gameObject.SetActive(false);
+        SNSButton.gameObject.SetActive(false);
+        NameCanvas.gameObject.SetActive(false);
 
         yield return new WaitForSeconds(2f);
 
@@ -624,12 +671,18 @@ public class TestTraining : MonoBehaviour
 
         invalidButton[2].interactable = true; // ボタンを有効化
         isBetaButtonResetting = false;
+        HomeButton.gameObject.SetActive(true);
+        SNSButton.gameObject.SetActive(true);
+        NameCanvas.gameObject.SetActive(true);
     }
 
     private IEnumerator ResetPataGauge()
     {
         isPataButtonResetting = true;
         invalidButton[3].interactable = false; // ボタンを無効化
+        HomeButton.gameObject.SetActive(false);
+        SNSButton.gameObject.SetActive(false);
+        NameCanvas.gameObject.SetActive(false);
 
         yield return new WaitForSeconds(2f);
 
@@ -638,12 +691,18 @@ public class TestTraining : MonoBehaviour
 
         invalidButton[3].interactable = true; // ボタンを有効化
         isPataButtonResetting = false;
+        HomeButton.gameObject.SetActive(true);
+        SNSButton.gameObject.SetActive(true);
+        NameCanvas.gameObject.SetActive(true);
     }
 
     //KiraGaugeがMAXになったらすべてのゲージが2秒後にリセットされる
     private IEnumerator AllResetGauge()
     {
         isAllGaugeResetting = true;
+        HomeButton.gameObject.SetActive(false);
+        SNSButton.gameObject.SetActive(false);
+        NameCanvas.gameObject.SetActive(false);
 
         yield return new WaitForSeconds(2f);
 
@@ -661,5 +720,8 @@ public class TestTraining : MonoBehaviour
         isAllGaugeResetting = false;
         GaugeMaxCount[4] += 1;
         DataManager.Instance.SaveInt("KCMG", GaugeMaxCount[4]);
+        HomeButton.gameObject.SetActive(true);
+        SNSButton.gameObject.SetActive(true);
+        NameCanvas.gameObject.SetActive(true);
     }
 }

@@ -13327,6 +13327,9 @@ MonoBehaviour:
   CName3: 
   CName4: 
   CName5: 
+  PB1: 0
+  PB2: 0
+  PB3: 0
 --- !u!4 &1581254120
 Transform:
   m_ObjectHideFlags: 0
@@ -16005,6 +16008,9 @@ MonoBehaviour:
   FinishCanvas: {fileID: 1951675266}
   KakuninCanvas: {fileID: 161413362}
   ResetCheckCanvas: {fileID: 930199167}
+  HomeButton: {fileID: 1218795129}
+  SNSButton: {fileID: 1379813787}
+  NameCanvas: {fileID: 599324841}
   NoItem: {fileID: 702369501}
   fadeOutTime: 1
 --- !u!1 &1985203203
