@@ -15979,6 +15979,10 @@ MonoBehaviour:
   - {fileID: 1297610277}
   - {fileID: 1355478304}
   - {fileID: 1219719649}
+  - {fileID: 1218795131}
+  - {fileID: 1379813789}
+  - {fileID: 839707414}
+  - {fileID: 1294903720}
   increaseAmounts: 1
   gaugeImages:
   - {fileID: 442434546}
@@ -16008,9 +16012,6 @@ MonoBehaviour:
   FinishCanvas: {fileID: 1951675266}
   KakuninCanvas: {fileID: 161413362}
   ResetCheckCanvas: {fileID: 930199167}
-  HomeButton: {fileID: 1218795129}
-  SNSButton: {fileID: 1379813787}
-  NameCanvas: {fileID: 599324841}
   NoItem: {fileID: 702369501}
   fadeOutTime: 1
 --- !u!1 &1985203203

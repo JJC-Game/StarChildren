@@ -27,9 +27,6 @@ public class TestTraining : MonoBehaviour
     public GameObject FinishCanvas;
     public GameObject KakuninCanvas;
     public GameObject ResetCheckCanvas;
-    public GameObject HomeButton;
-    public GameObject SNSButton;
-    public GameObject NameCanvas;
     private bool Finish;
     private bool Reset;
 
@@ -619,90 +616,63 @@ public class TestTraining : MonoBehaviour
     private IEnumerator ResetMukiGauge()
     {
         isMukiButtonResetting = true;
-        invalidButton[0].interactable = false; // ボタンを無効化
-        HomeButton.gameObject.SetActive(false);
-        SNSButton.gameObject.SetActive(false);
-        NameCanvas.gameObject.SetActive(false);
+        InvalidButton(); // ボタンを無効化
 
         yield return new WaitForSeconds(2f);
 
         DataManager.Instance.SaveFloat("FG", 0);
         gaugeImages[0].fillAmount = 0f;
 
-        invalidButton[0].interactable = true; // ボタンを有効化
+        ValidButton(); // ボタンを有効化
         isMukiButtonResetting = false;
-        HomeButton.gameObject.SetActive(true);
-        SNSButton.gameObject.SetActive(true);
-        NameCanvas.gameObject.SetActive(true);
     }
 
     private IEnumerator ResetOmoGauge()
     {
         isOmoButtonResetting = true;
-        invalidButton[1].interactable = false; // ボタンを無効化
-        HomeButton.gameObject.SetActive(false);
-        SNSButton.gameObject.SetActive(false);
-        NameCanvas.gameObject.SetActive(false);
+        InvalidButton(); // ボタンを無効化
 
         yield return new WaitForSeconds(2f);
 
         DataManager.Instance.SaveFloat("OG", 0);
         gaugeImages[1].fillAmount = 0f;
 
-        invalidButton[1].interactable = true; // ボタンを有効化
+        ValidButton(); // ボタンを有効化
         isOmoButtonResetting = false;
-        HomeButton.gameObject.SetActive(true);
-        SNSButton.gameObject.SetActive(true);
-        NameCanvas.gameObject.SetActive(true);
     }
 
     private IEnumerator ResetBetaGauge()
     {
         isBetaButtonResetting = true;
-        invalidButton[2].interactable = false; // ボタンを無効化
-        HomeButton.gameObject.SetActive(false);
-        SNSButton.gameObject.SetActive(false);
-        NameCanvas.gameObject.SetActive(false);
+        InvalidButton(); // ボタンを無効化
 
         yield return new WaitForSeconds(2f);
 
         DataManager.Instance.SaveFloat("BG",0);
         gaugeImages[2].fillAmount = 0f;
 
-        invalidButton[2].interactable = true; // ボタンを有効化
+        ValidButton(); // ボタンを有効化
         isBetaButtonResetting = false;
-        HomeButton.gameObject.SetActive(true);
-        SNSButton.gameObject.SetActive(true);
-        NameCanvas.gameObject.SetActive(true);
     }
 
     private IEnumerator ResetPataGauge()
     {
         isPataButtonResetting = true;
-        invalidButton[3].interactable = false; // ボタンを無効化
-        HomeButton.gameObject.SetActive(false);
-        SNSButton.gameObject.SetActive(false);
-        NameCanvas.gameObject.SetActive(false);
+        InvalidButton(); // ボタンを無効化
 
         yield return new WaitForSeconds(2f);
 
         DataManager.Instance.SaveFloat("PG",0);
         gaugeImages[3].fillAmount = 0f;
 
-        invalidButton[3].interactable = true; // ボタンを有効化
+        ValidButton(); // ボタンを有効化
         isPataButtonResetting = false;
-        HomeButton.gameObject.SetActive(true);
-        SNSButton.gameObject.SetActive(true);
-        NameCanvas.gameObject.SetActive(true);
     }
 
     //KiraGaugeがMAXになったらすべてのゲージが2秒後にリセットされる
     private IEnumerator AllResetGauge()
     {
         isAllGaugeResetting = true;
-        HomeButton.gameObject.SetActive(false);
-        SNSButton.gameObject.SetActive(false);
-        NameCanvas.gameObject.SetActive(false);
 
         yield return new WaitForSeconds(2f);
 
@@ -720,8 +690,29 @@ public class TestTraining : MonoBehaviour
         isAllGaugeResetting = false;
         GaugeMaxCount[4] += 1;
         DataManager.Instance.SaveInt("KCMG", GaugeMaxCount[4]);
-        HomeButton.gameObject.SetActive(true);
-        SNSButton.gameObject.SetActive(true);
-        NameCanvas.gameObject.SetActive(true);
+    }
+
+    private void InvalidButton()
+    {
+        invalidButton[0].interactable = false;
+        invalidButton[1].interactable = false;
+        invalidButton[2].interactable = false;
+        invalidButton[3].interactable = false;
+        invalidButton[4].interactable = false;
+        invalidButton[5].interactable = false;
+        invalidButton[6].interactable = false;
+        invalidButton[7].interactable = false;
+    }
+
+    private void ValidButton()
+    {
+        invalidButton[0].interactable = true;
+        invalidButton[1].interactable = true;
+        invalidButton[2].interactable = true;
+        invalidButton[3].interactable = true;
+        invalidButton[4].interactable = true;
+        invalidButton[5].interactable = true;
+        invalidButton[6].interactable = true;
+        invalidButton[7].interactable = true;
     }
 }
