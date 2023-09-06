@@ -708,6 +708,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleEffectPrefabs:
+  - {fileID: 1459862227383078, guid: 3e0b6156aea52b6459791857fe586dc9, type: 3}
+  - {fileID: 1459862227383078, guid: ac3436a19869b3b4fb4e87c348c68df2, type: 3}
   - {fileID: 1459862227383078, guid: 50d2fd2e2db70d545841442d2aae539b, type: 3}
   - {fileID: 1459862227383078, guid: cc461484bcafc664fb68be84c1fc6860, type: 3}
   deleteTime: 1
