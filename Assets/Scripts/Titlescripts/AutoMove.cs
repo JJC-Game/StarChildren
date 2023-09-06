@@ -7,8 +7,8 @@ public class AutoMove : MonoBehaviour
 {
     public float moveSpeed; // 移動速度
     public float moveDuration; // 移動する時間（秒）
-    public float shakeIntensity = 0.1f; // 揺れの強度
-    public float shakeDuration = 0.5f; // 揺れる時間（秒）
+    public float shakeIntensity; // 揺れの強度
+    public float shakeDuration; // 揺れる時間（秒）
 
     public List<Vector3> movePoints; // 移動ポイントのリスト
     private int currentMovePointIndex = 0; // 現在の移動ポイントのインデックス
