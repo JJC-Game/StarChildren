@@ -3458,6 +3458,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89630b9630479a344b60ebd3407be6bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clearcount: 0
+  Display0: 0
+  Display1: 0
+  Display2: 0
+  Display3: 0
+  Display4: 0
+  Display5: 0
+  FFF: 0
+  OOO: 0
+  FFO: 0
+  OOF: 0
+  Name: 
+  CName0: 
+  CName1: 
+  CName2: 
+  CName3: 
+  CName4: 
+  CName5: 
+  PB1: 0
+  PB2: 0
+  PB3: 0
 --- !u!4 &1581254120
 Transform:
   m_ObjectHideFlags: 0
@@ -4262,6 +4283,7 @@ MonoBehaviour:
   - {fileID: 1428064083}
   - {fileID: 1269314376}
   - {fileID: 79101502}
+  - {fileID: 164303862}
   - {fileID: 164303862}
   increaseAmounts:
   - 1

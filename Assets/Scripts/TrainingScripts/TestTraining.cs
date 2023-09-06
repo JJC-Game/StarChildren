@@ -45,6 +45,11 @@ public class TestTraining : MonoBehaviour
     private bool isBetaButtonResetting = false;
     private bool isPataButtonResetting = false;
 
+    public Transform MukiMaxEffect;
+    public Transform OmoMaxEffect;
+    public Transform KiraMaxEffect;
+    public Transform ImageChengeEffect;
+
     private void Start()
     {
         NoItem.gameObject.SetActive(false); // アイテム回数制限のtext非表示
@@ -58,11 +63,28 @@ public class TestTraining : MonoBehaviour
 
         UpdateGaugeDisplayM();
         UpdateGaugeDisplayO();
-        UpdateGaugeDisplayB();
-        UpdateGaugeDisplayP();
+        //UpdateGaugeDisplayB();
+        //UpdateGaugeDisplayP();
         UpdateGaugeDisplayK();
 
         currentAlpha = NoItem.alpha;
+
+        if (DataManager.Instance.LoadInt("KCMG") == 0)
+        {
+            DataManager.Instance.SaveInt("KMG", kiraMax0);
+        }
+        else if (DataManager.Instance.LoadInt("KCMG") == 1)
+        {
+            DataManager.Instance.SaveInt("KMG", kiraMax1);
+        }
+        else if (DataManager.Instance.LoadInt("KCMG") == 2)
+        {
+            DataManager.Instance.SaveInt("KMG", kiraMax2);
+        }
+        else if (DataManager.Instance.LoadInt("KCMG") == 3)
+        {
+            DataManager.Instance.SaveInt("KMG", kiraMax3);
+        }
 
         DataManager.Instance.SaveInt("MMG", 10);
         DataManager.Instance.SaveInt("OMG", 10);
@@ -134,6 +156,13 @@ public class TestTraining : MonoBehaviour
             KakuninCanvas.gameObject.SetActive(false);
         }
 
+        if(DataManager.Instance.LoadBool("ClearReset"))
+        {
+            AllReset();
+            DataManager.Instance.SaveBool("ClearReset", false);
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(currentSceneIndex);
+        }
     }
 
     private void Update()
@@ -194,6 +223,7 @@ public class TestTraining : MonoBehaviour
                 StartCoroutine(ResetMukiGauge());
                 GaugeMaxCount[0] += 1;
                 DataManager.Instance.SaveInt("MCMG", GaugeMaxCount[0]);
+                EffectManager.Instance.PlayEffect(0, MukiMaxEffect);
             }
             UpdateGaugeDisplayM();
         }
@@ -202,7 +232,6 @@ public class TestTraining : MonoBehaviour
             timer = 0f;
             NoItem.gameObject.SetActive(true);
         }
-        //PlayParticle(0); // パーティクル再生処理を呼び出す
     }
 
     public void OmoButton()
@@ -224,6 +253,7 @@ public class TestTraining : MonoBehaviour
                 StartCoroutine(ResetOmoGauge());
                 GaugeMaxCount[1] += 1;
                 DataManager.Instance.SaveInt("OCMG", GaugeMaxCount[1]);
+                EffectManager.Instance.PlayEffect(0, OmoMaxEffect);
             }
             UpdateGaugeDisplayO();
         }
@@ -232,11 +262,10 @@ public class TestTraining : MonoBehaviour
             timer = 0f;
             NoItem.gameObject.SetActive(true);
         }
-        //PlayParticle(1); // パーティクル再生処理を呼び出す
     }
 
 
-    public void BetaButton()
+    /*public void BetaButton()
     {
         if (isBetaButtonResetting) // リセット中はボタンを無効化
             return;
@@ -295,7 +324,7 @@ public class TestTraining : MonoBehaviour
             NoItem.gameObject.SetActive(true);
         }
         //PlayParticle(3); // パーティクル再生処理を呼び出す
-    }
+    }*/
 
     public void KiraGauge()
     {
@@ -304,8 +333,8 @@ public class TestTraining : MonoBehaviour
         {
             StartCoroutine(ResetMukiGauge());
             StartCoroutine(ResetOmoGauge());
-            StartCoroutine(ResetBetaGauge());
-            StartCoroutine(ResetPataGauge());
+            //StartCoroutine(ResetBetaGauge());
+            //StartCoroutine(ResetPataGauge());
             StartCoroutine(AllResetGauge());
 
             isKiraGaugeMax = true;
@@ -323,15 +352,20 @@ public class TestTraining : MonoBehaviour
             }
             else if (DataManager.Instance.LoadBool("E1") == true && DataManager.Instance.LoadBool("E2") == true && DataManager.Instance.LoadBool("E3") == true && DataManager.Instance.LoadBool("E4") == false)
             {
+                UpdateGaugeDisplayM();
+                UpdateGaugeDisplayO();
+                //UpdateGaugeDisplayB();
+                //UpdateGaugeDisplayP();
+                UpdateGaugeDisplayK();
                 EVOF();
             }
-  
+            EffectManager.Instance.PlayEffect(0, KiraMaxEffect);
         }
 
         UpdateGaugeDisplayM();
         UpdateGaugeDisplayO();
-        UpdateGaugeDisplayB();
-        UpdateGaugeDisplayP();
+        //UpdateGaugeDisplayB();
+        //UpdateGaugeDisplayP();
         UpdateGaugeDisplayK();
 
         // KiraGaugeがMAXではない場合の処理
@@ -381,6 +415,7 @@ public class TestTraining : MonoBehaviour
                 DataManager.Instance.SaveBool("Omo", true);
             }
         }
+        EffectManager.Instance.PlayEffect(1, ImageChengeEffect);
     }
 
     public void EVO2()
@@ -414,6 +449,7 @@ public class TestTraining : MonoBehaviour
             DataManager.Instance.SaveBool("Omo", true);
             DataManager.Instance.SaveBool("Muki", true);
         }
+        EffectManager.Instance.PlayEffect(1, ImageChengeEffect);
     }
 
     public void EVO3()
@@ -456,7 +492,7 @@ public class TestTraining : MonoBehaviour
             DataManager.Instance.SaveBool("Omo", true);
             DataManager.Instance.SaveBool("Muki", true);
         }
-
+        EffectManager.Instance.PlayEffect(1, ImageChengeEffect);
     }
 
     public void EVOF()
@@ -551,7 +587,7 @@ public class TestTraining : MonoBehaviour
         gaugeImages[1].fillAmount = normalizedAmount;
     }
 
-    private void UpdateGaugeDisplayB()
+    /*private void UpdateGaugeDisplayB()
     {
         
         float normalizedAmount = DataManager.Instance.LoadFloat("BG") / DataManager.Instance.LoadInt("BMG");
@@ -564,7 +600,7 @@ public class TestTraining : MonoBehaviour
         float normalizedAmount = DataManager.Instance.LoadFloat("PG") / DataManager.Instance.LoadInt("PMG");
 
         gaugeImages[3].fillAmount = normalizedAmount;
-    }
+    }*/
 
     private void UpdateGaugeDisplayK()
     {
@@ -587,58 +623,58 @@ public class TestTraining : MonoBehaviour
     private IEnumerator ResetMukiGauge()
     {
         isMukiButtonResetting = true;
-        invalidButton[0].interactable = false; // ボタンを無効化
+        InvalidButton(); // ボタンを無効化
 
         yield return new WaitForSeconds(2f);
 
         DataManager.Instance.SaveFloat("FG", 0);
         gaugeImages[0].fillAmount = 0f;
 
-        invalidButton[0].interactable = true; // ボタンを有効化
+        ValidButton(); // ボタンを有効化
         isMukiButtonResetting = false;
     }
 
     private IEnumerator ResetOmoGauge()
     {
         isOmoButtonResetting = true;
-        invalidButton[1].interactable = false; // ボタンを無効化
+        InvalidButton(); // ボタンを無効化
 
         yield return new WaitForSeconds(2f);
 
         DataManager.Instance.SaveFloat("OG", 0);
         gaugeImages[1].fillAmount = 0f;
 
-        invalidButton[1].interactable = true; // ボタンを有効化
+        ValidButton(); // ボタンを有効化
         isOmoButtonResetting = false;
     }
 
-    private IEnumerator ResetBetaGauge()
+    /*private IEnumerator ResetBetaGauge()
     {
         isBetaButtonResetting = true;
-        invalidButton[2].interactable = false; // ボタンを無効化
+        InvalidButton(); // ボタンを無効化
 
         yield return new WaitForSeconds(2f);
 
         DataManager.Instance.SaveFloat("BG",0);
         gaugeImages[2].fillAmount = 0f;
 
-        invalidButton[2].interactable = true; // ボタンを有効化
+        ValidButton(); // ボタンを有効化
         isBetaButtonResetting = false;
     }
 
     private IEnumerator ResetPataGauge()
     {
         isPataButtonResetting = true;
-        invalidButton[3].interactable = false; // ボタンを無効化
+        InvalidButton(); // ボタンを無効化
 
         yield return new WaitForSeconds(2f);
 
         DataManager.Instance.SaveFloat("PG",0);
         gaugeImages[3].fillAmount = 0f;
 
-        invalidButton[3].interactable = true; // ボタンを有効化
+        ValidButton(); // ボタンを有効化
         isPataButtonResetting = false;
-    }
+    }*/
 
     //KiraGaugeがMAXになったらすべてのゲージが2秒後にリセットされる
     private IEnumerator AllResetGauge()
@@ -661,5 +697,29 @@ public class TestTraining : MonoBehaviour
         isAllGaugeResetting = false;
         GaugeMaxCount[4] += 1;
         DataManager.Instance.SaveInt("KCMG", GaugeMaxCount[4]);
+    }
+
+    private void InvalidButton()
+    {
+        invalidButton[0].interactable = false;
+        invalidButton[1].interactable = false;
+        invalidButton[2].interactable = false;
+        invalidButton[3].interactable = false;
+        invalidButton[4].interactable = false;
+        invalidButton[5].interactable = false;
+        invalidButton[6].interactable = false;
+        invalidButton[7].interactable = false;
+    }
+
+    private void ValidButton()
+    {
+        invalidButton[0].interactable = true;
+        invalidButton[1].interactable = true;
+        invalidButton[2].interactable = true;
+        invalidButton[3].interactable = true;
+        invalidButton[4].interactable = true;
+        invalidButton[5].interactable = true;
+        invalidButton[6].interactable = true;
+        invalidButton[7].interactable = true;
     }
 }

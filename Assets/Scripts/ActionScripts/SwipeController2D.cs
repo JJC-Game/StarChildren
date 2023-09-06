@@ -22,9 +22,9 @@ public class SwipeController2D : Singleton<SwipeController2D>
     private int BetaCount = 1;
 
     public bool isOnFloor; // 地面についてるかどうか
-    public bool Pata;  // ぱたぱたの能力を持っているか
-    public bool Beta; // 壁にくっついているか
-    public bool MoreJump; // 二段ジャンプできる状態か
+    //public bool Pata;  // ぱたぱたの能力を持っているか
+    //public bool Beta; // 壁にくっついているか
+    //public bool MoreJump; // 二段ジャンプできる状態か
     public bool ObjectView; // 矢印の画像が表示されるか
 
     public Transform player;
@@ -35,6 +35,7 @@ public class SwipeController2D : Singleton<SwipeController2D>
         gravity = rb.gravityScale * Physics2D.gravity;
         angularVelocity = rb.angularVelocity;
         DataManager.Instance.SaveInt("PataLimit", DataManager.Instance.LoadInt("PataCount"));
+        /*
         if (DataManager.Instance.LoadInt("PataCount") >= 1)
         {
             Pata = true;
@@ -43,6 +44,7 @@ public class SwipeController2D : Singleton<SwipeController2D>
         {
             Pata = false;
         }
+        */
 
     }
 
@@ -67,6 +69,7 @@ public class SwipeController2D : Singleton<SwipeController2D>
            
         }
 
+        /*
         // ぱたぱたの能力を持っていて空中にいる状態で指定の回数ジャンプできる処理
         if (isOnFloor == false && GameManager.Instance.mainGame && DataManager.Instance.LoadInt("PataLimit") >= 1 && MoreJump)
         {
@@ -83,7 +86,9 @@ public class SwipeController2D : Singleton<SwipeController2D>
 
             }
         }
+        */
 
+        /*
         // 壁にくっついてるときにタイマーの計測を開始する処理
         if (timeron)
         {
@@ -99,6 +104,7 @@ public class SwipeController2D : Singleton<SwipeController2D>
             Beta = false;
             timer = 0f;
         }
+        */
     }
 
     // スワイプの距離計測と飛ばす処理
@@ -129,11 +135,12 @@ public class SwipeController2D : Singleton<SwipeController2D>
         {
             ObjectView = true;
             isOnFloor = true;
-            MoreJump = false;
-            DataManager.Instance.SaveInt("PataLimit", DataManager.Instance.LoadInt("PataCount"));
-            BetaCount = 1;
+            //MoreJump = false;
+            //DataManager.Instance.SaveInt("PataLimit", DataManager.Instance.LoadInt("PataCount"));
+            //BetaCount = 1;
         }
 
+        /*
         // 壁に触れたらくっつく、BetaCountがない場合はくっつかない
         if (collision.gameObject.CompareTag("Wall") && DataManager.Instance.LoadBool("Beta") && BetaCount >=1)
         {
@@ -142,11 +149,12 @@ public class SwipeController2D : Singleton<SwipeController2D>
             rb.velocity = Vector2.zero;
             rb.angularVelocity = 0f;
             rb.gravityScale = 0f;
-            Beta = true;
+            //Beta = true;
             timer = 0f;
             timeron = true;
             BetaCount = -1;
         }
+        */
 
     }
 
@@ -157,17 +165,20 @@ public class SwipeController2D : Singleton<SwipeController2D>
         {
             isOnFloor = false;
 
+            /*
             if (DataManager.Instance.LoadInt("PataLimit") >= 1)
             {
-                MoreJump = true;
+                //MoreJump = true;
                 ObjectView = true;
             }
             else
             {
                 ObjectView = false;
             }
+            */
         }
 
+        /*
         // 一度壁にくっついた後壁から離れる重力と回転を戻す
         if (collision.gameObject.CompareTag("Wall") && Beta == true)
         {
@@ -177,6 +188,7 @@ public class SwipeController2D : Singleton<SwipeController2D>
             Beta = false;
             ObjectView = false;
         }
+        */
     }
 
 }

@@ -57,19 +57,43 @@ public class DataManager : Singleton<DataManager>
     // 保存した変数の呼び出しint型
     public int LoadInt(string key)
     {
-        return PlayerPrefs.GetInt(key);
+        if (PlayerPrefs.HasKey(key))
+        {
+            return PlayerPrefs.GetInt(key);
+        }
+        else
+        {
+            // キーが存在しない場合、デフォルト値として 0 を返す
+            return 0;
+        }
     }
 
     // 保存した変数の呼び出しfloat型
     public float LoadFloat(string key)
     {
-        return PlayerPrefs.GetFloat(key);
+        if (PlayerPrefs.HasKey(key))
+        {
+            return PlayerPrefs.GetFloat(key);
+        }
+        else
+        {
+            // キーが存在しない場合、デフォルト値として 0 を返す
+            return 0;
+        }
     }
 
     // 保存した変数の呼び出しbool型
     public bool LoadBool(string key)
     {
-        return PlayerPrefs.GetInt(key) == 1;
+        if (PlayerPrefs.HasKey(key))
+        {
+            return PlayerPrefs.GetInt(key) == 1;
+        }
+        else
+        {
+            // キーが存在しない場合、デフォルト値としてfalseを返す
+            return false; 
+        }
     }
 
     // 保存した変数の呼び出しstring型
@@ -215,6 +239,29 @@ public class DataManager : Singleton<DataManager>
         SaveBool("Omo", false);
         SaveBool("Album", false);
         SaveBool("ClearReset", false);
+    }
+
+    public void DeleteAllBool()
+    {
+        PlayerPrefs.DeleteKey("E1F");
+        PlayerPrefs.DeleteKey("E1O");
+        PlayerPrefs.DeleteKey("E2FF");
+        PlayerPrefs.DeleteKey("E2OO");
+        PlayerPrefs.DeleteKey("E2FO");
+        PlayerPrefs.DeleteKey("E3FFF");
+        PlayerPrefs.DeleteKey("E3OOO");
+        PlayerPrefs.DeleteKey("E3FFO");
+        PlayerPrefs.DeleteKey("E3FOO");
+        PlayerPrefs.DeleteKey("Finish");
+        PlayerPrefs.DeleteKey("E1");
+        PlayerPrefs.DeleteKey("E2");
+        PlayerPrefs.DeleteKey("E3");
+        PlayerPrefs.DeleteKey("E4");
+        PlayerPrefs.DeleteKey("Muki");
+        PlayerPrefs.DeleteKey("Omo");
+        PlayerPrefs.DeleteKey("Album");
+        //PlayerPrefs.DeleteKey("ClearReset");
+
     }
 
     //"E1F", "E1O","E2FF", "E1OO", "E2FO", "E3FFF", "E3OOO", "E3FFO", "E3FOO", "Finish", "E1", "E2", "E3", "E4", "Muki", "Omo", "Album" 
