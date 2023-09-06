@@ -322,8 +322,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a6d078cdc7463994bae9d5d4af7a72c6, type: 2}
-  m_sharedMaterial: {fileID: -2031836532977238126, guid: a6d078cdc7463994bae9d5d4af7a72c6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 283a0147969fe3d4285c73933c4af428, type: 2}
+  m_sharedMaterial: {fileID: -2031836532977238126, guid: 283a0147969fe3d4285c73933c4af428, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -449,7 +449,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 58, y: 425}
+  m_AnchoredPosition: {x: 9, y: 425}
   m_SizeDelta: {x: 245.3774, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3787975779007047891
@@ -499,10 +499,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Starchildren
+  m_text: "\u30B9\u30BF\u30FC\u30C1\u30EB\u30C9\u30EC\u30F3"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a6d078cdc7463994bae9d5d4af7a72c6, type: 2}
-  m_sharedMaterial: {fileID: -2031836532977238126, guid: a6d078cdc7463994bae9d5d4af7a72c6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 283a0147969fe3d4285c73933c4af428, type: 2}
+  m_sharedMaterial: {fileID: -2031836532977238126, guid: 283a0147969fe3d4285c73933c4af428, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -526,10 +526,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 33
+  m_fontSize: 28.9
   m_fontSizeBase: 33
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 17
@@ -739,7 +739,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 3
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -763,7 +763,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5492835174778983711}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!223 &8358772903175362658
 Canvas:
   m_ObjectHideFlags: 0
@@ -860,7 +872,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1087, y: 1183}
+  m_AnchoredPosition: {x: 2616, y: 4147}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8698285115355770672
@@ -875,9 +887,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10a8dbfd64ac70e4db6521012a561f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDirection: {x: -100, y: 0, z: 0}
-  moveSpeed: 200
-  moveDuration: 5
+  moveSpeed: 5000
+  moveDuration: 1
+  shakeIntensity: 100
+  shakeDuration: 10
+  movePoints:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
 --- !u!50 &8698285115355770673
 Rigidbody2D:
   serializedVersion: 4

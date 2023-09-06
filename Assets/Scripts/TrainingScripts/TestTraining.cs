@@ -253,7 +253,7 @@ public class TestTraining : MonoBehaviour
                 StartCoroutine(ResetOmoGauge());
                 GaugeMaxCount[1] += 1;
                 DataManager.Instance.SaveInt("OCMG", GaugeMaxCount[1]);
-                EffectManager.Instance.PlayEffect(0, OmoMaxEffect);
+                EffectManager.Instance.PlayEffect(1, OmoMaxEffect);
             }
             UpdateGaugeDisplayO();
         }
@@ -359,7 +359,7 @@ public class TestTraining : MonoBehaviour
                 UpdateGaugeDisplayK();
                 EVOF();
             }
-            EffectManager.Instance.PlayEffect(0, KiraMaxEffect);
+            EffectManager.Instance.PlayEffect(2, KiraMaxEffect);
         }
 
         UpdateGaugeDisplayM();
@@ -415,7 +415,7 @@ public class TestTraining : MonoBehaviour
                 DataManager.Instance.SaveBool("Omo", true);
             }
         }
-        EffectManager.Instance.PlayEffect(1, ImageChengeEffect);
+        EffectManager.Instance.PlayEffect(3, ImageChengeEffect);
     }
 
     public void EVO2()
@@ -449,7 +449,7 @@ public class TestTraining : MonoBehaviour
             DataManager.Instance.SaveBool("Omo", true);
             DataManager.Instance.SaveBool("Muki", true);
         }
-        EffectManager.Instance.PlayEffect(1, ImageChengeEffect);
+        EffectManager.Instance.PlayEffect(3, ImageChengeEffect);
     }
 
     public void EVO3()
@@ -492,7 +492,7 @@ public class TestTraining : MonoBehaviour
             DataManager.Instance.SaveBool("Omo", true);
             DataManager.Instance.SaveBool("Muki", true);
         }
-        EffectManager.Instance.PlayEffect(1, ImageChengeEffect);
+        EffectManager.Instance.PlayEffect(3, ImageChengeEffect);
     }
 
     public void EVOF()
