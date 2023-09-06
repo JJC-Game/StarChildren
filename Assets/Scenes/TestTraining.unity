@@ -663,6 +663,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 27583943}
   m_CullTransparentMesh: 1
+--- !u!1 &57126676
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 57126677}
+  - component: {fileID: 57126678}
+  m_Layer: 0
+  m_Name: EffectManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &57126677
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57126676}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.218659, y: -3.682211, z: -0.017487943}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 706353765}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &57126678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57126676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5b2f6bc5527d974f984605188e1d129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleEffectPrefabs:
+  - {fileID: 1459862227383078, guid: 50d2fd2e2db70d545841442d2aae539b, type: 3}
+  - {fileID: 1459862227383078, guid: cc461484bcafc664fb68be84c1fc6860, type: 3}
+  deleteTime: 1
 --- !u!1 &61837971
 GameObject:
   m_ObjectHideFlags: 0
@@ -4494,6 +4542,7 @@ Transform:
   - {fileID: 1863251471}
   - {fileID: 269837644}
   - {fileID: 1638658281}
+  - {fileID: 57126677}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16014,6 +16063,10 @@ MonoBehaviour:
   ResetCheckCanvas: {fileID: 930199167}
   NoItem: {fileID: 702369501}
   fadeOutTime: 1
+  MukiMaxEffect: {fileID: 442434545}
+  OmoMaxEffect: {fileID: 1985203204}
+  KiraMaxEffect: {fileID: 2072289894}
+  ImageChengeEffect: {fileID: 414516140}
 --- !u!1 &1985203203
 GameObject:
   m_ObjectHideFlags: 0

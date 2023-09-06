@@ -45,6 +45,11 @@ public class TestTraining : MonoBehaviour
     private bool isBetaButtonResetting = false;
     private bool isPataButtonResetting = false;
 
+    public Transform MukiMaxEffect;
+    public Transform OmoMaxEffect;
+    public Transform KiraMaxEffect;
+    public Transform ImageChengeEffect;
+
     private void Start()
     {
         NoItem.gameObject.SetActive(false); // アイテム回数制限のtext非表示
@@ -58,8 +63,8 @@ public class TestTraining : MonoBehaviour
 
         UpdateGaugeDisplayM();
         UpdateGaugeDisplayO();
-        UpdateGaugeDisplayB();
-        UpdateGaugeDisplayP();
+        //UpdateGaugeDisplayB();
+        //UpdateGaugeDisplayP();
         UpdateGaugeDisplayK();
 
         currentAlpha = NoItem.alpha;
@@ -218,6 +223,7 @@ public class TestTraining : MonoBehaviour
                 StartCoroutine(ResetMukiGauge());
                 GaugeMaxCount[0] += 1;
                 DataManager.Instance.SaveInt("MCMG", GaugeMaxCount[0]);
+                EffectManager.Instance.PlayEffect(0, MukiMaxEffect);
             }
             UpdateGaugeDisplayM();
         }
@@ -226,7 +232,6 @@ public class TestTraining : MonoBehaviour
             timer = 0f;
             NoItem.gameObject.SetActive(true);
         }
-        //PlayParticle(0); // パーティクル再生処理を呼び出す
     }
 
     public void OmoButton()
@@ -248,6 +253,7 @@ public class TestTraining : MonoBehaviour
                 StartCoroutine(ResetOmoGauge());
                 GaugeMaxCount[1] += 1;
                 DataManager.Instance.SaveInt("OCMG", GaugeMaxCount[1]);
+                EffectManager.Instance.PlayEffect(0, OmoMaxEffect);
             }
             UpdateGaugeDisplayO();
         }
@@ -256,11 +262,10 @@ public class TestTraining : MonoBehaviour
             timer = 0f;
             NoItem.gameObject.SetActive(true);
         }
-        //PlayParticle(1); // パーティクル再生処理を呼び出す
     }
 
 
-    public void BetaButton()
+    /*public void BetaButton()
     {
         if (isBetaButtonResetting) // リセット中はボタンを無効化
             return;
@@ -319,7 +324,7 @@ public class TestTraining : MonoBehaviour
             NoItem.gameObject.SetActive(true);
         }
         //PlayParticle(3); // パーティクル再生処理を呼び出す
-    }
+    }*/
 
     public void KiraGauge()
     {
@@ -328,8 +333,8 @@ public class TestTraining : MonoBehaviour
         {
             StartCoroutine(ResetMukiGauge());
             StartCoroutine(ResetOmoGauge());
-            StartCoroutine(ResetBetaGauge());
-            StartCoroutine(ResetPataGauge());
+            //StartCoroutine(ResetBetaGauge());
+            //StartCoroutine(ResetPataGauge());
             StartCoroutine(AllResetGauge());
 
             isKiraGaugeMax = true;
@@ -349,18 +354,18 @@ public class TestTraining : MonoBehaviour
             {
                 UpdateGaugeDisplayM();
                 UpdateGaugeDisplayO();
-                UpdateGaugeDisplayB();
-                UpdateGaugeDisplayP();
+                //UpdateGaugeDisplayB();
+                //UpdateGaugeDisplayP();
                 UpdateGaugeDisplayK();
                 EVOF();
             }
-  
+            EffectManager.Instance.PlayEffect(0, KiraMaxEffect);
         }
 
         UpdateGaugeDisplayM();
         UpdateGaugeDisplayO();
-        UpdateGaugeDisplayB();
-        UpdateGaugeDisplayP();
+        //UpdateGaugeDisplayB();
+        //UpdateGaugeDisplayP();
         UpdateGaugeDisplayK();
 
         // KiraGaugeがMAXではない場合の処理
@@ -410,6 +415,7 @@ public class TestTraining : MonoBehaviour
                 DataManager.Instance.SaveBool("Omo", true);
             }
         }
+        EffectManager.Instance.PlayEffect(1, ImageChengeEffect);
     }
 
     public void EVO2()
@@ -443,6 +449,7 @@ public class TestTraining : MonoBehaviour
             DataManager.Instance.SaveBool("Omo", true);
             DataManager.Instance.SaveBool("Muki", true);
         }
+        EffectManager.Instance.PlayEffect(1, ImageChengeEffect);
     }
 
     public void EVO3()
@@ -485,7 +492,7 @@ public class TestTraining : MonoBehaviour
             DataManager.Instance.SaveBool("Omo", true);
             DataManager.Instance.SaveBool("Muki", true);
         }
-
+        EffectManager.Instance.PlayEffect(1, ImageChengeEffect);
     }
 
     public void EVOF()
@@ -580,7 +587,7 @@ public class TestTraining : MonoBehaviour
         gaugeImages[1].fillAmount = normalizedAmount;
     }
 
-    private void UpdateGaugeDisplayB()
+    /*private void UpdateGaugeDisplayB()
     {
         
         float normalizedAmount = DataManager.Instance.LoadFloat("BG") / DataManager.Instance.LoadInt("BMG");
@@ -593,7 +600,7 @@ public class TestTraining : MonoBehaviour
         float normalizedAmount = DataManager.Instance.LoadFloat("PG") / DataManager.Instance.LoadInt("PMG");
 
         gaugeImages[3].fillAmount = normalizedAmount;
-    }
+    }*/
 
     private void UpdateGaugeDisplayK()
     {
@@ -641,7 +648,7 @@ public class TestTraining : MonoBehaviour
         isOmoButtonResetting = false;
     }
 
-    private IEnumerator ResetBetaGauge()
+    /*private IEnumerator ResetBetaGauge()
     {
         isBetaButtonResetting = true;
         InvalidButton(); // ボタンを無効化
@@ -667,7 +674,7 @@ public class TestTraining : MonoBehaviour
 
         ValidButton(); // ボタンを有効化
         isPataButtonResetting = false;
-    }
+    }*/
 
     //KiraGaugeがMAXになったらすべてのゲージが2秒後にリセットされる
     private IEnumerator AllResetGauge()
