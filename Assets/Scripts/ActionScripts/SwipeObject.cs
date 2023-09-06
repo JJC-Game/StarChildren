@@ -33,12 +33,14 @@ public class SwipeObject : SwipeController2D
             // オブジェクトを表示する
             imageObject.SetActive(true);
         }
+        /*
         // 二段ジャンプの能力がない状態で空中にいるときに画像を表示しない
         else if (DataManager.Instance.LoadInt("PataLimit") == 0 && Pata == true || PauseManager.Instance.isPause)
         {
             isSwiping = false;
             imageObject.SetActive(false);
         }
+        */
         // メインゲームがtrueかつタップしていない間画像を表示しない
         else if (Input.GetMouseButtonUp(0) && GameManager.Instance.mainGame)
         {
