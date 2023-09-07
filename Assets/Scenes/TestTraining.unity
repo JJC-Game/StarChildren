@@ -11263,9 +11263,9 @@ MonoBehaviour:
   currentAmounts: []
   GaugeMaxCount: 0000000000000000000000000000000000000000
   kiraMax0: 20
-  kiraMax1: 40
-  kiraMax2: 60
-  kiraMax3: 80
+  kiraMax1: 30
+  kiraMax2: 40
+  kiraMax3: 50
   PlayerSprite: {fileID: 414516138}
   EvolveSprite:
   - {fileID: 21300000, guid: ec009388c47f0ce4d8e2afb95492e7dd, type: 3}

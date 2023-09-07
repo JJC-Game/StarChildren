@@ -438,7 +438,23 @@ public class TestTraining : MonoBehaviour
             DataManager.Instance.SaveBool("E2OO", true);
             DataManager.Instance.SaveBool("E1O", false);
         }
-        else if (DataManager.Instance.LoadInt("MCMG") == DataManager.Instance.LoadInt("OCMG") && (DataManager.Instance.LoadBool("E1F") == true || DataManager.Instance.LoadBool("E1O") == true))
+        else if (DataManager.Instance.LoadInt("MCMG") < DataManager.Instance.LoadInt("OCMG") && DataManager.Instance.LoadBool("E1F") == true)
+        {
+            targetSpriteRenderer.sprite = EvolveSprite[2];
+            MaxCountReset();
+            DataManager.Instance.SaveBool("E2", true);
+            DataManager.Instance.SaveBool("E2FO", true);
+            DataManager.Instance.SaveBool("E1F", false);
+        }
+        else if (DataManager.Instance.LoadInt("MCMG") > DataManager.Instance.LoadInt("OCMG") && DataManager.Instance.LoadBool("E1O") == true)
+        {
+            targetSpriteRenderer.sprite = EvolveSprite[3];
+            MaxCountReset();
+            DataManager.Instance.SaveBool("E2", true);
+            DataManager.Instance.SaveBool("E2FO", true);
+            DataManager.Instance.SaveBool("E1O", false);
+        }
+        else if (DataManager.Instance.LoadInt("MCMG") == DataManager.Instance.LoadInt("OCMG") && (DataManager.Instance.LoadBool("E1F") == true || DataManager.Instance.LoadInt("MCMG") == DataManager.Instance.LoadInt("OCMG") && DataManager.Instance.LoadBool("E1O") == true))
         {
             targetSpriteRenderer.sprite = EvolveSprite[4];
             MaxCountReset();
