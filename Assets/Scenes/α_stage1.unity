@@ -2592,6 +2592,7 @@ GameObject:
   - component: {fileID: 226537243}
   - component: {fileID: 226537242}
   - component: {fileID: 226537245}
+  - component: {fileID: 226537246}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2627,9 +2628,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: 0.0056360364
     width: 1
-    height: 1
+    height: 0.9887279
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -2700,6 +2701,20 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &226537246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226537241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b22ef9ba839494d4e970b1413e428d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetCamera: {fileID: 226537243}
+  aspectVec: {x: 1080, y: 1920}
 --- !u!1 &247196075
 GameObject:
   m_ObjectHideFlags: 0
@@ -4049,9 +4064,6 @@ MonoBehaviour:
   swipeDistanceThreshold: 50
   speed: 0.5
   isOnFloor: 0
-  Pata: 0
-  Beta: 0
-  MoreJump: 0
   ObjectView: 0
   player: {fileID: 0}
 --- !u!114 &413448727
@@ -4069,9 +4081,6 @@ MonoBehaviour:
   swipeDistanceThreshold: 50
   speed: 5
   isOnFloor: 0
-  Pata: 0
-  Beta: 0
-  MoreJump: 0
   ObjectView: 0
   player: {fileID: 0}
   minSize: 0.05
@@ -4111,8 +4120,6 @@ MonoBehaviour:
   BetaCount: 0
   PataCount: 0
   itemEffect: {fileID: 0}
-  muki: {fileID: 0}
-  omo: {fileID: 0}
 --- !u!1 &424467361
 GameObject:
   m_ObjectHideFlags: 0
@@ -9400,9 +9407,14 @@ MonoBehaviour:
   targetTime: 90
   TimeUpCanvas: {fileID: 850962232}
   MainGameCanvas: {fileID: 524364821}
+  StartTimeLineCanvas: {fileID: 0}
+  PlayerSprite: {fileID: 0}
+  EvolveSprite: []
   timerText: {fileID: 2010191905}
   heightText: {fileID: 2045240678}
   BestheightText: {fileID: 2045240678}
+  high: 
+  besthigh: 
   Player: {fileID: 413448723}
   StartTimeLine: {fileID: 76449373}
   TimeUpTimeLine: {fileID: 777535586}
@@ -13192,6 +13204,9 @@ MonoBehaviour:
   CName3: 
   CName4: 
   CName5: 
+  PB1: 0
+  PB2: 0
+  PB3: 0
 --- !u!1 &1381005489
 GameObject:
   m_ObjectHideFlags: 0
