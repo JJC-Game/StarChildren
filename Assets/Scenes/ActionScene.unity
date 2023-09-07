@@ -3183,9 +3183,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.0056360364
+    y: 0
     width: 1
-    height: 0.9887279
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -5503,7 +5503,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 882547149}
         m_TargetAssemblyTypeName: SceneReset, Assembly-CSharp
-        m_MethodName: ChangeSceneTraining
+        m_MethodName: ChangeSceneTraininginAction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7416,7 +7416,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 882547149}
         m_TargetAssemblyTypeName: SceneReset, Assembly-CSharp
-        m_MethodName: ChangeSceneHome
+        m_MethodName: ChangeSceneHomeinAction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9482,12 +9482,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MukiCountText: {fileID: 517846210}
   OmoCountText: {fileID: 1165712943}
-  BetaCountText: {fileID: 1668214725}
-  PataCountText: {fileID: 1437874897}
+  itemCountMuki: 0
+  itemCountOmo: 0
   MukiCount: 0
   OmoCount: 0
-  BetaCount: 0
-  PataCount: 0
   itemEffect: {fileID: 1504715739}
 --- !u!58 &1504715742
 CircleCollider2D:

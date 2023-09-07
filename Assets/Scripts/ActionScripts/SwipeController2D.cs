@@ -34,7 +34,7 @@ public class SwipeController2D : Singleton<SwipeController2D>
         rb = GetComponent<Rigidbody2D>();
         //gravity = rb.gravityScale * Physics2D.gravity;
         //angularVelocity = rb.angularVelocity;
-        DataManager.Instance.SaveInt("PataLimit", DataManager.Instance.LoadInt("PataCount"));
+        //DataManager.Instance.SaveInt("PataLimit", DataManager.Instance.LoadInt("PataCount"));
         /*
         if (DataManager.Instance.LoadInt("PataCount") >= 1)
         {
@@ -156,6 +156,16 @@ public class SwipeController2D : Singleton<SwipeController2D>
         }
         */
 
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Omob"))
+        {
+            ObjectView = true;
+            isOnFloor = true;
+
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)

@@ -26,7 +26,7 @@ public class SwipeObject : SwipeController2D
     private void Update()
     {
         // メインゲームがtrueかつタップされている間画像を表示
-        if (Input.GetMouseButtonDown(0) && ObjectView && GameManager.Instance.mainGame)
+        if (Input.GetMouseButtonDown(0) && ObjectView && GameManager.Instance.mainGame && isOnFloor)
         {
             startPosition = Input.mousePosition;
             isSwiping = true;
@@ -50,7 +50,7 @@ public class SwipeObject : SwipeController2D
         }
         
         // スワイプしている間は画像の大きさ、角度を変える
-        if (isSwiping)
+        if (isSwiping && isOnFloor)
         {
             endPosition = Input.mousePosition;
             Vector2 swipeVector = endPosition - startPosition;
