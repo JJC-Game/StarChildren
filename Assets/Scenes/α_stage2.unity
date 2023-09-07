@@ -27961,7 +27961,7 @@ MonoBehaviour:
   BGMGroup: {fileID: 1773357065631288580, guid: 439b4dea2eb245c49ad9bb2002eee0e5, type: 2}
   SEGroup: {fileID: -4176365265439917375, guid: 439b4dea2eb245c49ad9bb2002eee0e5, type: 2}
   bgmClip:
-  - {fileID: 8300000, guid: 890b35d6edebc624786718d0ddb61ee2, type: 3}
+  - {fileID: 8300000, guid: bb66bad2ac0ca28469ea5710f1a4c6e5, type: 3}
   - {fileID: 8300000, guid: 207fb2bfc9adba04cbacea2b5ef59a0f, type: 3}
   - {fileID: 8300000, guid: de0655839183b5840a45e103197d3ca7, type: 3}
   - {fileID: 8300000, guid: f4a057bb4e5f5a747814803be213c07a, type: 3}
