@@ -2,7 +2,16 @@
 
 public class α_Gimmick : MonoBehaviour
 {
-    private bool isPlayerOnFloor = false;
+    public bool activated = false;
+
+    public void ActivateFloor()
+    {
+        activated = true;
+        // ここで床の見た目や物理的な性質を変更できます
+        // 例: 床の色を変更する、Colliderを無効にするなど
+    }
+
+    /*private bool isPlayerOnFloor = false;
     private Rigidbody2D rb;
 
     private void Start()
@@ -26,5 +35,5 @@ public class α_Gimmick : MonoBehaviour
             rb.isKinematic = false; // プレイヤーが床に触れたら動き始める
             isPlayerOnFloor = false; // 二重のトリガーを防ぐためにリセット
         }
-    }
+    }*/
 }

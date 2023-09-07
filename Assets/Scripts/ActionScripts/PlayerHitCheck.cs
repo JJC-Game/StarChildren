@@ -60,9 +60,11 @@ public class PlayerHitCheck : Singleton<PlayerHitCheck>
                 break;
 
             */
-
         }
-
+        if (collision.CompareTag("Floor") && !collision.GetComponent<α_Gimmick>().activated)
+        {
+            collision.GetComponent<α_Gimmick>().ActivateFloor();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
