@@ -2,29 +2,18 @@
 
 public class α_Gimmick : MonoBehaviour
 {
-    private bool isPlayerOnFloor = false;
-    private Rigidbody2D rb;
-
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        rb.isKinematic = true; // 最初は動かないように設定
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // 衝突相手がタグが"Player"の場合
         if (collision.gameObject.CompareTag("Player"))
         {
-            isPlayerOnFloor = true;
-        }
-    }
-
-    private void Update()
-    {
-        if (isPlayerOnFloor)
-        {
-            rb.isKinematic = false; // プレイヤーが床に触れたら動き始める
-            isPlayerOnFloor = false; // 二重のトリガーを防ぐためにリセット
+            // ここに当たり判定を有効にする処理を追加
+            // 例えば、床のCollider2Dを取得してisTriggerをfalseに設定するなど
+            Collider2D floorCollider = GetComponent<Collider2D>();
+            if (floorCollider != null)
+            {
+                floorCollider.isTrigger = false; // 当たり判定を有効にする
+            }
         }
     }
 }

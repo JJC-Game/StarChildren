@@ -14,11 +14,18 @@ public class SceneReset : MonoBehaviour
         SceneManager.LoadScene(currentSceneIndex);
     }
 
-    public void ChangeSceneHome()
+    public void ChangeSceneHomeinAction()
     {
+        DataManager.Instance.SaveInt("MukiCount", PlayerHitCheck.Instance.MukiCount);
+        DataManager.Instance.SaveInt("OmoCount", PlayerHitCheck.Instance.OmoCount);
         DataManager.Instance.SaveInt("MeraLimit", DataManager.Instance.LoadInt("MukiCount") + DataManager.Instance.LoadInt("MeraLimit"));
         DataManager.Instance.SaveInt("OmoLimit", DataManager.Instance.LoadInt("OmoCount") + DataManager.Instance.LoadInt("OmoLimit"));
         Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
+    }
+
+    public void ChangeSceneHome()
+    {
         SceneManager.LoadScene(0);
     }
 
@@ -27,8 +34,10 @@ public class SceneReset : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    public void ChangeSceneTraining()
+    public void ChangeSceneTraininginAction()
     {
+        DataManager.Instance.SaveInt("MukiCount", PlayerHitCheck.Instance.MukiCount);
+        DataManager.Instance.SaveInt("OmoCount", PlayerHitCheck.Instance.OmoCount);
         DataManager.Instance.SaveInt("MeraLimit", DataManager.Instance.LoadInt("MukiCount") + DataManager.Instance.LoadInt("MeraLimit"));
         DataManager.Instance.SaveInt("OmoLimit", DataManager.Instance.LoadInt("OmoCount") + DataManager.Instance.LoadInt("OmoLimit"));
         if (DataManager.Instance.LoadBool("ClearReset"))
@@ -36,6 +45,11 @@ public class SceneReset : MonoBehaviour
             DataManager.Instance.DeleteAllBool();
             Debug.Log("a");
         }
+        SceneManager.LoadScene(2);
+    }
+
+    public void ChangeSceneTraining()
+    {
         SceneManager.LoadScene(2);
     }
 
