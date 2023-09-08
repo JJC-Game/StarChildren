@@ -3595,7 +3595,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &205753578
 Transform:
   m_ObjectHideFlags: 0
@@ -12591,7 +12591,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1379478898}
         m_TargetAssemblyTypeName: SceneReset, Assembly-CSharp
-        m_MethodName: ChangeScene0
+        m_MethodName: ChangeSceneHomeinAction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16645,8 +16645,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1265319546}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 16, z: 0}
-  m_LocalScale: {x: 4, y: 0.61, z: 0}
+  m_LocalPosition: {x: 0.51, y: 16, z: 0}
+  m_LocalScale: {x: 3, y: 0.61, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 874812846}
@@ -22997,7 +22997,7 @@ MonoBehaviour:
   itemCountOmo: 0
   MukiCount: 0
   OmoCount: 0
-  itemEffect: {fileID: 0}
+  itemEffect: {fileID: 1605743312}
 --- !u!114 &1605743317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23034,7 +23034,7 @@ MonoBehaviour:
   speed: 0.6
   isOnFloor: 0
   ObjectView: 0
-  player: {fileID: 0}
+  player: {fileID: 1605743312}
 --- !u!96 &1605743319
 TrailRenderer:
   serializedVersion: 2
@@ -27517,7 +27517,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleEffectPrefabs:
-  - {fileID: 1459862227383078, guid: cc461484bcafc664fb68be84c1fc6860, type: 3}
+  - {fileID: 1459862227383078, guid: 50d2fd2e2db70d545841442d2aae539b, type: 3}
+  - {fileID: 1459862227383078, guid: 9ee35ea2ccf1d4c4b8f2f9c1744a9fc6, type: 3}
+  - {fileID: 1363784577269114, guid: 83f5e574addfb424ebd95bbb8ff8b080, type: 3}
+  - {fileID: 1150934714579380, guid: 779aa8c25fbd0e1488637639c9fff976, type: 3}
   deleteTime: 1
 --- !u!4 &1905604306
 Transform:
@@ -28311,7 +28314,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1379478898}
         m_TargetAssemblyTypeName: SceneReset, Assembly-CSharp
-        m_MethodName: ChangeScene2
+        m_MethodName: ChangeSceneTraininginAction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
