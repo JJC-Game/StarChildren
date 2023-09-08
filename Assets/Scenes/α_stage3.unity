@@ -4658,9 +4658,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 339584965}
         m_TargetAssemblyTypeName: SceneReset, Assembly-CSharp
-        m_MethodName: ChangeScene2
+        m_MethodName: ChangeSceneTraininginAction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5554,6 +5554,134 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &266642416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 266642418}
+  - component: {fileID: 266642417}
+  m_Layer: 0
+  m_Name: Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &266642417
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266642416}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 0e0b08155023c784380fd7f86d13c501, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.2
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &266642418
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266642416}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &268819412
 GameObject:
   m_ObjectHideFlags: 0
@@ -5723,6 +5851,52 @@ PlayableDirector:
     value: {fileID: 943262670}
   - key: {fileID: 3669150782469115526, guid: aa4a63ff6de6c2549963c565939afa28, type: 2}
     value: {fileID: 1027875438}
+  - key: {fileID: 2332541202887175218, guid: aa4a63ff6de6c2549963c565939afa28, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -1490301639218938215, guid: aa4a63ff6de6c2549963c565939afa28, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 6927805309809938344, guid: aa4a63ff6de6c2549963c565939afa28, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 1243397607385413480, guid: aa4a63ff6de6c2549963c565939afa28, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -2968845421379465053, guid: aa4a63ff6de6c2549963c565939afa28, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 9098967561277467484, guid: aa4a63ff6de6c2549963c565939afa28, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -2762428912050903523, guid: aa4a63ff6de6c2549963c565939afa28, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 960371491219400650, guid: aa4a63ff6de6c2549963c565939afa28, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 2103818021147415109, guid: aa4a63ff6de6c2549963c565939afa28, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 2573579296013629050, guid: aa4a63ff6de6c2549963c565939afa28, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -7618503070309207223, guid: aa4a63ff6de6c2549963c565939afa28, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -5825714209703675084, guid: aa4a63ff6de6c2549963c565939afa28, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 1343187846078328168, guid: aa4a63ff6de6c2549963c565939afa28, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 3330457185050910000, guid: aa4a63ff6de6c2549963c565939afa28, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -678188101042140911, guid: aa4a63ff6de6c2549963c565939afa28, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 7592326683411903559, guid: aa4a63ff6de6c2549963c565939afa28, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 378733359708139896, guid: aa4a63ff6de6c2549963c565939afa28, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 5011012997325402740, guid: aa4a63ff6de6c2549963c565939afa28, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -4348304324103136698, guid: aa4a63ff6de6c2549963c565939afa28, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 5635298894990977028, guid: aa4a63ff6de6c2549963c565939afa28, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -8630140427875732212, guid: aa4a63ff6de6c2549963c565939afa28, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -3545221581836985317, guid: aa4a63ff6de6c2549963c565939afa28, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 6618380801707934971, guid: aa4a63ff6de6c2549963c565939afa28, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &270310805
@@ -10592,7 +10766,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1773991382}
         m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
         m_MethodName: ResetPause
         m_Mode: 1
@@ -14736,7 +14910,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 339584965}
         m_TargetAssemblyTypeName: SceneReset, Assembly-CSharp
         m_MethodName: ResetScene
         m_Mode: 1
@@ -20936,7 +21110,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &884865695
 Transform:
   m_ObjectHideFlags: 0
@@ -22272,9 +22446,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 339584965}
         m_TargetAssemblyTypeName: SceneReset, Assembly-CSharp
-        m_MethodName: ChangeScene0
+        m_MethodName: ChangeSceneHomeinAction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -30015,6 +30189,12 @@ PlayableDirector:
     value: {fileID: 1362813551}
   - key: {fileID: -4486368441015511000, guid: fa43a47ad0598c541a39aa2c39fc7a6e, type: 2}
     value: {fileID: 1027875438}
+  - key: {fileID: -3448672422598518727, guid: fa43a47ad0598c541a39aa2c39fc7a6e, type: 2}
+    value: {fileID: 266642416}
+  - key: {fileID: -3721969612041721737, guid: fa43a47ad0598c541a39aa2c39fc7a6e, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 2122740336227994900, guid: fa43a47ad0598c541a39aa2c39fc7a6e, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1214286960
@@ -32695,7 +32875,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1773991382}
           m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
           m_MethodName: Restart
           m_Mode: 1
@@ -49925,7 +50105,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1773991382}
           m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
           m_MethodName: Pause
           m_Mode: 1
@@ -53644,9 +53824,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
-        m_MethodName: HomePause
+      - m_Target: {fileID: 339584965}
+        m_TargetAssemblyTypeName: SceneReset, Assembly-CSharp
+        m_MethodName: ChangeSceneHome
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
