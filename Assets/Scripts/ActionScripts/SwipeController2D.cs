@@ -64,6 +64,8 @@ public class SwipeController2D : Singleton<SwipeController2D>
                 isOnFloor = false;
                 ObjectView = false;
                 EffectManager.Instance.PlayEffect(1, player);
+                SoundManager.Instance.PlaySE_Sys(5);
+
 
             }
            

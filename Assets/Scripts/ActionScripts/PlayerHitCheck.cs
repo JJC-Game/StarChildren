@@ -41,11 +41,13 @@ public class PlayerHitCheck : Singleton<PlayerHitCheck>
             case "ItemMuki":
                 CollectItemMuki(collision.gameObject);
                 EffectManager.Instance.PlayEffect(0, itemEffect);
+                SoundManager.Instance.PlaySE_Sys(4);
                 break;
 
             case "ItemOmo":
                 CollectItemOmo(collision.gameObject);
                 EffectManager.Instance.PlayEffect(0, itemEffect);
+                SoundManager.Instance.PlaySE_Sys(4);
                 break;
                
             /*

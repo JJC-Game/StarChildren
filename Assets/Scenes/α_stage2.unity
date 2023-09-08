@@ -23144,7 +23144,7 @@ MonoBehaviour:
   speed: 5
   isOnFloor: 0
   ObjectView: 0
-  player: {fileID: 0}
+  player: {fileID: 1605743312}
   minSize: 0.05
   maxSize: 7
   imageObject: {fileID: 123210600}
