@@ -86,7 +86,7 @@ public class SoundManager : Singleton<SoundManager>
             }
         }
 
-        PlayBGM(0);
+        //PlayBGM(0);
     }
 
     //BGMを外部から呼び出す時

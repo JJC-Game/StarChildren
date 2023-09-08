@@ -74,6 +74,7 @@ public class HomeManager : MonoBehaviour
             SpriteRenderer targetSpriteRenderer = PlayerSprite.GetComponent<SpriteRenderer>();
             targetSpriteRenderer.sprite = EvolveSprite[9];
         }
+        SoundManager.Instance.PlayBGM(1);
     }
 
     void Update()
