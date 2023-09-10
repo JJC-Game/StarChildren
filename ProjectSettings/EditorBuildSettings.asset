@@ -6,38 +6,35 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MasterScene/MTitleScene.unity
+    guid: 345589972802c974a927df1a34432c75
+  - enabled: 0
     path: Assets/Scenes/HomeScene.unity
     guid: c1e1550855e9f3f43873954e53641247
   - enabled: 1
+    path: Assets/Scenes/MasterScene/MHomeScene.unity
+    guid: d1e9c9d0a713028469343ee6fa220f32
+  - enabled: 1
+    path: Assets/Scenes/MasterScene/MTrainingScene.unity
+    guid: 14d1969a5448a6e4185e6ac54cfb8216
+  - enabled: 0
     path: Assets/Scenes/ActionScene.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestTraining.unity
     guid: 77ccb0459612dcc41a59ea5c874e6094
   - enabled: 0
-    path: "Assets/Scenes/\u03B12_TrainingScene.unity"
-    guid: dec362f27a70b6640a9a0d9f9d6572b0
-  - enabled: 0
-    path: "Assets/Scenes/\u03B1_TrainingScene.unity"
-    guid: 69ba0c78049bc234394ec5c3a3020d42
-  - enabled: 1
     path: Assets/Scenes/EndingScene.unity
     guid: 772970af38eb0584cb92f4925260ac01
   - enabled: 1
+    path: Assets/Scenes/MasterScene/MEndingScene.unity
+    guid: fcd781c10eb44194a9aca87189039462
+  - enabled: 0
     path: Assets/Scenes/AlbumScene.unity
     guid: ca01cc9fea1bb4e4196fc4e2d913cc4f
-  - enabled: 0
-    path: Assets/Scenes/OptionScene.unity
-    guid: b804ee990f618f54a904c384521f894f
-  - enabled: 0
-    path: "Assets/Scenes/\u03B1_Save.unity"
-    guid: 633a8e5fe6fdb57478f708faa01ed6eb
-  - enabled: 0
-    path: "Assets/Scenes/\u03B1_ijiri.unity"
-    guid: 7ebdfea29c120bd4da1516b6fa176848
   - enabled: 1
-    path: Assets/Scenes/StageSelect.unity
-    guid: a558361ee203e614ca8582f6111c05e7
+    path: Assets/Scenes/MasterScene/MAlbumScene.unity
+    guid: 0ac18e46c63a02344a0a3d6977159167
   - enabled: 1
     path: "Assets/Scenes/\u03B1_stage1.unity"
     guid: fcd0f7295229e984dabada509adbaa81

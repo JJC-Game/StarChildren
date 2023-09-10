@@ -62,26 +62,21 @@ public class SceneReset : MonoBehaviour
         SceneManager.LoadScene(4);
     }
 
-    public void ChangeSceneStageSelect()
-    {
-        SceneManager.LoadScene(5);
-    }
-
     public void ChangeScenestage1()
     {
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(5);
         DataManager.Instance.SaveInt("Stage", 1);
     }
 
     public void ChangeScenestage2()
     {
-        SceneManager.LoadScene(7);
+        SceneManager.LoadScene(6);
         DataManager.Instance.SaveInt("Stage", 2);
     }
 
     public void ChangeScenestage3()
     {
-        SceneManager.LoadScene(8);
+        SceneManager.LoadScene(7);
         DataManager.Instance.SaveInt("Stage", 3);
     }
 
