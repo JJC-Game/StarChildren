@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class HomeManager : MonoBehaviour
 {
     public GameObject StageSelectCanvas;
     public GameObject MainCanvas;
+    public GameObject OptionCanvas;
+    public TextMeshProUGUI Name;
 
-    public bool StageSelectChange;
+    private bool StageSelectChange;
+    private bool optionChange;
 
     [Header("ステージ選択Button")]
     [SerializeField] GameObject[] StageSelectButton;
@@ -20,9 +24,11 @@ public class HomeManager : MonoBehaviour
     void Start()
     {
         StageSelectCanvas.gameObject.SetActive(false);
+        OptionCanvas.gameObject.SetActive(false);
         StageSelectChange = false;
         StageSelectButton[1].gameObject.SetActive(false);
         StageSelectButton[2].gameObject.SetActive(false);
+        Name.text = DataManager.Instance.LoadString("Name");
 
         if (DataManager.Instance.LoadBool("E1F") == true)
         {
@@ -95,6 +101,22 @@ public class HomeManager : MonoBehaviour
             StageSelectCanvas.gameObject.SetActive(false);
             MainCanvas.gameObject.SetActive(true);
             StageSelectChange = false;
+        }
+    }
+
+    public void Option()
+    {
+        if (optionChange == false)
+        {
+            OptionCanvas.gameObject.SetActive(true);
+            MainCanvas.gameObject.SetActive(false);
+            optionChange = true;
+        }
+        else
+        {
+            OptionCanvas.gameObject.SetActive(false);
+            MainCanvas.gameObject.SetActive(true);
+            optionChange = false;
         }
     }
 

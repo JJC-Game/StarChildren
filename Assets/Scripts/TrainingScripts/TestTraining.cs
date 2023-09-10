@@ -88,14 +88,14 @@ public class TestTraining : MonoBehaviour
 
         DataManager.Instance.SaveInt("MMG", 10);
         DataManager.Instance.SaveInt("OMG", 10);
-        DataManager.Instance.SaveInt("BMG", 10);
-        DataManager.Instance.SaveInt("PMG", 10);
+        // DataManager.Instance.SaveInt("BMG", 10);
+        // DataManager.Instance.SaveInt("PMG", 10);
 
         GaugeMaxCount[0] = DataManager.Instance.LoadInt("MCMG");
         GaugeMaxCount[1] = DataManager.Instance.LoadInt("OCMG");
         GaugeMaxCount[2] = DataManager.Instance.LoadInt("BCMG");
-        GaugeMaxCount[3] = DataManager.Instance.LoadInt("PCMG");
-        GaugeMaxCount[4] = DataManager.Instance.LoadInt("KCMG");
+        // GaugeMaxCount[3] = DataManager.Instance.LoadInt("PCMG");
+        // GaugeMaxCount[4] = DataManager.Instance.LoadInt("KCMG");
 
         if (DataManager.Instance.LoadBool("E1F") == true)
         {
@@ -369,7 +369,7 @@ public class TestTraining : MonoBehaviour
         UpdateGaugeDisplayK();
 
         // KiraGaugeがMAXではない場合の処理
-        if (currentAmounts[4] < DataManager.Instance.LoadInt("KMG") && isKiraGaugeMax)
+        if (currentAmounts[2] < DataManager.Instance.LoadInt("KMG") && isKiraGaugeMax)
         {
             isKiraGaugeMax = false;
         }
@@ -581,8 +581,8 @@ public class TestTraining : MonoBehaviour
         DataManager.Instance.SaveInt("MCMG", 0);
         DataManager.Instance.SaveInt("OCMG", 0);
         DataManager.Instance.SaveInt("BCMG", 0);
-        DataManager.Instance.SaveInt("PCMG", 0);
-        DataManager.Instance.SaveInt("KCMG", 0);
+        // DataManager.Instance.SaveInt("PCMG", 0);
+        // DataManager.Instance.SaveInt("KCMG", 0);
         DataManager.Instance.SaveString("Name","");
         DataManager.Instance.ResetAllBool();
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -594,13 +594,13 @@ public class TestTraining : MonoBehaviour
     {
         DataManager.Instance.SaveInt("MCMG", 0);
         DataManager.Instance.SaveInt("OCMG", 0);
-        DataManager.Instance.SaveInt("BCMG", 0);
-        DataManager.Instance.SaveInt("PCMG", 0);
+        // DataManager.Instance.SaveInt("BCMG", 0);
+        // DataManager.Instance.SaveInt("PCMG", 0);
 
         GaugeMaxCount[0] = 0;
         GaugeMaxCount[1] = 0;
-        GaugeMaxCount[2] = 0;
-        GaugeMaxCount[3] = 0;
+        // GaugeMaxCount[2] = 0;
+        // GaugeMaxCount[3] = 0;
     }
 
 
@@ -638,7 +638,7 @@ public class TestTraining : MonoBehaviour
     {
         float normalizedAmount = DataManager.Instance.LoadFloat("KG") / DataManager.Instance.LoadInt("KMG");
 
-        gaugeImages[4].fillAmount = normalizedAmount;
+        gaugeImages[2].fillAmount = normalizedAmount;
     }
 
     /*
@@ -739,8 +739,8 @@ public class TestTraining : MonoBehaviour
         invalidButton[3].interactable = false;
         invalidButton[4].interactable = false;
         invalidButton[5].interactable = false;
-        invalidButton[6].interactable = false;
-        invalidButton[7].interactable = false;
+        //invalidButton[6].interactable = false;
+        //invalidButton[7].interactable = false;
     }
 
     private void ValidButton()
@@ -751,7 +751,7 @@ public class TestTraining : MonoBehaviour
         invalidButton[3].interactable = true;
         invalidButton[4].interactable = true;
         invalidButton[5].interactable = true;
-        invalidButton[6].interactable = true;
-        invalidButton[7].interactable = true;
+        //invalidButton[6].interactable = true;
+        //invalidButton[7].interactable = true;
     }
 }
