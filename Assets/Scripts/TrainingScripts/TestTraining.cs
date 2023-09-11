@@ -254,6 +254,7 @@ public class TestTraining : MonoBehaviour
                 GaugeMaxCount[1] += 1;
                 DataManager.Instance.SaveInt("OCMG", GaugeMaxCount[1]);
                 EffectManager.Instance.PlayEffect(1, OmoMaxEffect);
+                SoundManager.Instance.PlaySE_Sys(2);
             }
             UpdateGaugeDisplayO();
         }
@@ -360,6 +361,7 @@ public class TestTraining : MonoBehaviour
                 EVOF();
             }
             EffectManager.Instance.PlayEffect(2, KiraMaxEffect);
+            SoundManager.Instance.PlaySE_Sys(7);
         }
 
         UpdateGaugeDisplayM();
