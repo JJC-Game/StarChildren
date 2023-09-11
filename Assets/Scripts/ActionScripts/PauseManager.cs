@@ -38,7 +38,9 @@ public class PauseManager : Singleton<PauseManager>
             MainGame.enabled = true;
             PauseCanvas.enabled = false;
             isPause = false;
-            
+
+            SoundManager.Instance.PlaySE_Sys(6);
+
         }
 
     }
@@ -54,7 +56,9 @@ public class PauseManager : Singleton<PauseManager>
         isPause = false;
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
-        Time.timeScale = 1; 
+        Time.timeScale = 1;
+
+        SoundManager.Instance.PlaySE_Sys(6);
     }
 
     public void HomePause()
