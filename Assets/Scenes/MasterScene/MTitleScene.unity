@@ -159,9 +159,9 @@ MonoBehaviour:
     m_Events:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: CircularMove, Assembly-CSharp
-          m_MethodName: ChangeRotation
+        - m_Target: {fileID: 1053171085}
+          m_TargetAssemblyTypeName: TitleManager, Assembly-CSharp
+          m_MethodName: ChangeHome
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -278,8 +278,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u30B9\u30BF\u30FC\u30C1\u30EB\u30C9\u30EC\u30F3"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d1cad9e6f26c74c40a44dccae048828f, type: 2}
-  m_sharedMaterial: {fileID: -2031836532977238126, guid: d1cad9e6f26c74c40a44dccae048828f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -670,6 +670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1966e54cb85d25140ad1d7b61b4a6224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Home: 0
 --- !u!4 &1053171086
 Transform:
   m_ObjectHideFlags: 0
@@ -814,8 +815,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uFF5E\u30BF\u30C3\u30D7\u3067\u30B9\u30BF\u30FC\u30C8\uFF5E"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d1cad9e6f26c74c40a44dccae048828f, type: 2}
-  m_sharedMaterial: {fileID: -2031836532977238126, guid: d1cad9e6f26c74c40a44dccae048828f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
