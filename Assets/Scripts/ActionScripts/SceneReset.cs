@@ -49,34 +49,40 @@ public class SceneReset : MonoBehaviour
 
     public void ChangeSceneTraining()
     {
-        SceneManager.LoadScene(2);
+        FadeManager.Instance.LoadScene("MTrainigScene", 1);
+        //SceneManager.LoadScene(2);
     }
 
     public void ChangeSceneEnding()
     {
-        SceneManager.LoadScene(3);
+        FadeManager.Instance.LoadScene("MEndingScene", 1);
+        //SceneManager.LoadScene(3);
     }
 
     public void ChangeSceneAlbum()
     {
-        SceneManager.LoadScene(4);
+        FadeManager.Instance.LoadScene("MAlbumScene", 1);
+        //SceneManager.LoadScene(4);
     }
 
     public void ChangeScenestage1()
     {
-        SceneManager.LoadScene(5);
+        FadeManager.Instance.LoadScene("M_stage1", 1);
+        //SceneManager.LoadScene(5);
         DataManager.Instance.SaveInt("Stage", 1);
     }
 
     public void ChangeScenestage2()
     {
-        SceneManager.LoadScene(6);
+        FadeManager.Instance.LoadScene("M_stage2", 1);
+        //SceneManager.LoadScene(6);
         DataManager.Instance.SaveInt("Stage", 2);
     }
 
     public void ChangeScenestage3()
     {
-        SceneManager.LoadScene(7);
+        FadeManager.Instance.LoadScene("M_stage3", 1);
+        //SceneManager.LoadScene(7);
         DataManager.Instance.SaveInt("Stage", 3);
     }
 

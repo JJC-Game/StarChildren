@@ -9,6 +9,9 @@ public class TitleManager : MonoBehaviour
 
     private void Start()
     {
+
+        SoundManager.Instance.PlayBGM(0);
+
         Home = false;
     }
 
@@ -17,7 +20,8 @@ public class TitleManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && Home)
         {
-            SceneManager.LoadScene(1);
+            FadeManager.Instance.LoadScene("MHomeScene", 1);
+            //SceneManager.LoadScene(1);
             DataManager.Instance.SaveBool("Home",false);
         }
     }
