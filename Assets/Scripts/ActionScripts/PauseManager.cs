@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class PauseManager : Singleton<PauseManager>
 {
-    public Canvas PauseCanvas;
-    public Canvas MainGame;
+    public GameObject PauseCanvas;
+    public GameObject MainGame;
     public bool isPause;
     
     void Start()
     {
-        PauseCanvas.enabled = false;
+        PauseCanvas.gameObject.SetActive(false);
         isPause = false;
     }
 
@@ -20,8 +20,8 @@ public class PauseManager : Singleton<PauseManager>
         if (isPause == false)
         {
             GameManager.Instance.mainGame = false;
-            MainGame.enabled = false;
-            PauseCanvas.enabled = true;
+            MainGame.gameObject.SetActive(false);
+            PauseCanvas.gameObject.SetActive(true);
             isPause = true;
             Time.timeScale = 0f; // ゲーム時間を停止
 
@@ -35,8 +35,8 @@ public class PauseManager : Singleton<PauseManager>
         {
             GameManager.Instance.mainGame = true;
             Time.timeScale = 1; // ゲーム再開
-            MainGame.enabled = true;
-            PauseCanvas.enabled = false;
+            MainGame.gameObject.SetActive(true);
+            PauseCanvas.gameObject.SetActive(false);
             isPause = false;
 
             SoundManager.Instance.PlaySE_Sys(6);
@@ -51,8 +51,8 @@ public class PauseManager : Singleton<PauseManager>
         DataManager.Instance.ResetOmoCount();
         DataManager.Instance.ResetBetaCount();
         DataManager.Instance.ResetPataCount();
-        MainGame.enabled = true;
-        PauseCanvas.enabled = false;
+        MainGame.gameObject.SetActive(true);
+        PauseCanvas.gameObject.SetActive(false);
         isPause = false;
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
@@ -67,8 +67,8 @@ public class PauseManager : Singleton<PauseManager>
         DataManager.Instance.ResetOmoCount();
         DataManager.Instance.ResetBetaCount();
         DataManager.Instance.ResetPataCount();
-        MainGame.enabled = true;
-        PauseCanvas.enabled = false;
+        MainGame.gameObject.SetActive(true);
+        PauseCanvas.gameObject.SetActive(false);
         isPause = false;
         Time.timeScale = 1;
 
