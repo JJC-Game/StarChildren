@@ -207,8 +207,7 @@ public class GameManager : Singleton<GameManager>
 
     public void DemoSkip()
     {
-        mainGame = true;
-        StartTimer();
+        MainGame();
         StartTimeLine.Stop();
 
         MainGameCanvas.SetActive(true);
