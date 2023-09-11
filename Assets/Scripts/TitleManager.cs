@@ -20,7 +20,7 @@ public class TitleManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && Home)
         {
-            SoundManager.Instance.PlaySE_Sys(6);
+            SoundManager.Instance.PlaySE_Sys(9);
             FadeManager.Instance.LoadScene("MHomeScene", 1);
             //SceneManager.LoadScene(1);
             DataManager.Instance.SaveBool("Home",false);
