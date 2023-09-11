@@ -183,8 +183,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u30BF\u30A4\u30C8\u30EB"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 283a0147969fe3d4285c73933c4af428, type: 2}
-  m_sharedMaterial: {fileID: -2031836532977238126, guid: 283a0147969fe3d4285c73933c4af428, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d1cad9e6f26c74c40a44dccae048828f, type: 2}
+  m_sharedMaterial: {fileID: -2031836532977238126, guid: d1cad9e6f26c74c40a44dccae048828f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -455,8 +455,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 283a0147969fe3d4285c73933c4af428, type: 2}
-  m_sharedMaterial: {fileID: -2031836532977238126, guid: 283a0147969fe3d4285c73933c4af428, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d1cad9e6f26c74c40a44dccae048828f, type: 2}
+  m_sharedMaterial: {fileID: -2031836532977238126, guid: d1cad9e6f26c74c40a44dccae048828f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1033,6 +1033,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1892883501}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlaySE_Sys
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 718209626}
         m_TargetAssemblyTypeName: HomeManager, Assembly-CSharp
         m_MethodName: Option
@@ -2072,8 +2084,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 283a0147969fe3d4285c73933c4af428, type: 2}
-  m_sharedMaterial: {fileID: -2031836532977238126, guid: 283a0147969fe3d4285c73933c4af428, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d1cad9e6f26c74c40a44dccae048828f, type: 2}
+  m_sharedMaterial: {fileID: -2031836532977238126, guid: d1cad9e6f26c74c40a44dccae048828f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2758,8 +2770,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: SE
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 283a0147969fe3d4285c73933c4af428, type: 2}
-  m_sharedMaterial: {fileID: -2031836532977238126, guid: 283a0147969fe3d4285c73933c4af428, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d1cad9e6f26c74c40a44dccae048828f, type: 2}
+  m_sharedMaterial: {fileID: -2031836532977238126, guid: d1cad9e6f26c74c40a44dccae048828f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2917,6 +2929,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1892883501}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlaySE_Sys
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 718209626}
         m_TargetAssemblyTypeName: HomeManager, Assembly-CSharp
         m_MethodName: StageSelect
@@ -3237,8 +3261,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u30AA\u30D7\u30B7\u30E7\u30F3"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 283a0147969fe3d4285c73933c4af428, type: 2}
-  m_sharedMaterial: {fileID: -2031836532977238126, guid: 283a0147969fe3d4285c73933c4af428, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d1cad9e6f26c74c40a44dccae048828f, type: 2}
+  m_sharedMaterial: {fileID: -2031836532977238126, guid: d1cad9e6f26c74c40a44dccae048828f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5467,6 +5491,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1892883501}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlaySE_Sys
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1229304305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6598,8 +6634,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 283a0147969fe3d4285c73933c4af428, type: 2}
-  m_sharedMaterial: {fileID: -2031836532977238126, guid: 283a0147969fe3d4285c73933c4af428, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d1cad9e6f26c74c40a44dccae048828f, type: 2}
+  m_sharedMaterial: {fileID: -2031836532977238126, guid: d1cad9e6f26c74c40a44dccae048828f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7001,8 +7037,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 283a0147969fe3d4285c73933c4af428, type: 2}
-  m_sharedMaterial: {fileID: -2031836532977238126, guid: 283a0147969fe3d4285c73933c4af428, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d1cad9e6f26c74c40a44dccae048828f, type: 2}
+  m_sharedMaterial: {fileID: -2031836532977238126, guid: d1cad9e6f26c74c40a44dccae048828f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7138,8 +7174,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: BGM
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 283a0147969fe3d4285c73933c4af428, type: 2}
-  m_sharedMaterial: {fileID: -2031836532977238126, guid: 283a0147969fe3d4285c73933c4af428, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d1cad9e6f26c74c40a44dccae048828f, type: 2}
+  m_sharedMaterial: {fileID: -2031836532977238126, guid: d1cad9e6f26c74c40a44dccae048828f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7578,8 +7614,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u3068\u3058\u308B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 283a0147969fe3d4285c73933c4af428, type: 2}
-  m_sharedMaterial: {fileID: -2031836532977238126, guid: 283a0147969fe3d4285c73933c4af428, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d1cad9e6f26c74c40a44dccae048828f, type: 2}
+  m_sharedMaterial: {fileID: -2031836532977238126, guid: d1cad9e6f26c74c40a44dccae048828f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8318,6 +8354,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1892883501}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlaySE_Sys
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
