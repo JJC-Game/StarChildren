@@ -67,7 +67,10 @@ public class PauseManager : Singleton<PauseManager>
         PauseCanvas.enabled = false;
         isPause = false;
         Time.timeScale = 1;
-        SceneManager.LoadScene(0);
+
+        SoundManager.Instance.PlaySE_Sys(6);
+        FadeManager.Instance.LoadScene("MHomeScene", 1);
+        //SceneManager.LoadScene(0);
 
     }
 

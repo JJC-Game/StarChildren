@@ -170,6 +170,7 @@ public class AlbumManager : MonoBehaviour
         DisplayCharacter4();
         DisplayCharacter5();
 
+        SoundManager.Instance.PlayBGM(1);
     }
 
     private void Update()
