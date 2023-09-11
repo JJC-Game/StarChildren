@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Events:
     m_Signals:
-    - {fileID: 11400000, guid: 06530aeaae73be34dbf656c1f5793834, type: 2}
+    - {fileID: 11400000, guid: 9cc52e4e77e38784a8d8fd408934b309, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -182,7 +182,7 @@ PlayableDirector:
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 951e42e5cb6be7142a9eb0d628812100, type: 2}
   m_InitialState: 1
-  m_WrapMode: 2
+  m_WrapMode: 0
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
@@ -414,6 +414,7 @@ MonoBehaviour:
   OOO: 0
   FFO: 0
   OOF: 0
+  Tutorial: 0
   Name: 
   CName0: 
   CName1: 

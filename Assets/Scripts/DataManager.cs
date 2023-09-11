@@ -15,6 +15,7 @@ public class DataManager : Singleton<DataManager>
     public bool OOO;
     public bool FFO;
     public bool OOF;
+    public bool Tutorial;
     public string Name;
     public string CName0;
     public string CName1;
@@ -127,6 +128,7 @@ public class DataManager : Singleton<DataManager>
         PB1 = LoadFloat("PlayBest1");
         PB2 = LoadFloat("PlayBest2");
         PB3 = LoadFloat("PlayBest3");
+        Tutorial = LoadBool("Tutorial");
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
         SaveInt("Clear", clearcount);
@@ -136,6 +138,7 @@ public class DataManager : Singleton<DataManager>
         SaveInt("Display3", Display3);
         SaveInt("Display4", Display4);
         SaveInt("Display5", Display5);
+        SaveBool("Tutorial", Tutorial);
         SaveString("CName0", CName0);
         SaveString("CName1", CName1);
         SaveString("CName2", CName2);
@@ -161,6 +164,7 @@ public class DataManager : Singleton<DataManager>
         FFO = LoadBool("E3FFO");
         OOF = LoadBool("E3OOF");
         Name = LoadString("Name");
+        Tutorial = LoadBool("Tutorial");
         CName0 = LoadString("CName0");
         CName1 = LoadString("CName1");
         CName2 = LoadString("CName2");
@@ -183,6 +187,7 @@ public class DataManager : Singleton<DataManager>
         SaveBool("E3OOO", OOO);
         SaveBool("E3FFO", FFO);
         SaveBool("E3OOF", OOF);
+        SaveBool("Tutorial", Tutorial);
         SaveString("Name", Name);
         SaveString("CName0", CName0);
         SaveString("CName1", CName1);
