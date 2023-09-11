@@ -2712,7 +2712,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StageSelectCanvas: {fileID: 886501994}
   MainCanvas: {fileID: 1612117348}
-  StageSelectChange: 0
+  OptionCanvas: {fileID: 297471995}
+  Name: {fileID: 0}
   StageSelectButton:
   - {fileID: 912645750}
   - {fileID: 116824300}
