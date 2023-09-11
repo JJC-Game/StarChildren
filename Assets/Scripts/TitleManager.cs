@@ -5,13 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class TitleManager : MonoBehaviour
 {
-    // Update is called once per frame
+    public bool Home;
+
+    private void Start()
+    {
+        Home = false;
+    }
+
+
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && DataManager.Instance.LoadBool("Home"))
+        if (Input.GetMouseButtonDown(0) && Home)
         {
             SceneManager.LoadScene(1);
             DataManager.Instance.SaveBool("Home",false);
         }
+    }
+
+    public void ChangeHome()
+    {
+        Home = true;
     }
 }
