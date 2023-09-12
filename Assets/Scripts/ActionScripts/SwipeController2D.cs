@@ -61,8 +61,6 @@ public class SwipeController2D : Singleton<SwipeController2D>
             {
                 swipeEndPosition = Input.mousePosition;
                 DetectSwipeDirection();
-                isOnFloor = false;
-                ObjectView = false;
                 EffectManager.Instance.PlayEffect(1, player);
                 SoundManager.Instance.PlaySE_Sys(5);
 
