@@ -33,7 +33,7 @@ public class End : MonoBehaviour
         DataManager.Instance.ResetGame();
         DataManager.Instance.SaveBool("Album", true);
 
-        SoundManager.Instance.PlaySE_Sys(9);
+        SoundManager.Instance.PlaySE_Sys(7);
         FadeManager.Instance.LoadScene("MAlbumScene", 1);
     }
 }
