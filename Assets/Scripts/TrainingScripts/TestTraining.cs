@@ -27,6 +27,8 @@ public class TestTraining : MonoBehaviour
     public GameObject FinishCanvas;
     public GameObject KakuninCanvas;
     public GameObject ResetCheckCanvas;
+    public TextMeshProUGUI MeraItem;
+    public TextMeshProUGUI OmoItem;
     private bool Finish;
     private bool Reset;
 
@@ -201,6 +203,8 @@ public class TestTraining : MonoBehaviour
             DataManager.Instance.SaveInt("KMG", kiraMax3);
         }
 
+        MeraItem.text = DataManager.Instance.LoadInt("MukiLimit").ToString();
+        OmoItem.text = DataManager.Instance.LoadInt("OmoLimit").ToString();
     }
 
     // ボタンが押された時に呼ばれる関数
@@ -209,11 +213,11 @@ public class TestTraining : MonoBehaviour
         if (isMukiButtonResetting) // リセット中はボタンを無効化
             return;
 
-        UseLimit = DataManager.Instance.LoadInt("MukiCount");
+        UseLimit = DataManager.Instance.LoadInt("MukiLimit");
         if (UseLimit >= 1)
         {
             UseLimit -= 1;
-            DataManager.Instance.SaveInt("MukiCount", UseLimit);
+            DataManager.Instance.SaveInt("MukiLimit", UseLimit);
             DataManager.Instance.SaveFloat("FG",DataManager.Instance.LoadFloat("FG") + increaseAmounts); // ゲージ量を増やす
             DataManager.Instance.SaveFloat("KG",DataManager.Instance.LoadFloat("KG") + increaseAmounts); // きらめきゲージ量を増やす
 
@@ -239,11 +243,11 @@ public class TestTraining : MonoBehaviour
         if (isOmoButtonResetting) // リセット中はボタンを無効化
             return;
 
-        UseLimit = DataManager.Instance.LoadInt("OmoCount");
+        UseLimit = DataManager.Instance.LoadInt("OmoLimit");
         if (UseLimit >= 1)
         {
             UseLimit -= 1;
-            DataManager.Instance.SaveInt("OmoCount", UseLimit);
+            DataManager.Instance.SaveInt("OmoLimit", UseLimit);
             DataManager.Instance.SaveFloat("OG", DataManager.Instance.LoadFloat("OG") + increaseAmounts); // ゲージ量を増やす
             DataManager.Instance.SaveFloat("KG",DataManager.Instance.LoadFloat("KG") + increaseAmounts); // きらめきゲージ量を増やす
 
@@ -582,9 +586,9 @@ public class TestTraining : MonoBehaviour
         DataManager.Instance.SaveInt("PMG", 10);
         DataManager.Instance.SaveInt("MCMG", 0);
         DataManager.Instance.SaveInt("OCMG", 0);
-        DataManager.Instance.SaveInt("BCMG", 0);
+        // DataManager.Instance.SaveInt("BCMG", 0);
         // DataManager.Instance.SaveInt("PCMG", 0);
-        // DataManager.Instance.SaveInt("KCMG", 0);
+        DataManager.Instance.SaveInt("KCMG", 0);
         DataManager.Instance.SaveString("Name","");
         DataManager.Instance.ResetAllBool();
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;

@@ -23,10 +23,10 @@ public class TrainingDebug : MonoBehaviour
 
     public void Update()
     {
-        ul1.text = DataManager.Instance.LoadInt("MukiCount").ToString();
-        ul2.text = DataManager.Instance.LoadInt("OmoCount").ToString();
-        ul3.text = DataManager.Instance.LoadInt("BetaCount").ToString();
-        ul4.text = DataManager.Instance.LoadInt("PataCount").ToString();
+        ul1.text = DataManager.Instance.LoadInt("MukiLimit").ToString();
+        ul2.text = DataManager.Instance.LoadInt("OmoLimit").ToString();
+        ul3.text = DataManager.Instance.LoadInt("BetaLimit").ToString();
+        ul4.text = DataManager.Instance.LoadInt("PataLimit").ToString();
 
         mc0.text = DataManager.Instance.LoadInt("MCMG").ToString();
         mc1.text = DataManager.Instance.LoadInt("OCMG").ToString();
@@ -40,14 +40,14 @@ public class TrainingDebug : MonoBehaviour
     // 各ボタンを押したら使用可能数を増やせる
     public void UseLimit1()
     {
-        if (DataManager.Instance.LoadInt("MukiCount") != 999)
+        if (DataManager.Instance.LoadInt("MukiLimit") != 999)
         {
-            DataManager.Instance.SaveInt("MukiCount", 999);
+            DataManager.Instance.SaveInt("MukiLimit", 999);
             ul1.text = "999";
         }
-        else if (DataManager.Instance.LoadInt("MukiCount") != 0)
+        else if (DataManager.Instance.LoadInt("MukiLimit") != 0)
         {
-            DataManager.Instance.SaveInt("MukiCount", 0);
+            DataManager.Instance.SaveInt("MukiLimit", 0);
             ul1.text = "0";
         }
 
@@ -55,42 +55,42 @@ public class TrainingDebug : MonoBehaviour
 
     public void UseLimit2()
     {
-        if (DataManager.Instance.LoadInt("OmoCount") != 999)
+        if (DataManager.Instance.LoadInt("OmoLimit") != 999)
         {
-            DataManager.Instance.SaveInt("OmoCount", 999);
+            DataManager.Instance.SaveInt("OmoLimit", 999);
             ul2.text = "999";
         }
-        else if (DataManager.Instance.LoadInt("OmoCount") != 0)
+        else if (DataManager.Instance.LoadInt("OmoLimit") != 0)
         {
-            DataManager.Instance.SaveInt("OmoCount", 0);
+            DataManager.Instance.SaveInt("OmoLimit", 0);
             ul2.text = "0";
         }
     }
 
     public void UseLimit3()
     {
-        if (DataManager.Instance.LoadInt("BetaCount") != 999)
+        if (DataManager.Instance.LoadInt("BetaLimit") != 999)
         {
-            DataManager.Instance.SaveInt("BetaCount", 999);
+            DataManager.Instance.SaveInt("BetaLimit", 999);
             ul3.text = "999";
         }
-        else if (DataManager.Instance.LoadInt("BetaCount") != 0)
+        else if (DataManager.Instance.LoadInt("BetaLimit") != 0)
         {
-            DataManager.Instance.SaveInt("BetaCount", 0);
+            DataManager.Instance.SaveInt("BetaLimit", 0);
             ul3.text = "0";
         }
     }
 
     public void UseLimit4()
     {
-        if (DataManager.Instance.LoadInt("PataCount") != 999)
+        if (DataManager.Instance.LoadInt("PataLimit") != 999)
         {
-            DataManager.Instance.SaveInt("PataCount", 999);
+            DataManager.Instance.SaveInt("PataLimit", 999);
             ul4.text = "999";
         }
-        else if (DataManager.Instance.LoadInt("PataCount") != 0)
+        else if (DataManager.Instance.LoadInt("PataLimit") != 0)
         {
-            DataManager.Instance.SaveInt("PataCount", 0);
+            DataManager.Instance.SaveInt("PataLimit", 0);
             ul4.text = "0";
         }
     }

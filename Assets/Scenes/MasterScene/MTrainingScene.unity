@@ -186,6 +186,8 @@ MonoBehaviour:
   FinishCanvas: {fileID: 216818163}
   KakuninCanvas: {fileID: 344050612}
   ResetCheckCanvas: {fileID: 997607983}
+  MeraItem: {fileID: 1413852971}
+  OmoItem: {fileID: 1087054281}
   NoItem: {fileID: 2026224444}
   fadeOutTime: 1
   MukiMaxEffect: {fileID: 183932140}
@@ -6024,6 +6026,7 @@ MonoBehaviour:
   OOO: 0
   FFO: 0
   OOF: 0
+  Tutorial: 0
   Name: 
   CName0: 
   CName1: 

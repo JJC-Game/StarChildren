@@ -103,4 +103,11 @@ public class SceneReset : MonoBehaviour
         DataManager.Instance.SaveInt("Stage", 3);
     }
 
+    public void ChangeSceneTutorial()
+    {
+        SoundManager.Instance.PlaySE_Sys(6);
+        FadeManager.Instance.LoadScene("TutorialScene", 1);
+
+    }
+
 }

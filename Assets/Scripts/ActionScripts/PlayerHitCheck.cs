@@ -85,6 +85,7 @@ public class PlayerHitCheck : Singleton<PlayerHitCheck>
         // アイテムを取得したときの処理を実行
         itemCountMuki++; // アイテムカウントを増やす
         MukiCount = DataManager.Instance.LoadInt("MukiCount") + 1;
+        DataManager.Instance.SaveInt("MukiCount", MukiCount);
         UpdateItemCountText();
         
         // アイテムを削除
@@ -95,6 +96,7 @@ public class PlayerHitCheck : Singleton<PlayerHitCheck>
     {
         itemCountOmo++;
         OmoCount = DataManager.Instance.LoadInt("OmoCount") + 1;
+        DataManager.Instance.SaveInt("OmoCount", OmoCount);
         UpdateItemCountText();
 
         Destroy(item);
