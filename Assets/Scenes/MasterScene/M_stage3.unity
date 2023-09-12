@@ -3760,7 +3760,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 196084108}
   m_LocalRotation: {x: 0, y: 0, z: 0.13052616, w: 0.9914449}
-  m_LocalPosition: {x: -3.28, y: 41.41, z: 0}
+  m_LocalPosition: {x: -3.09, y: 41.46, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9462,7 +9462,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 422255868}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 39.0519, z: 0}
+  m_LocalPosition: {x: 3.07, y: 39.84, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19500,7 +19500,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 774619846}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.09, y: 39.7, z: 0}
+  m_LocalPosition: {x: 3.09, y: 41.05, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -27130,8 +27130,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0592ee2eb3601fb4096459b986ce617c, type: 3}
   - {fileID: 21300000, guid: 22de38b62936a2b468700d4ce3bddd41, type: 3}
   timerText: {fileID: 545120968}
-  heightText: {fileID: 1051043071}
-  BestheightText: {fileID: 1314347991}
+  heightText: {fileID: 1137459077}
+  BestheightText: {fileID: 1085477625}
   high: 
   besthigh: 
   Player: {fileID: 895501053}

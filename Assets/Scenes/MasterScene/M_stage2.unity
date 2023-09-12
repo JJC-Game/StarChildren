@@ -23694,8 +23694,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0592ee2eb3601fb4096459b986ce617c, type: 3}
   - {fileID: 21300000, guid: 22de38b62936a2b468700d4ce3bddd41, type: 3}
   timerText: {fileID: 270937383}
-  heightText: {fileID: 1125483816}
-  BestheightText: {fileID: 2058739404}
+  heightText: {fileID: 1748505060}
+  BestheightText: {fileID: 1802708799}
   high: 
   besthigh: 
   Player: {fileID: 1605743311}
