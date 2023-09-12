@@ -54,6 +54,9 @@ public class TestTraining : MonoBehaviour
 
     private void Start()
     {
+
+        SoundManager.Instance.PlayBGM(2);
+
         NoItem.gameObject.SetActive(false); // アイテム回数制限のtext非表示
         FinishCanvas.gameObject.SetActive(false); // 終了ボタンの非表示
         KakuninCanvas.gameObject.SetActive(false);
