@@ -13610,8 +13610,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0000
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 283a0147969fe3d4285c73933c4af428, type: 2}
-  m_sharedMaterial: {fileID: -2031836532977238126, guid: 283a0147969fe3d4285c73933c4af428, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d1cad9e6f26c74c40a44dccae048828f, type: 2}
+  m_sharedMaterial: {fileID: -2031836532977238126, guid: d1cad9e6f26c74c40a44dccae048828f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -22328,8 +22328,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd9b9a89b5b6a3949b7993126fb76e0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MukiCountText: {fileID: 0}
-  OmoCountText: {fileID: 0}
+  MukiCountText: {fileID: 767629227}
+  OmoCountText: {fileID: 486978934}
   itemCountMuki: 0
   itemCountOmo: 0
   MukiCount: 0
