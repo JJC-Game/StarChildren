@@ -22,7 +22,7 @@ public class TweetController : MonoBehaviour
         yield return new WaitForSeconds(1); //一秒待つ（撮影が完了するまでラグがあるので）
 
         new NativeShare().AddFile(imgPath)
-        .SetSubject("").SetText("#SutaGhiru ").SetUrl("")
+        .SetSubject("").SetText("#SutaChiru ").SetUrl("")
         .SetCallback((result, shareTarget) => Debug.Log("Share result: " + result + ", selected app: " + shareTarget))
         .Share();
     }
